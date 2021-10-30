@@ -36,7 +36,7 @@
                 </div>
             </div>
             <!-- end starter -->
-            <div class="passengers mt-3">
+            <div class="passengers mt-3 d-none">
                 <div class="card">
                     <div class="card-header bc-bg">
                         <?= $desc['passenger']['header']; ?>
@@ -90,16 +90,75 @@
                                 <div class="col"><input name="arrivalYear" class="form-control" type="number" min="1800" max="<?= date('Y');?>" placeholder="yyyy" /></div>
                             </div>
                         </div>
+                        <div class="mb-3">
+                            <label for="baggageIn" class="form-label">Number of accompanied baggage<span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="NUMBER OF ACCOMPANIED BAGAGE TRAVELING WITH YOU AND YOUR FAMILY. FILL 0 IF NONE"></i></label>
+                            <input type="number" class="form-control" id="baggageIn" name="baggageIn" placeholder="pck">
+                        </div>
+                        <div class="mb-3">
+                            <label for="baggageEx" class="form-label">Number of unaccompanied baggage<span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="NUMBER OF UNACCOMPANIED BAGAGE TRAVELING WITH YOU AND YOUR FAMILY. FILL 0 IF NONE"></i></label>
+                            <input type="number" class="form-control" id="baggageEx" name="baggageEx" placeholder="pck">
+                        </div>
+                        <div class="mb-3">
+                            <label for="familyNumber" class="form-label">Number of family members traveling with you (only for passenger)<span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="NUMBER OF FAMILY MEMBER (INCLUDING YOU) TRAVELING WITH YOU. FILL 1 IF TRAVELING ALONE"></i></label>
+                            <input type="number" class="form-control" id="familyNumber" name="familyNumber">
+                        </div>
+                        
+                        <div class="family-container d-none">
+                            <hr />
+                            <h6>Family Information</h6>
+                            <hr />
+                            <div class="mb-3">
+                                <label for="familyName" class="form-label">Full Name<span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="FULL NAME OF ALL YOUR FAMILY TRAVELING WITH YOU"></i></label>
+                                <input type="text" class="form-control" id="familyName" name="familyName">
+                            </div>
+                            <div class="mb-3">
+                                <label for="familyPassport" class="form-label">Number of Passport<span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="PASSPORT NUMBER OF ALL YOUR FAMILY TRAVELING WITH YOU"></i></label>
+                                <input type="text" class="form-control" id="familyPassport" name="familyPassport">
+                            </div>
+                            <div class="mb-3">
+                                <button class="btn btn-info text-white" style="float: right;">Save</button>
+                            </div>
+                        </div>
                     </form>
                     </div>
                     <!-- end card body -->
                     <div class="card-footer">
-                        <button class="btn btn-outline-secondary">Previous</button>
-                        <button class="btn btn-outline-primary" style="float: right;">Next</button>
+                        <button name="btnPersonalPrev" class="btn btn-outline-secondary">Previous</button>
+                        <button name="btnPersonalNext" class="btn btn-outline-primary" style="float: right;">Next</button>
                     </div>
                 </div>
             </div>
             <!-- end passengers -->
+
+            <!-- goods term & conditions -->
+            <div class="goods_t_m mt-3">
+                <div class="card">
+                    <div class="card-body bc-bg bc-desc"><?=$desc['goods']['t&m'];?></div>
+                    <div class="card-footer">
+                        <button name="btnGoodsTMPrev" class="btn btn-outline-secondary">Previous</button>
+                        <button name="btnGoodsTMNext" class="btn btn-outline-primary" style="float: right;">Next</button>
+                    </div>
+                </div>
+            </div>
+            <div class="goods_t_m2 mt-3 d-none">
+                <div class="card">
+                    <div class="card-body bc-bg bc-desc"><?=$desc['goods']['t&m2'];?></div>
+                    <div class="card-footer">
+                        <button name="btnGoodsTM2Prev" class="btn btn-outline-secondary">Previous</button>
+                        <button name="btnGoodsTM2Next" class="btn btn-outline-primary" style="float: right;">Next</button>
+                    </div>
+                </div>
+            </div>
+            <div class="goods_t_m3 mt-3 d-none">
+                <div class="card">
+                    <div class="card-body bc-bg bc-desc"><?=$desc['goods']['t&m3'];?></div>
+                    <div class="card-footer">
+                        <button name="btnGoodsTM3Prev" class="btn btn-outline-secondary">Previous</button>
+                        <button name="btnGoodsTM3Next" class="btn btn-outline-primary" style="float: right;">Next</button>
+                    </div>
+                </div>
+            </div>
+            <!-- end goods_t_m -->
         </div>
         <!-- end container -->
 
