@@ -131,7 +131,7 @@
             <!-- end passengers -->
 
             <!-- goods term & conditions -->
-            <div class="goods_t_m mt-3">
+            <div class="goods_t_m mt-3 d-none">
                 <div class="card">
                     <div class="card-body bc-bg bc-desc"><?=$desc['goods']['t&m'];?></div>
                     <div class="card-footer">
@@ -159,6 +159,70 @@
                 </div>
             </div>
             <!-- end goods_t_m -->
+
+            <!-- goods form -->
+            <div class="goods_form mt-3 d-none">
+                <h3>Goods</h3><hr />
+                I declare my belonging:
+                <?php
+                $idx = 1;
+                foreach($questions as $index => $val) { ?>
+                <div class="mb-3">
+                    <label for="question_<?=$idx;?>" class="form-label"><?= $val['content']; ?></label>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="question_<?=$val['id'];?>" id="question_<?=$idx;?>">
+                        <label class="btn btn-outline-primary" for="question_<?=$idx;?>">Yes</label>
+                        <input type="radio" class="btn-check" name="question_<?=$val['id'];?>" id="question_<?=$idx+1;?>">
+                        <label class="btn btn-outline-primary" for="question_<?=$idx+1;?>">No</label>
+                    </div>
+                </div>
+                <?php
+                $idx = $idx +2;
+                }
+                ?>
+                <button name="btnGoodsFormPrev" class="btn btn-outline-secondary">Previous</button>
+                <button name="btnGoodsFormNext" class="btn btn-outline-primary" style="float: right;">Next</button>
+            </div>
+            <!-- end goods form -->
+
+            <!-- goods detail -->
+            <div class="goods_detail mt-3">
+                <h3>Detail Goods</h3><hr />
+                <p>In previous page, you declare:</p>
+                <p>Please describe the goods (including the amount/number and value) on this form below. It is possible to input data according to the goods carried.</p>
+                <hr />
+                <div class="mb-3">
+                    <label for="goodsDesc" class="form-label">Description of Goods<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="goodsDesc" name="goodsDesc">
+                </div>
+                <div class="mb-3">
+                    <label for="goodsAmount" class="form-label">Amount<span class="text-danger">*</span></label>
+                    <input type="number" class="form-control" id="goodsAmount" name="goodsAmount">
+                </div>
+                <div class="mb-3">
+                    <label for="goodsValue" class="form-label">Value<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="goodsValue" name="goodsValue">
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-info text-white" style="float: right;">Save</button>
+                </div>
+
+                <!-- table of goods -->
+                <table class="table table-dark table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Value</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                </table>
+                <button name="btnGoodsDetailPrev" class="btn btn-outline-secondary">Previous</button>
+                <button name="btnGoodsDetailNext" class="btn btn-outline-primary" style="float: right;">Next</button>
+            </div>
+            <!--end  goods detail -->
         </div>
         <!-- end container -->
 

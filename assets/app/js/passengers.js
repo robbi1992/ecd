@@ -28,12 +28,26 @@
                 $('#theContent').find('.goods_t_m3').removeClass('d-none');
                 $('#theContent').find('.goods_t_m2').addClass('d-none');
             });
-            $('button[name="btnGoodsTM3Next3]').on('click', function() {
-                console.log('tes');
-                // $('#theContent').find('.goods_t_m3').removeClass('d-none');
-                // $('#theContent').find('.goods_t_m2').addClass('d-none');
+            $('button[name="btnGoodsTM3Next"]').on('click', function() {
+                // console.log('tes');
+                $('#theContent').find('.goods_form').removeClass('d-none');
+                $('#theContent').find('.goods_t_m3').addClass('d-none');
             });
-
+            $('button[name="btnGoodsTM3Next"]').on('click', function() {
+                // console.log('tes');
+                $('#theContent').find('.goods_form').removeClass('d-none');
+                $('#theContent').find('.goods_t_m3').addClass('d-none');
+            });
+            $('button[name="btnGoodsFormNext"]').on('click', function() {
+                // console.log('tes');
+                $('#theContent').find('.goods_detail').removeClass('d-none');
+                $('#theContent').find('.goods_form').addClass('d-none');
+            });
+            $('button[name="btnGoodsDetailNext"]').on('click', function() {
+                console.log('tes');
+                // $('#theContent').find('.goods_form').removeClass('d-none');
+                // $('#theContent').find('.goods_detail').addClass('d-none');
+            });
             // prev function
             $('button[name="btnPersonalPrev"]').on('click', function() {
                 $('#theContent').find('.starter').removeClass('d-none');
@@ -50,6 +64,16 @@
             $('button[name="btnGoodsTM3Prev"]').on('click', function() {
                 $('#theContent').find('.goods_t_m2').removeClass('d-none');
                 $('#theContent').find('.goods_t_m3').addClass('d-none');
+            });
+            $('button[name="btnGoodsFormPrev"]').on('click', function() {
+                // console.log('tes');
+                $('#theContent').find('.goods_t_m3').removeClass('d-none');
+                $('#theContent').find('.goods_form').addClass('d-none');
+            });
+            $('button[name="btnGoodsDetailPrev"]').on('click', function() {
+                // console.log('tes');
+                $('#theContent').find('.goods_form').removeClass('d-none');
+                $('#theContent').find('.goods_detail').addClass('d-none');
             });
         }
     };

@@ -6,6 +6,7 @@ class Passengers extends CI_Controller {
     public function __construct(){
 		parent::__construct();
 		$this->load->model('global_model');
+        $this->load->model('passenger_model');
 	}
 
     private function get_language($en = false) {
@@ -95,7 +96,7 @@ class Passengers extends CI_Controller {
         if (isset($_GET['lang']))  $en = true;
         $data['desc'] = $this->get_language($en);
         $data['country'] = $this->global_model->get_countries();
-        
+        $data['questions'] = $this->passenger_model->get_questions($en);
 		$this->load->view('passengers', $data);
 	}
 
