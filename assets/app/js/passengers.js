@@ -1,5 +1,8 @@
 (function($) {
     var Pass = {
+        constant: {
+            tempUrl: 'http://localhost/ecd_temp/temp/'
+        },
         init: function() {
             $('#starterLink').on('click', function(){
                 $('#theContent').find('.starter').addClass('d-none');
@@ -44,9 +47,14 @@
                 $('#theContent').find('.goods_form').addClass('d-none');
             });
             $('button[name="btnGoodsDetailNext"]').on('click', function() {
-                console.log('tes');
-                // $('#theContent').find('.goods_form').removeClass('d-none');
-                // $('#theContent').find('.goods_detail').addClass('d-none');
+                // temp be a qr code function
+                $.ajax({
+                    url: '/passengers/generate_code',
+                }).done(function(result) {
+                    $('#theContent').find('.goods_detail').addClass('d-none');
+                    $('#theContent').find('.qr_code').removeClass('d-none');
+                    $('#theContent').find('.qr_code').find('img').attr('src', Pass.constant.tempUrl + result.name);
+                });
             });
             // prev function
             $('button[name="btnPersonalPrev"]').on('click', function() {

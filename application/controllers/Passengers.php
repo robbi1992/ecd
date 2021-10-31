@@ -100,4 +100,13 @@ class Passengers extends CI_Controller {
 		$this->load->view('passengers', $data);
 	}
 
+    public function generate_code() {
+        $this->load->library('generate_code');
+        $return['name'] = $this->generate_code->generate(1);
+
+        $this->output
+			->set_content_type('application/json')
+			->set_output(json_encode($return));
+    }
+
 }

@@ -36,7 +36,7 @@
                 </div>
             </div>
             <!-- end starter -->
-            <div class="passengers mt-3 d-none">
+            <div class="passengers mt-3">
                 <div class="card">
                     <div class="card-header bc-bg">
                         <?= $desc['passenger']['header']; ?>
@@ -186,7 +186,7 @@
             <!-- end goods form -->
 
             <!-- goods detail -->
-            <div class="goods_detail mt-3">
+            <div class="goods_detail mt-3 d-none">
                 <h3>Detail Goods</h3><hr />
                 <p>In previous page, you declare:</p>
                 <p>Please describe the goods (including the amount/number and value) on this form below. It is possible to input data according to the goods carried.</p>
@@ -223,6 +223,13 @@
                 <button name="btnGoodsDetailNext" class="btn btn-outline-primary" style="float: right;">Next</button>
             </div>
             <!--end  goods detail -->
+
+            <div class="qr_code mt-3 d-none">
+                <p><b>Thank you,</b></p>
+                <p>Hand over this QR Code to Customs Officer for Customs Inspection</p>
+                <img src="" style="width: 100%;"/>
+                <button name="btnSaveQR" class="btn btn-outline-primary" style="float: right;">SAVE QR CODE</button>
+            </div>
         </div>
         <!-- end container -->
 
