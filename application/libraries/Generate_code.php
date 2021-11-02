@@ -5,11 +5,11 @@ require_once 'phpqrcode/qrlib.php';
 class Generate_code {
 
     public function generate($id) {
-        $tempdir = "../ecd_temp/temp/";
-
+        $tempdir = "./temp/";
+        /*
         if (!file_exists($tempdir)) {
             mkdir($tempdir);
-        }  
+        } */
         // save qr code on folder temp
         $fileName = time() . '_' . rand(1, 1000) . '.png';
         $path = $tempdir . $fileName;

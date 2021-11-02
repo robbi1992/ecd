@@ -53,7 +53,7 @@
                 }).done(function(result) {
                     $('#theContent').find('.goods_detail').addClass('d-none');
                     $('#theContent').find('.qr_code').removeClass('d-none');
-                    $('#theContent').find('.qr_code').find('img').attr('src', Pass.constant.tempUrl + result.name);
+                    $('#theContent').find('.qr_code').find('img').attr('src', '/temp/' + result.name);
                 });
             });
             // prev function
