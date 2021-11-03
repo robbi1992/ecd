@@ -97,12 +97,14 @@ class Passengers extends CI_Controller {
         $data['desc'] = $this->get_language($en);
         $data['country'] = $this->global_model->get_countries();
         $data['questions'] = $this->passenger_model->get_questions($en);
+        $data['en'] = $en;
 		$this->load->view('passengers', $data);
 	}
 
     public function generate_code() {
         $this->load->library('generate_code');
-        $return['name'] = $this->generate_code->generate(1);
+        $code = 'https://www.google.com/';
+        $return['name'] = $this->generate_code->generate($code);
 
         $this->output
 			->set_content_type('application/json')
