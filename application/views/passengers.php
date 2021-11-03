@@ -27,7 +27,7 @@
         </nav>
         
         <div class="container" id="theContent">
-            <div class="starter d-none">
+            <div class="starter">
                 <div class="shadow-lg p-2 mt-3 bc-desc bg-body rounded"><?= $desc['text1'];?></div>
                 <div class="shadow-lg p-2 mt-3 bc-desc bg-body rounded"><?= $desc['text2'];?></div>
 
@@ -36,7 +36,7 @@
                 </div>
             </div>
             <!-- end starter -->
-            <div class="passengers mt-3">
+            <div class="passengers mt-3 d-none">
                 <div class="card">
                     <div class="card-header bc-bg">
                         <?= $desc['passenger']['header']; ?>
@@ -115,7 +115,7 @@
                                 <input type="text" class="form-control" id="familyPassport" name="familyPassport">
                             </div>
                             <div class="mb-3">
-                                <button class="btn btn-info text-white" style="float: right;"><?= ($en) ? 'Save' : 'Simpan'; ?></button>
+                                <button name="btnSaveFamily" class="btn btn-info text-white" style="float: right;"><?= ($en) ? 'Save' : 'Simpan'; ?></button>
                             </div>
                         </div>
                     </form>
@@ -222,6 +222,27 @@
                 <button name="btnGoodsDetailNext" class="btn btn-outline-primary" style="float: right;"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
             </div>
             <!--end  goods detail -->
+
+            <!-- rating layout -->
+            <div class="rating mt-3 d-none">
+                <div class="card">
+                    <div class="card-header text-center bc-bg">
+                        <p><b>SOEKARNO HATTA CUSTOMS</b> <br />CUSTOMS DECLARATION ONLINE</p>
+                    </div>
+                    <div class="card-body text-center">
+                        <span value="1" name="bc-rate1" class="bc-rate fa fa-star fa-3x"></span>
+                        <span value="2" name="bc-rate2" class="bc-rate fa fa-star fa-3x"></span>
+                        <span value="3" name="bc-rate3" class="bc-rate fa fa-star fa-3x"></span>
+                        <span value="4" name="bc-rate4" class="bc-rate fa fa-star fa-3x"></span>
+                        <span value="5" name="bc-rate5" class="bc-rate fa fa-star fa-3x"></span>
+                    </div>
+                    <div class="card-footer">
+                        <button name="btnRatingPrev" class="btn btn-outline-secondary"><?= ($en) ? 'Previous' : 'Sebelumnya';?></button>
+                        <button name="btnRatingNext" class="btn btn-outline-primary" style="float: right;"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
+                    </div>
+                </div>
+            </div> 
+            <!-- end rating -->
 
             <div class="qr_code mt-3 d-none">
                 <p><b><?= ($en) ? 'Thank you' : 'Terima kasih';?>,</b></p>
