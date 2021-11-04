@@ -41,6 +41,41 @@
                 $('#theContent').find('.goods_t_m').removeClass('d-none');
                 $('#theContent').find('.passengers').addClass('d-none');
             });
+
+            // save goods detail information
+            var goodsDetail = [];
+            $('button[name="btnSaveGoods"]').on('click', function() {
+                var desc = $('#goodsDesc').val(), amount = $('#goodsAmount').val(), value = $('#goodsValue').val();
+                if (desc != '' || amount != '' || value != '') {
+                    var dataGoods = { desc: desc, amount: amount, value: value };
+                    goodsDetail.push(dataGoods);
+
+                    $('#goodsDesc').val('');
+                    $('#goodsAmount').val('');
+                    $('#goodsValue').val('');
+                } else {
+                    alert('Description or amount or value of goods cannot be empty');
+                }
+
+                if (goodsDetail.length > 0) {
+                    var theTable = $('table[name="goods_table"]');
+                    var theBody = theTable.find('tbody').empty();
+                    var number = 1;
+
+                    $.each(goodsDetail, function(index, value) {
+                        var row = '<tr index="'+index+'">\
+                            <th scope="row">' + number + '</th>\
+                            <td>'+value.desc+'</td>\
+                            <td>'+value.amount+'</td>\
+                            <td>'+value.value+'</td>\
+                        </tr>';
+                        theBody.append(row);
+                        number++;
+                    });
+                }
+            });
+
+
             // save family information
             var personalFamily = [];
             $('button[name="btnSaveFamily"]').on('click', function() {
@@ -55,7 +90,21 @@
                     alert('name or passport of your family cannot be empty');
                 }
 
-                console.log(personalFamily);
+                if (personalFamily.length > 0) {
+                    var theTable = $('table[name="familyTable"]');
+                    var theBody = theTable.find('tbody').empty();
+                    var number = 1;
+                    $.each(personalFamily, function(index, value) {
+                        var row = '<tr index="'+index+'">\
+                            <th scope="row">' + number + '</th>\
+                            <td>'+value.name+'</td>\
+                            <td>'+value.passport+'</td>\
+                        </tr>';
+                        theBody.append(row);
+                        number++;
+                    });
+                }
+                // console.log(personalFamily);
                 Pass.params.personalFamily = personalFamily;
                 return false;
             });

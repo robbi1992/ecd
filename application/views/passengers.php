@@ -117,6 +117,17 @@
                             <div class="mb-3">
                                 <button name="btnSaveFamily" class="btn btn-info text-white" style="float: right;"><?= ($en) ? 'Save' : 'Simpan'; ?></button>
                             </div>
+                            <!-- table family information -->
+                            <table name="familyTable" class="table table-striped table-sm table-dark">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Nama</th>
+                                        <th scope="col">Nomor Paspor</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
                         </div>
                     </form>
                     </div>
@@ -203,20 +214,21 @@
                     <input type="text" class="form-control" id="goodsValue" name="goodsValue">
                 </div>
                 <div class="mb-3">
-                    <button class="btn btn-info text-white" style="float: right;"><?=($en) ? 'Save' : 'Simpan';?></button>
+                    <button name="btnSaveGoods" class="btn btn-info text-white" style="float: right;"><?=($en) ? 'Save' : 'Simpan';?></button>
                 </div>
 
                 <!-- table of goods -->
-                <table class="table table-dark table-striped table-sm">
+                <table name="goods_table" class="table table-dark table-striped table-sm">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col"><?=($en) ? 'Description':'Uraian';?></th>
                             <th scope="col"><?=($en) ? 'Amount':'Jumlah';?></th>
                             <th scope="col"><?=($en) ? 'Value':'Nilai';?></th>
-                            <th scope="col"><?=($en) ? 'Action':'Aksi';?></th>
+                            <!-- <th scope="col"><?=($en) ? 'Action':'Aksi';?></th> -->
                         </tr>
                     </thead>
+                    <tbody></tbody>
                 </table>
                 <button name="btnGoodsDetailPrev" class="btn btn-outline-secondary"><?= ($en) ? 'Previous' : 'Sebelumnya';?></button>
                 <button name="btnGoodsDetailNext" class="btn btn-outline-primary" style="float: right;"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
