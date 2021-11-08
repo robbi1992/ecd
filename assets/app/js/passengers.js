@@ -10,6 +10,16 @@
             rating: 0
         },
         init: function() {
+            $('#agreement').on('change', function() {
+                var checked = $(this).prop('checked');
+                if (checked) {
+                    $('button[name="btnPreviewNext"]').removeAttr('disabled');
+                } else {
+                    $('button[name="btnPreviewNext"]').attr('disabled', 'disabled');
+                }
+
+                // console.log(checked);
+            });
             // clear all cached data
             Pass.params.personal = {};
             Pass.params.personalFamily = [];
@@ -173,16 +183,24 @@
                 $('#theContent').find('.goods_detail').addClass('d-none');
             });
             $('button[name="btnRatingNext"]').on('click', function() {
-                // temp be a qr code function
+                $('#theContent').find('.rating').addClass('d-none');
+                $('#theContent').find('.preview').removeClass('d-none');
+            });
+            $('button[name="btnPreviewNext]').on('click', function() {
                 $.ajax({
                     url: '/passengers/generate_code',
                 }).done(function(result) {
-                    $('#theContent').find('.rating').addClass('d-none');
+                    $('#theContent').find('.preview').addClass('d-none');
                     $('#theContent').find('.qr_code').removeClass('d-none');
                     $('#theContent').find('.qr_code').find('img').attr('src', '/temp/' + result.name);
                 });
             });
+
             // prev function
+            $('button[name="btnPreviewPrev"]').on('click', function() {
+                $('#theContent').find('.preview').addClass('d-none');
+                $('#theContent').find('.rating').removeClass('d-none');
+            });
             $('button[name="btnRatingPrev"]').on('click', function() {
                 $('#theContent').find('.rating').addClass('d-none');
                 $('#theContent').find('.goods_detail').removeClass('d-none');

@@ -277,6 +277,17 @@
             <!-- end rating -->
 
             <!-- preview -->
+            <div class="preview mt-3 d-none">
+                <p class="bc-desc"><?= ($en) ? 'Each arriving Passenger/Crew must submit  Customs Declaration (one customs declarations can be used for one family):' : 'Penumpang/Awak sarana pengangkut wajib menyerahkan Customs Declaration pada saat setiap kedatangan (satu keluarga dapat mengajukan satu Customs Declaration):'; ?></p>
+                <p class="bc-desc"><?= ($en) ? 'MAKING A FALSE DECLARATION CONSTITUTES SERIOUS OFFENCES WHICH ATTRACT PENALTIES OR PUNISHMENT IN ACCORDANCE WITH LAWS AND REGULATIONS.' : 'SETIAP KESALAHAN PEMBERITAHUAN PABEAN DIKENAKAN SANKSI SESUAI DENGAN PERATURAN PERUNDANG-UNDANGAN';?></p>
+                <p class="bc-desc" style="margin-bottom: -1px;"><?= ($en) ? 'I HAVE READ THE INFORMATION ON THIS FORM AND HAVE MADE A TRUTHFUL DECLARATION.' : 'SAYA TELAH MEMBACA INFORMASI PADA HALAMAN CUSTOMS DECLARATION INI DAN SAYA MENYATAKAN BAHWA YANG SAYA BERITAHUKAN ADALAH BENAR'; ?></p>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="agreement" required>
+                    <label class="form-check-label" for="agreement"><?= ($en) ? 'Accept' : 'Setuju';?></label>
+                </div>
+                <button name="btnPreviewPrev" class="btn btn-outline-secondary"><?= ($en) ? 'Previous' : 'Sebelumnya';?></button>
+                <button name="btnPreviewNext" class="btn btn-primary" style="float: right;" disabled="disabled"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
+            </div>
             <!-- end preview -->
             <div class="qr_code mt-3 d-none">
                 <p><b><?= ($en) ? 'Thank you' : 'Terima kasih';?>,</b></p>
