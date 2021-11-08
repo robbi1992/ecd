@@ -6,6 +6,7 @@
         params: {
             personal: {},
             personalFamily: [],
+            questionAnswer: [],
             rating: 0
         },
         init: function() {
@@ -36,8 +37,9 @@
                     address: $('#address').val(), flight: $('#flightNumber').val(), baggageIn: $('#baggageIn').val(), baggageEx: $('#baggageEx').val(),
                     arrival: $('[name="arrivalYear"]').val() + '-' + $('[name="arrivalMonth"]').val() + '-' + $('[name="arrivalDate"]').val()
                 };
-                // console.log(personal);
-                // return false;
+                // save personal info
+                Pass.params.personal = personal;
+
                 $('#theContent').find('.goods_t_m').removeClass('d-none');
                 $('#theContent').find('.passengers').addClass('d-none');
             });
@@ -45,14 +47,16 @@
             // save goods detail information
             var goodsDetail = [];
             $('button[name="btnSaveGoods"]').on('click', function() {
-                var desc = $('#goodsDesc').val(), amount = $('#goodsAmount').val(), value = $('#goodsValue').val();
-                if (desc != '' || amount != '' || value != '') {
-                    var dataGoods = { desc: desc, amount: amount, value: value };
+                var desc = $('#goodsDesc').val(), amount = $('#goodsAmount').val(), value = $('#goodsValue').val(),
+                    currency = $('#goodsCurrency').val();
+                if (desc != '' || amount != '' || value != '' || currency != '') {
+                    var dataGoods = { desc: desc, amount: amount, value: value, currency: currency};
                     goodsDetail.push(dataGoods);
 
                     $('#goodsDesc').val('');
                     $('#goodsAmount').val('');
                     $('#goodsValue').val('');
+                    $('#goodsCurrency').val('');
                 } else {
                     alert('Description or amount or value of goods cannot be empty');
                 }
@@ -67,7 +71,7 @@
                             <th scope="row">' + number + '</th>\
                             <td>'+value.desc+'</td>\
                             <td>'+value.amount+'</td>\
-                            <td>'+value.value+'</td>\
+                            <td>'+value.value+' '+value.currency+'</td>\
                         </tr>';
                         theBody.append(row);
                         number++;
@@ -79,13 +83,17 @@
             // save family information
             var personalFamily = [];
             $('button[name="btnSaveFamily"]').on('click', function() {
-                var name = $('#familyName').val(), passport = $('#familyPassport').val();
-                if (name != '' || passport != '') {
-                    var dataFamily = { name: name, passport: passport };
+                var name = $('#familyName').val(), passport = $('#familyPassport').val(),
+                    birth = $('[name="familyBirthYear"]').val() + '-' + $('[name="familyBirthMonth"]').val() + '-' + $('[name="familyBirthDate"]').val();
+                if (name != '' || passport != '', birth != '--') {
+                    var dataFamily = { name: name, passport: passport, birth: birth };
                     personalFamily.push(dataFamily); 
                     // clear input
                     $('#familyName').val('');
                     $('#familyPassport').val('');
+                    $('[name="familyBirthYear"]').val('');
+                    $('[name="familyBirthMonth"]').val()
+                    $('[name="familyBirthDate"]').val()
                 } else {
                     alert('name or passport of your family cannot be empty');
                 }
@@ -99,6 +107,7 @@
                             <th scope="row">' + number + '</th>\
                             <td>'+value.name+'</td>\
                             <td>'+value.passport+'</td>\
+                            <td>'+value.birth+'</td>\
                         </tr>';
                         theBody.append(row);
                         number++;
@@ -128,8 +137,35 @@
                 $('#theContent').find('.goods_t_m3').addClass('d-none');
             });
             $('button[name="btnGoodsFormNext"]').on('click', function() {
-                // console.log('tes');
+                // save answer of questions
+                var questions = [];
+                for (var i= 1; i<=questionNum; i++) {
+                   var theQuestions = $('input[name=question_' + i +']:checked').val();
+                   if (theQuestions == '1') {
+                        var theText = $('input[name=question_' + i +']').closest('.mb-3').find('.form-label').text();
+                        var dataAnswer = {
+                            id: i, value: theQuestions, text: theText 
+                        };
+
+                        questions.push(dataAnswer);
+                   }
+                }
+
+                // save answer of questions
+                Pass.params.questionAnswer =  questions;
+                
                 $('#theContent').find('.goods_detail').removeClass('d-none');
+                // render answer here
+                if (questions.length > 0) {
+                    var container = $('#theContent').find('.goods_detail').find('.goods_declare').empty();
+                    $.each(questions, function(index, value) {
+                        var row = '<ul>\
+                            <li>' + value.text + '</li>\
+                        </ul>';
+
+                        container.append(row);
+                    });
+                }
                 $('#theContent').find('.goods_form').addClass('d-none');
             });
             $('button[name="btnGoodsDetailNext"]').on('click', function() {

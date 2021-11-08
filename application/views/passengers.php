@@ -114,6 +114,15 @@
                                 <label for="familyPassport" class="form-label"><?= ($en) ? 'Number of Passport' : 'Nomor Paspor';?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'PASSPORT NUMBER OF ALL YOUR FAMILY TRAVELING WITH YOU' : 'NOMOR PASPOR MASING-MASING ANGGOTA KELUARGA YANG IKUT SERTA DALAM PERJALANAN INI';?>"></i></label>
                                 <input type="text" class="form-control" id="familyPassport" name="familyPassport">
                             </div>
+                            <!-- added on 8 Nov 2021 -->
+                            <div class="mb-3">
+                                <label><?= ($en) ? 'Date of Birth' : 'Tanggal Lahir'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'YOUR DATE OF BIRTH OF ALL YOUR FAMILY TRAVELING WITH YOU' : 'TANGGAL LAHIR ANDA (H-B-T) MASING-MASING ANGGOTA KELUARGA YANG IKUT SERTA DALAM PERJALANAN INI'; ?>"></i></label>
+                                <div class="row">
+                                    <div class="col"><input name="familyBirthDate" class="form-control" type="number" min="1" max="31" placeholder="dd" /></div>
+                                    <div class="col"><input name="familyBirthMonth" class="form-control" type="number" min="1" max="12" placeholder="mm" /></div>
+                                    <div class="col"><input name="familyBirthYear" class="form-control" type="number" min="1800" max="<?= date('Y');?>" placeholder="yyyy" /></div>
+                                </div>
+                            </div>
                             <div class="mb-3">
                                 <button name="btnSaveFamily" class="btn btn-info text-white" style="float: right;"><?= ($en) ? 'Save' : 'Simpan'; ?></button>
                             </div>
@@ -122,8 +131,9 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Nama</th>
-                                        <th scope="col">Nomor Paspor</th>
+                                        <th scope="col"><?= ($en) ? 'Name' : 'Nama';?></th>
+                                        <th scope="col"><?= ($en) ? 'Passport ID' : 'No. Paspor';?></th>
+                                        <th scope="col"><?= ($en) ? 'Tgl Lahir' : 'Birth Date';?></th>
                                     </tr>
                                 </thead>
                                 <tbody></tbody>
@@ -180,9 +190,9 @@
                 <div class="mb-3">
                     <label for="question_<?=$idx;?>" class="form-label"><?= $val['content']; ?></label>
                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                        <input type="radio" class="btn-check" name="question_<?=$val['id'];?>" id="question_<?=$idx;?>">
+                        <input value="1" type="radio" class="btn-check" name="question_<?=$val['id'];?>" id="question_<?=$idx;?>">
                         <label class="btn btn-outline-primary" for="question_<?=$idx;?>"><?= ($en) ? 'Yes':'Ya';?></label>
-                        <input type="radio" class="btn-check" name="question_<?=$val['id'];?>" id="question_<?=$idx+1;?>">
+                        <input value="0" type="radio" class="btn-check" name="question_<?=$val['id'];?>" id="question_<?=$idx+1;?>">
                         <label class="btn btn-outline-primary" for="question_<?=$idx+1;?>"><?= ($en) ? 'No':'Tidak';?></label>
                     </div>
                 </div>
@@ -199,6 +209,7 @@
             <div class="goods_detail mt-3 d-none">
                 <h3><?= ($en) ? 'Detail Goods' : 'Uraian Barang';?></h3><hr />
                 <p><?= ($en) ? 'In previous page, you declare:' : 'Di halaman sebelumnya Anda menyatakan membawa:';?></p>
+                <div class="goods_declare"></div>
                 <p><?= ($en) ? 'Please describe the goods (including the amount/number and value) on this form below. It is possible to input data according to the goods carried.' : 'Jelaskan detail setiap barang tersebut pada form di bawah. Anda dapat memasukkan data berulang kali sejumlah barang yang Anda bawa.';?></p>
                 <hr />
                 <div class="mb-3">
@@ -210,8 +221,17 @@
                     <input type="number" class="form-control" id="goodsAmount" name="goodsAmount">
                 </div>
                 <div class="mb-3">
-                    <label for="goodsValue" class="form-label"><?= ($en) ? 'Value':'Nilai Barang';?><span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="goodsValue" name="goodsValue">
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="goodsCurrency" class="form-label"><?= ($en) ? 'Currency':'Mata Uang';?><span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="goodsCurrency" name="goodsCurrency">
+                        </div>
+                        <div class="col-8">
+                            <label for="goodsValue" class="form-label"><?= ($en) ? 'Value':'Nilai Barang';?><span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="goodsValue" name="goodsValue">
+                        </div>
+                    </div>
+                    
                 </div>
                 <div class="mb-3">
                     <button name="btnSaveGoods" class="btn btn-info text-white" style="float: right;"><?=($en) ? 'Save' : 'Simpan';?></button>
@@ -256,6 +276,8 @@
             </div> 
             <!-- end rating -->
 
+            <!-- preview -->
+            <!-- end preview -->
             <div class="qr_code mt-3 d-none">
                 <p><b><?= ($en) ? 'Thank you' : 'Terima kasih';?>,</b></p>
                 <p><?= ($en) ? 'Hand over this QR Code to Customs Officer for Customs Inspection':'Serahkan QR code ini kepada petugas penerimaan untuk melakukan pemeriksaan';?></p>
@@ -267,6 +289,9 @@
 
         <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="/assets/jquery.min.js"></script>
+        <script type="text/javascript">
+            var questionNum = <?= count($questions); ?>
+        </script>
         <script src="/assets/app/js/passengers.js"></script>
     </body>
 </html>
