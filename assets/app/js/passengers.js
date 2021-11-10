@@ -186,7 +186,8 @@
                 $('#theContent').find('.rating').addClass('d-none');
                 $('#theContent').find('.preview').removeClass('d-none');
             });
-            $('button[name="btnPreviewNext]').on('click', function() {
+
+            $('button[name="btnPreviewNext"]').on('click', function() {
                 $.ajax({
                     url: '/passengers/generate_code',
                 }).done(function(result) {
