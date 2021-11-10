@@ -224,6 +224,7 @@
                     $('#theContent').find('.preview').addClass('d-none');
                     $('#theContent').find('.qr_code').removeClass('d-none');
                     $('#theContent').find('.qr_code').find('img').attr('src', '/temp/' + result.name);
+                    $('#theContent').find('.qr_code').find('a[name="btnSaveQR"]').attr('href', '/temp/' + result.name);
                 });
             });
 

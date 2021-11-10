@@ -353,7 +353,7 @@
                 <p><b><?= ($en) ? 'Thank you' : 'Terima kasih';?>,</b></p>
                 <p><?= ($en) ? 'Hand over this QR Code to Customs Officer for Customs Inspection':'Serahkan QR code ini kepada petugas penerimaan untuk melakukan pemeriksaan';?></p>
                 <img src="" style="width: 100%;"/>
-                <button name="btnSaveQR" class="btn btn-outline-primary" style="float: right;"><?= ($en) ? 'SAVE QR CODE':'SIMPAN QR CODE';?></button>
+                <a href="" name="btnSaveQR" class="btn btn-outline-primary" style="float: right;" download><?= ($en) ? 'SAVE QR CODE':'SIMPAN QR CODE';?></a>
             </div>
         </div>
         <!-- end container -->
