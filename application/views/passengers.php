@@ -279,6 +279,66 @@
             <!-- preview -->
             <div class="preview mt-3 d-none">
                 <p class="bc-desc"><?= ($en) ? 'Each arriving Passenger/Crew must submit  Customs Declaration (one customs declarations can be used for one family):' : 'Penumpang/Awak sarana pengangkut wajib menyerahkan Customs Declaration pada saat setiap kedatangan (satu keluarga dapat mengajukan satu Customs Declaration):'; ?></p>
+                <table class="table table-info" style="font-size: 10px;">
+                    <tbody>
+                        <tr>
+                            <td><?= ($en) ? 'Full Name': 'Nama Lengkap';?></td>
+                            <td><span name="reviewName"></span></td>
+                        </tr>
+                        <tr>
+                            <td><?= ($en) ? 'Date of Birth' : 'Kelahiran'; ?></td>
+                            <td><span name="reviewBirth"></span></td>
+                        </tr>
+                        <tr>
+                            <td><?= ($en) ? 'Nationality' : 'Kebangsaan'; ?></td>
+                            <td><span name="reviewNation"></span></td>
+                        </tr>
+                        <tr>
+                            <td><?= ($en) ? 'Passport Number' : 'Nomor Paspor'; ?></td>
+                            <td><span name="reviewPassport"></span></td>
+                        </tr>
+                        <tr>
+                            <td><?= ($en) ? 'Address in Indonesia' : 'Alamat di Indonesia'; ?></td>
+                            <td><span name="reviewAddress"></span></td>
+                        </tr>
+                        <tr>
+                            <td><?= ($en) ? 'Flight or Voyage Number' : 'No Penerbangan/Pelayaran'; ?></td>
+                            <td><span name="reviewFlight"></span></td>
+                        </tr>
+                        <tr>
+                            <td><?= ($en) ? 'Date of Arrival' : 'Tanggal Kedatangan'; ?></td>
+                            <td><span name="reviewArrival"></span></td>
+                        </tr>
+                        <tr>
+                            <td><?= ($en) ? 'Number of accompanied baggage' : 'Jumlah bagasi yang dibawa'; ?></td>
+                            <td><span name="reviewBaggageIn"></span> PKG</td>
+                        </tr>
+                        <tr>
+                            <td><?= ($en) ? 'Number of unaccompanied baggage, (if any, and see the reverse side of this form)' : 'Jumlah bagasi yang datang tidak bersamaan (jika ada, baca halaman belakang)'; ?></td>
+                            <td><span name="reviewBaggageEx"></span> PKG</td>
+                        </tr>
+                        <tr>
+                            <td><?= ($en) ? 'Number of family travelling with you (only for passenger)' : 'Jumlah anggota keluarga yang bepergian bersama (untuk penumpang)'; ?></td>
+                            <td><span name="reviewNumofFamily"></span></td>
+                        </tr>
+                        <tr>
+                            <td><?= ($en) ? 'I am bringing:' : 'Saya membawa'; ?></td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <table class="table" name="reviewGoods">
+                                    <tbody></tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="font-size: 10px; text-align: justify;">
+                                <?= ($en) ? '' : 'Apabila anda memberikan jawaban "Ya" pada salah satu pertanyaan nomor 11 diatas, uraikan barang tersebut pada tempat yang disediakan di halaman sebelumnya, dan silakan menuju <b>JALUR MERAH</b>. Apabila memberikan jawaban "Tidak" Pada semua pertanyaan, silahkan menuju <b>JALUR HIJAU</b>'; ?>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
                 <p class="bc-desc"><?= ($en) ? 'MAKING A FALSE DECLARATION CONSTITUTES SERIOUS OFFENCES WHICH ATTRACT PENALTIES OR PUNISHMENT IN ACCORDANCE WITH LAWS AND REGULATIONS.' : 'SETIAP KESALAHAN PEMBERITAHUAN PABEAN DIKENAKAN SANKSI SESUAI DENGAN PERATURAN PERUNDANG-UNDANGAN';?></p>
                 <p class="bc-desc" style="margin-bottom: -1px;"><?= ($en) ? 'I HAVE READ THE INFORMATION ON THIS FORM AND HAVE MADE A TRUTHFUL DECLARATION.' : 'SAYA TELAH MEMBACA INFORMASI PADA HALAMAN CUSTOMS DECLARATION INI DAN SAYA MENYATAKAN BAHWA YANG SAYA BERITAHUKAN ADALAH BENAR'; ?></p>
                 <div class="form-check">

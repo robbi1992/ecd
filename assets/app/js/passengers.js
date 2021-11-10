@@ -43,7 +43,7 @@
                 // pull personal data then save on param
                 var personal = {
                     name: $('#fullName').val(), birth: $('[name="birthYear"]').val() + '-' + $('[name="birthMonth"]').val() + '-' + $('[name="birthDate"]').val(),
-                    occupation: $('#occupation').val(), nationality: $('#nationality').val(), passport: $('#passport').val(),
+                    occupation: $('#occupation').val(), nationality: $('#nationality').val(), nationalityText: $('select[name="nationality"] option:selected').text(), passport: $('#passport').val(),
                     address: $('#address').val(), flight: $('#flightNumber').val(), baggageIn: $('#baggageIn').val(), baggageEx: $('#baggageEx').val(),
                     arrival: $('[name="arrivalYear"]').val() + '-' + $('[name="arrivalMonth"]').val() + '-' + $('[name="arrivalDate"]').val()
                 };
@@ -184,6 +184,36 @@
             });
             $('button[name="btnRatingNext"]').on('click', function() {
                 $('#theContent').find('.rating').addClass('d-none');
+                /*
+                var personal = {
+                    name: $('#fullName').val(), birth: $('[name="birthYear"]').val() + '-' + $('[name="birthMonth"]').val() + '-' + $('[name="birthDate"]').val(),
+                    occupation: $('#occupation').val(), nationality: $('#nationality').val(), nationalityText: ('select[name="nationality"] option:selected').text(), passport: $('#passport').val(),
+                    address: $('#address').val(), flight: $('#flightNumber').val(), baggageIn: $('#baggageIn').val(), baggageEx: $('#baggageEx').val(),
+                    arrival: $('[name="arrivalYear"]').val() + '-' + $('[name="arrivalMonth"]').val() + '-' + $('[name="arrivalDate"]').val()
+                };*/
+                // set value of review
+                $('span[name="reviewName"]').html(Pass.params.personal.name);
+                $('span[name="reviewBirth"]').html(Pass.params.personal.birth);
+                $('span[name="reviewNation"]').html(Pass.params.personal.nationalityText);
+                $('span[name="reviewPassport"]').html(Pass.params.personal.passport);
+                $('span[name="reviewAddress"]').html(Pass.params.personal.address);
+                $('span[name="reviewFlight"]').html(Pass.params.personal.flight);
+                $('span[name="reviewArrival"]').html(Pass.params.personal.arrival);
+                $('span[name="reviewBaggageIn"]').html(Pass.params.personal.baggageIn);
+                $('span[name="reviewBaggageEx"]').html(Pass.params.personal.baggageEx);
+                $('span[name="reviewNumofFamily"]').html(Pass.params.personalFamily.length);
+
+                // render table review of goods
+                var theContainer = $('table[name="reviewGoods"]').find('tbody').empty();
+                if (Pass.params.questionAnswer.length > 0) {
+                    $.each(Pass.params.questionAnswer, function(index, value) {
+                        var row = '<tr>\
+                            <td>' + value.text + '</td>\
+                        </tr>';
+
+                        theContainer.append(row);
+                    });
+                }
                 $('#theContent').find('.preview').removeClass('d-none');
             });
 
