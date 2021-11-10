@@ -101,6 +101,16 @@ class Passengers extends CI_Controller {
 		$this->load->view('passengers', $data);
 	}
 
+    public function save_data() {
+        $params = json_decode($this->input->raw_input_stream, TRUE);
+
+        $save_data =  $this->passenger_model->save_data($params);
+
+        $this->output
+			->set_content_type('application/json')
+			->set_output(json_encode($save_data));
+    }
+
     public function generate_code() {
         $this->load->library('generate_code');
         $code = 'https://www.google.com/';

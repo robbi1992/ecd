@@ -7,6 +7,7 @@
             personal: {},
             personalFamily: [],
             questionAnswer: [],
+            goodsDetail: [],
             rating: 0
         },
         init: function() {
@@ -21,8 +22,13 @@
                 // console.log(checked);
             });
             // clear all cached data
+            // no need for now
+            /*
             Pass.params.personal = {};
             Pass.params.personalFamily = [];
+            Pass.params.questionAnswer = [];
+            Pass.params.rating = 0;
+            */
             
             $('#starterLink').on('click', function(){
                 $('#theContent').find('.starter').addClass('d-none');
@@ -87,8 +93,9 @@
                         number++;
                     });
                 }
-            });
 
+                Pass.params.goodsDetail = goodsDetail;
+            });
 
             // save family information
             var personalFamily = [];
@@ -160,21 +167,20 @@
                         questions.push(dataAnswer);
                    }
                 }
-
+                // console.log(questions);
                 // save answer of questions
                 Pass.params.questionAnswer =  questions;
                 
                 $('#theContent').find('.goods_detail').removeClass('d-none');
+                var container = $('#theContent').find('.goods_detail').find('.goods_declare').empty();
                 // render answer here
                 if (questions.length > 0) {
-                    var container = $('#theContent').find('.goods_detail').find('.goods_declare').empty();
+                    var row = '<ul>';
                     $.each(questions, function(index, value) {
-                        var row = '<ul>\
-                            <li>' + value.text + '</li>\
-                        </ul>';
-
-                        container.append(row);
+                        row += '<li>' + value.text + '</li>';
                     });
+                    row += '</ul>';
+                    container.append(row);
                 }
                 $('#theContent').find('.goods_form').addClass('d-none');
             });
@@ -218,14 +224,37 @@
             });
 
             $('button[name="btnPreviewNext"]').on('click', function() {
+                // save function
+                var params = {
+                    personal: Pass.params.personal,
+                    family: Pass.params.personalFamily,
+                    goodsDetail: Pass.params.goodsDetail,
+                    answer: Pass.params.questionAnswer,
+                    rating: Pass.params.rating
+                }
                 $.ajax({
-                    url: '/passengers/generate_code',
+                    url: '/passengers/save_data',
+                    type: 'post',
+                    dataType: 'json',
+                    data: JSON.stringify(params)
                 }).done(function(result) {
-                    $('#theContent').find('.preview').addClass('d-none');
-                    $('#theContent').find('.qr_code').removeClass('d-none');
-                    $('#theContent').find('.qr_code').find('img').attr('src', '/temp/' + result.name);
-                    $('#theContent').find('.qr_code').find('a[name="btnSaveQR"]').attr('href', '/temp/' + result.name);
+                    if (result) {
+                        $.ajax({
+                            url: '/passengers/generate_code',
+                        }).done(function(result) {
+                            $('#theContent').find('.preview').addClass('d-none');
+                            $('#theContent').find('.qr_code').removeClass('d-none');
+                            $('#theContent').find('.qr_code').find('img').attr('src', '/temp/' + result.name);
+                            $('#theContent').find('.qr_code').find('a[name="btnSaveQR"]').attr('href', '/temp/' + result.name);
+                        });
+                    } else {
+                        alert('There is something wrong, try again later..');
+                    }  
+                }).fail(function() {
+                    alert('There is something wrong, try again later..');
                 });
+                return false;
+                // end save function
             });
 
             // prev function
