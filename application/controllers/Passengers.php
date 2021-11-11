@@ -95,7 +95,8 @@ class Passengers extends CI_Controller {
         $en = false;
         if (isset($_GET['lang']))  $en = true;
         $data['desc'] = $this->get_language($en);
-        $data['country'] = $this->global_model->get_countries();
+        $data['country'] = $this->global_model->get_countries($en);
+        // print_r($data['country']); exit();
         $data['questions'] = $this->passenger_model->get_questions($en);
         $data['en'] = $en;
 		$this->load->view('passengers', $data);

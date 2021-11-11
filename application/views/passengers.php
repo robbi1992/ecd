@@ -7,7 +7,7 @@
         <meta name="author" content="Kantor Bea Cukai" />
         <title>ECD - Online</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="/assets/img/bc_logo.png" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
         <link href="/assets/fontawesome/css/all.min.css" rel="stylesheet" />
