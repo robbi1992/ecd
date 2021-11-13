@@ -37,7 +37,7 @@
 
             // family numbers
             $('#familyNumber').on('change', function() {
-                if (parseInt($(this).val()) > 0) {
+                if (parseInt($(this).val()) > 1) {
                     $('.family-container').removeClass('d-none');
                 } else {
                     $('.family-container').addClass('d-none');
@@ -45,7 +45,7 @@
             });
 
             // action next after personal data filled
-            $('button[name="btnPersonalNext"]').on('click', function() {
+            $('form[name="formPassenger"]').on('submit', function() {
                 // pull personal data then save on param
                 var personal = {
                     name: $('#fullName').val(), birth: $('[name="birthYear"]').val() + '-' + $('[name="birthMonth"]').val() + '-' + $('[name="birthDate"]').val(),
@@ -55,9 +55,10 @@
                 };
                 // save personal info
                 Pass.params.personal = personal;
-
+                console.log(personal);
                 $('#theContent').find('.goods_t_m').removeClass('d-none');
                 $('#theContent').find('.passengers').addClass('d-none');
+                return false;
             });
 
             // save goods detail information
