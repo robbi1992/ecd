@@ -37,7 +37,7 @@
 
             // family numbers
             $('#familyNumber').on('change', function() {
-                if (parseInt($(this).val()) > 1) {
+                if (parseInt($(this).val()) > 0) {
                     $('.family-container').removeClass('d-none');
                 } else {
                     $('.family-container').addClass('d-none');

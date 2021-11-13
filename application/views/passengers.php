@@ -101,7 +101,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="familyNumber" class="form-label"><?= ($en) ? 'Number of family members traveling with you (only for passenger)' : 'Jumlah anggota keluarga yang bepergian bersama (untuk penumpang)'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'NUMBER OF FAMILY MEMBER (INCLUDING YOU) TRAVELING WITH YOU. FILL 1 IF TRAVELING ALONE' : 'JUMLAH ANGGOTA KELUARGA TERMASUK ANDA (PENUMPANG), YG IKUT SERTA DALAM PERJALANAN INI. ISI 1 JIKA BEPERGIAN SENDIRI'; ?>"></i></label>
-                            <input type="number" class="form-control" id="familyNumber" name="familyNumber" value="1" min="1" required>
+                            <input type="number" class="form-control" id="familyNumber" name="familyNumber" value="0" required>
                         </div>
                         <div class="family-container d-none">
                             <hr />
