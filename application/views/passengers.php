@@ -37,6 +37,53 @@
                 </div>
             </div>
             <!-- end starter -->
+            <!-- header -->
+            <div class="headers mt-3 d-none">
+                <h4>Custom Declaration Online</h4><hr />
+                <table class="table table-bordered bc-width-80">
+                    <tbody>
+                        <tr>
+                            <td rowspan="4" class="bc-bg header-title">1</td>
+                            <td><b><?= ($en) ? 'Passenger':'Data Penumpang';?></b></td>
+                        </tr>
+                        <tr>
+                            <td class="bc-desc" rowspan="3"><?= ($en) ? 'Fill in the list and passenger data':'Isi daftar dan biodata Penumpang';?></td>
+                        </tr>
+                        <tr></tr>
+                        <tr></tr>
+                    </tbody>
+                </table>
+                <table class="table table-bordered bc-width-80 bc-margin">
+                    <tbody>
+                        <tr>
+                            <td rowspan="4" class="bg-success header-title">2</td>
+                            <td><b><?= ($en) ? 'Goods':'Barang';?></b></td>
+                        </tr>
+                        <tr>
+                            <td class="bc-desc" rowspan="3"><?= ($en) ? 'Fill in passenger luggage':'Isi daftar barang bawaan Penumpang';?></td>
+                        </tr>
+                        <tr></tr>
+                        <tr></tr>
+                    </tbody>
+                </table>
+                <table class="table table-bordered bc-width-80 bc-margin">
+                    <tbody>
+                        <tr>
+                            <td rowspan="4" class="bg-success header-title">3</td>
+                            <td><b><?= ($en) ? 'Verification':'Penyelesaian';?></b></td>
+                        </tr>
+                        <tr>
+                            <td class="bc-desc" rowspan="3"><?= ($en) ? 'Data Verification':'Verifikasi data';?></td>
+                        </tr>
+                        <tr></tr>
+                        <tr></tr>
+                    </tbody>
+                </table>
+                <hr />
+                <button name="btnheaderPrev" class="btn btn-outline-secondary"><?= ($en) ? 'Previous' : 'Sebelumnya';?></button>
+                <button name="btnheaderNext" class="btn btn-outline-primary" style="float: right;"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
+            </div>
+            <!-- end header -->
             <div class="passengers mt-3 d-none">
             <form name="formPassenger">
                 <div class="card">
@@ -63,6 +110,7 @@
                         <div class="mb-3">
                             <label for="nationality" class="form-label"><?= ($en) ? 'Nationality' : 'Kebangsaan'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'YOUR NATIONALITY' : 'KEBANGSAAN ANDA'; ?>"></i></label>
                             <select class="form-control" id="nationality" name="nationality" required>
+                                <option value=""><?= ($en) ? 'Select Nationality' : 'Pilih Kebangsaan';?></option>
                                 <?php
                                 foreach ($country as $val) { ?>
                                 <option value="<?=$val['id'];?>"><?=$val['name'];?></option>

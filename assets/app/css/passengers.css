@@ -1,5 +1,5 @@
 .bc-bg {
-    background-color: #139ff7;
+    background-color: #139ff7 !important;
     color: white;
 }
 
@@ -14,4 +14,22 @@
 
 .select2-container {
     width: 100% !important;
-  }
+}
+
+.header-title {
+    font-size: 40px;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    vertical-align: middle;
+    text-align: center;
+    color: #fff;
+    width: 20% !important;
+}
+
+.bc-width-80 {
+    width: 90% !important;
+}
+
+.bc-margin {
+    margin-left: 30px;
+}

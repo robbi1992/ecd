@@ -32,6 +32,11 @@
             
             $('#starterLink').on('click', function(){
                 $('#theContent').find('.starter').addClass('d-none');
+                $('#theContent').find('.headers').removeClass('d-none');
+            });
+
+            $('button[name="btnheaderNext"]').on('click', function(){
+                $('#theContent').find('.headers').addClass('d-none');
                 $('#theContent').find('.passengers').removeClass('d-none');
             });
 
@@ -267,8 +272,12 @@
                 $('#theContent').find('.rating').addClass('d-none');
                 $('#theContent').find('.goods_detail').removeClass('d-none');
             });
-            $('button[name="btnPersonalPrev"]').on('click', function() {
+            $('button[name="btnheaderPrev"]').on('click', function() {
                 $('#theContent').find('.starter').removeClass('d-none');
+                $('#theContent').find('.headers').addClass('d-none');
+            });
+            $('button[name="btnPersonalPrev"]').on('click', function() {
+                $('#theContent').find('.headers').removeClass('d-none');
                 $('#theContent').find('.passengers').addClass('d-none');
             });
             $('button[name="btnGoodsTMPrev"]').on('click', function() {
