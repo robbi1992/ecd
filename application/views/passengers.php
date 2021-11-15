@@ -238,6 +238,13 @@
                 $idx = 1;
                 foreach($questions as $index => $val) { ?>
                 <div class="mb-3">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="question_<?=$val['id'];?>" name="question_<?=$val['id'];?>">
+                        <label style="font-size: 14px;" class="form-check-label" for="question_<?=$val['id'];?>"><?= $val['content']; ?></label>
+                    </div>
+                </div>
+                <!-- 
+                <div class="mb-3">
                     <label for="question_<?=$idx;?>" class="form-label"><?= $val['content']; ?></label>
                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                         <input value="1" type="radio" class="btn-check" name="question_<?=$val['id'];?>" id="question_<?=$idx;?>">
@@ -246,6 +253,7 @@
                         <label class="btn btn-outline-primary" for="question_<?=$idx+1;?>"><?= ($en) ? 'No':'Tidak';?></label>
                     </div>
                 </div>
+                -->
                 <?php
                 $idx = $idx +2;
                 }

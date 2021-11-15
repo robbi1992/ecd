@@ -163,6 +163,19 @@
                 // save answer of questions
                 var questions = [];
                 for (var i= 1; i<=questionNum; i++) {
+                   var theQuestions = $('input[name=question_' + i +']').is(':checked');
+                   if (theQuestions) {
+                        var theText = $('input[name=question_' + i +']').closest('.form-switch').find('.form-check-label').text();
+                        var dataAnswer = {
+                            id: i, value: 1, text: theText 
+                        };
+
+                        questions.push(dataAnswer);
+                   }
+                }
+                /*
+                var questions = [];
+                for (var i= 1; i<=questionNum; i++) {
                    var theQuestions = $('input[name=question_' + i +']:checked').val();
                    if (theQuestions == '1') {
                         var theText = $('input[name=question_' + i +']').closest('.mb-3').find('.form-label').text();
@@ -172,8 +185,9 @@
 
                         questions.push(dataAnswer);
                    }
-                }
+                }*/
                 // console.log(questions);
+                // return false;
                 // save answer of questions
                 Pass.params.questionAnswer =  questions;
                 
