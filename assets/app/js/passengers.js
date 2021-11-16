@@ -138,8 +138,8 @@
                     $('#familyName').val('');
                     $('#familyPassport').val('');
                     $('[name="familyBirthYear"]').val('');
-                    $('[name="familyBirthMonth"]').val()
-                    $('[name="familyBirthDate"]').val()
+                    $('[name="familyBirthMonth"]').val('');
+                    $('[name="familyBirthDate"]').val('');
                 } else {
                     alert('name or passport of your family cannot be empty');
                 }
@@ -266,6 +266,22 @@
                         theContainer.append(row);
                     });
                 }
+
+                // render table of goods detail
+                var theContainer = $('table[name="reviewDetailGoods"]').find('tbody').empty();
+                if (Pass.params.goodsDetail.length > 0) {
+                    $.each(Pass.params.goodsDetail, function(index, value) {
+                        var row = '<tr>\
+                            <td>' + index+1 + '</td>\
+                            <td>' + value.desc + '</td>\
+                            <td>' + value.amount + '</td>\
+                            <td>' + value.value + ' ' + value.currency + '</td>\
+                        </tr>';
+
+                        theContainer.append(row);
+                    });
+                }
+
                 $('#theContent').find('.preview').removeClass('d-none');
             });
 

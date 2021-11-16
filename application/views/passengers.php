@@ -413,6 +413,25 @@
                             </td>
                         </tr>
                         <tr>
+                            <td><?= ($en) ? 'Goods Detail:' : 'Uraian Barang'; ?></td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <table class="table" name="reviewDetailGoods">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col"><?=($en) ? 'Description':'Uraian';?></th>
+                                            <th scope="col"><?=($en) ? 'Amount':'Jumlah';?></th>
+                                            <th scope="col"><?=($en) ? 'Value':'Nilai';?></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
                             <td colspan="2" style="font-size: 10px; text-align: justify;">
                                 <?= ($en) ? '' : 'Apabila anda memberikan jawaban "Ya" pada salah satu pertanyaan nomor 11 diatas, uraikan barang tersebut pada tempat yang disediakan di halaman sebelumnya, dan silakan menuju <b>JALUR MERAH</b>. Apabila memberikan jawaban "Tidak" Pada semua pertanyaan, silahkan menuju <b>JALUR HIJAU</b>'; ?>
                             </td>
