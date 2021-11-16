@@ -11,6 +11,25 @@
             rating: 0
         },
         init: function() {
+            $('.bc-link').on('click', function() {
+                // console.log('ok');
+                $('.bc-link-menu').removeClass('bc-active');
+                $(this).closest('.bc-link-menu').addClass('bc-active');
+
+                var value = $(this).attr('value');
+                $('.bc-page').addClass('d-none');
+                if (value == '0') {
+                    $('.passengers').removeClass('d-none');
+                } else if (value == '1') {
+                    $('.family-container').removeClass('d-none');
+                } else if (value == '2') {
+                    $('.goods_form').removeClass('d-none');
+                } else if (value == '3') {
+                    $('.preview').removeClass('d-none');
+                } else if (value == '4') {
+                    $('.qr_code').removeClass('d-none');
+                }
+            });
             $('#agreement').on('change', function() {
                 var checked = $(this).prop('checked');
                 if (checked) {
@@ -41,6 +60,8 @@
             });
 
             // family numbers
+            // family changed on diff page
+            /*
             $('#familyNumber').on('change', function() {
                 if (parseInt($(this).val()) > 0) {
                     $('.family-container').removeClass('d-none');
@@ -48,6 +69,7 @@
                     $('.family-container').addClass('d-none');
                 } 
             });
+            */
 
             // action next after personal data filled
             $('form[name="formPassenger"]').on('submit', function() {
@@ -60,8 +82,9 @@
                 };
                 // save personal info
                 Pass.params.personal = personal;
-                console.log(personal);
-                $('#theContent').find('.goods_t_m').removeClass('d-none');
+                // console.log(personal);
+                // $('#theContent').find('.goods_t_m').removeClass('d-none');
+                $('#theContent').find('.family-container').removeClass('d-none');
                 $('#theContent').find('.passengers').addClass('d-none');
                 return false;
             });
@@ -140,7 +163,10 @@
                 Pass.params.personalFamily = personalFamily;
                 return false;
             });
-            
+            $('button[name="btnFamilyNext"]').on('click', function() {
+                $('#theContent').find('.goods_t_m').removeClass('d-none');
+                $('#theContent').find('.family-container').addClass('d-none');
+            });
             $('button[name="btnGoodsTMNext"]').on('click', function() {
                 $('#theContent').find('.goods_t_m2').removeClass('d-none');
                 $('#theContent').find('.goods_t_m').addClass('d-none');
@@ -294,8 +320,12 @@
                 $('#theContent').find('.headers').removeClass('d-none');
                 $('#theContent').find('.passengers').addClass('d-none');
             });
-            $('button[name="btnGoodsTMPrev"]').on('click', function() {
+            $('button[name="btnFamilyPrev"]').on('click', function() {
                 $('#theContent').find('.passengers').removeClass('d-none');
+                $('#theContent').find('.family-container').addClass('d-none');
+            });
+            $('button[name="btnGoodsTMPrev"]').on('click', function() {
+                $('#theContent').find('.family-container').removeClass('d-none');
                 $('#theContent').find('.goods_t_m').addClass('d-none');
             });
             $('button[name="btnGoodsTM2Prev"]').on('click', function() {

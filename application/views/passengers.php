@@ -16,19 +16,38 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bc-bg">
-            <div class="container-fluid">
+            <div class="container-fluid justify-content-center">
                 <a class="navbar-brand text-white" href="#">
                     <img src="/assets/img/bc_logo.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
                      ECD
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
             </div>
         </nav>
+        <!-- shortcut menu -->
         
+        <!-- end shortcut menu -->
         <div class="container" id="theContent">
-            <div class="starter">
+            <div class="row bc-sub-menu text-center">
+                <div class="col-2 bc-link-menu">
+                    <a value="0" class="text-white bc-link" href="#" title="Personal"><i class="fa fa-id-card"></i></a>
+                </div>
+                <div class="col-2 bc-link-menu">
+                    <a value="1" class="text-white bc-link" href="#" title="Family"><i class="fa fa-users"></i></a>
+                </div>
+                <div class="col-2 bc-link-menu">
+                    <a value="2" class="text-white bc-link" href="#" title="Barang"><i class="fa fa-briefcase"></i></a>
+                </div>
+                <div class="col-2 bc-link-menu">
+                    <a value="3" class="text-white bc-link" href="#" title="Preview"><i class="fa fa-eye"></i></a>
+                </div>
+                <div class="col-2 bc-link-menu">
+                    <a value="4" class="text-white bc-link" href="#" title="QR Code"><i class="fa fa-qrcode"></i></a>
+                </div>
+                <div class="col-2 bc-link-menu">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="bc-page starter">
                 <div class="shadow-lg p-2 mt-3 bc-desc bg-body rounded"><?= $desc['text1'];?></div>
                 <div class="shadow-lg p-2 mt-3 bc-desc bg-body rounded"><?= $desc['text2'];?></div>
 
@@ -38,7 +57,7 @@
             </div>
             <!-- end starter -->
             <!-- header -->
-            <div class="headers mt-3 d-none">
+            <div class="bc-page headers mt-3 d-none">
                 <h4>Custom Declaration Online</h4><hr />
                 <table class="table table-bordered bc-width-80">
                     <tbody>
@@ -84,7 +103,7 @@
                 <button name="btnheaderNext" class="btn btn-outline-primary" style="float: right;"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
             </div>
             <!-- end header -->
-            <div class="passengers mt-3 d-none">
+            <div class="bc-page passengers mt-3 d-none">
             <form name="formPassenger">
                 <div class="card">
                     <div class="card-header bc-bg">
@@ -151,44 +170,6 @@
                             <label for="familyNumber" class="form-label"><?= ($en) ? 'Number of family members traveling with you (only for passenger)' : 'Jumlah anggota keluarga yang bepergian bersama (untuk penumpang)'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'NUMBER OF FAMILY MEMBER (INCLUDING YOU) TRAVELING WITH YOU. FILL 1 IF TRAVELING ALONE' : 'JUMLAH ANGGOTA KELUARGA TERMASUK ANDA (PENUMPANG), YG IKUT SERTA DALAM PERJALANAN INI. ISI 1 JIKA BEPERGIAN SENDIRI'; ?>"></i></label>
                             <input type="number" class="form-control" id="familyNumber" name="familyNumber" value="0" required>
                         </div>
-                        <div class="family-container d-none">
-                            <hr />
-                            <h6><?= ($en) ? 'Family Information' : 'Informasi Keluarga'; ?></h6>
-                            <hr />
-                            <div class="mb-3">
-                                <label for="familyName" class="form-label"><?= ($en) ? 'Full Name' : 'Nama Lengkap';?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'FULL NAME OF ALL YOUR FAMILY TRAVELING WITH YOU' : 'NAMA LENGKAP MASING-MASING ANGGOTA KELUARGA YANG IKUT SERTA DALAM PERJALANAN INI'; ?>"></i></label>
-                                <input type="text" class="form-control" id="familyName" name="familyName">
-                            </div>
-                            <div class="mb-3">
-                                <label for="familyPassport" class="form-label"><?= ($en) ? 'Number of Passport' : 'Nomor Paspor';?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'PASSPORT NUMBER OF ALL YOUR FAMILY TRAVELING WITH YOU' : 'NOMOR PASPOR MASING-MASING ANGGOTA KELUARGA YANG IKUT SERTA DALAM PERJALANAN INI';?>"></i></label>
-                                <input type="text" class="form-control" id="familyPassport" name="familyPassport">
-                            </div>
-                            <!-- added on 8 Nov 2021 -->
-                            <div class="mb-3">
-                                <label><?= ($en) ? 'Date of Birth' : 'Tanggal Lahir'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'YOUR DATE OF BIRTH OF ALL YOUR FAMILY TRAVELING WITH YOU' : 'TANGGAL LAHIR ANDA (H-B-T) MASING-MASING ANGGOTA KELUARGA YANG IKUT SERTA DALAM PERJALANAN INI'; ?>"></i></label>
-                                <div class="row">
-                                    <div class="col"><input name="familyBirthDate" class="form-control" type="number" min="1" max="31" placeholder="dd" /></div>
-                                    <div class="col"><input name="familyBirthMonth" class="form-control" type="number" min="1" max="12" placeholder="mm" /></div>
-                                    <div class="col"><input name="familyBirthYear" class="form-control" type="number" min="1800" max="<?= date('Y');?>" placeholder="yyyy" /></div>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <button name="btnSaveFamily" class="btn btn-info text-white" style="float: right;"><?= ($en) ? 'Add' : 'Tambah'; ?></button>
-                            </div>
-                            <!-- table family information -->
-                            <table name="familyTable" class="table table-striped table-sm table-dark">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col"><?= ($en) ? 'Name' : 'Nama';?></th>
-                                        <th scope="col"><?= ($en) ? 'Passport ID' : 'No. Paspor';?></th>
-                                        <th scope="col"><?= ($en) ? 'Tgl Lahir' : 'Birth Date';?></th>
-                                    </tr>
-                                </thead>
-                                <tbody></tbody>
-                            </table>
-                        </div>
-                    
                     </div>
                     <!-- end card body -->
                     <div class="card-footer">
@@ -199,9 +180,50 @@
             </form>
             </div>
             <!-- end passengers -->
+            <div class="bc-page family-container mt-3 d-none">
+                <hr />
+                <h6><?= ($en) ? 'Family Information' : 'Informasi Keluarga'; ?></h6>
+                <hr />
+                <div class="mb-3">
+                    <label for="familyName" class="form-label"><?= ($en) ? 'Full Name' : 'Nama Lengkap';?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'FULL NAME OF ALL YOUR FAMILY TRAVELING WITH YOU' : 'NAMA LENGKAP MASING-MASING ANGGOTA KELUARGA YANG IKUT SERTA DALAM PERJALANAN INI'; ?>"></i></label>
+                    <input type="text" class="form-control" id="familyName" name="familyName">
+                </div>
+                <div class="mb-3">
+                    <label for="familyPassport" class="form-label"><?= ($en) ? 'Number of Passport' : 'Nomor Paspor';?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'PASSPORT NUMBER OF ALL YOUR FAMILY TRAVELING WITH YOU' : 'NOMOR PASPOR MASING-MASING ANGGOTA KELUARGA YANG IKUT SERTA DALAM PERJALANAN INI';?>"></i></label>
+                    <input type="text" class="form-control" id="familyPassport" name="familyPassport">
+                </div>
+                <!-- added on 8 Nov 2021 -->
+                <div class="mb-3">
+                    <label><?= ($en) ? 'Date of Birth' : 'Tanggal Lahir'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'YOUR DATE OF BIRTH OF ALL YOUR FAMILY TRAVELING WITH YOU' : 'TANGGAL LAHIR ANDA (H-B-T) MASING-MASING ANGGOTA KELUARGA YANG IKUT SERTA DALAM PERJALANAN INI'; ?>"></i></label>
+                    <div class="row">
+                        <div class="col"><input name="familyBirthDate" class="form-control" type="number" min="1" max="31" placeholder="dd" /></div>
+                        <div class="col"><input name="familyBirthMonth" class="form-control" type="number" min="1" max="12" placeholder="mm" /></div>
+                        <div class="col"><input name="familyBirthYear" class="form-control" type="number" min="1800" max="<?= date('Y');?>" placeholder="yyyy" /></div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <button name="btnSaveFamily" class="btn btn-info text-white" style="float: right;"><?= ($en) ? 'Add' : 'Tambah'; ?></button>
+                </div>
+                <!-- table family information -->
+                <table name="familyTable" class="table table-striped table-sm table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col"><?= ($en) ? 'Name' : 'Nama';?></th>
+                            <th scope="col"><?= ($en) ? 'Passport ID' : 'No. Paspor';?></th>
+                            <th scope="col"><?= ($en) ? 'Tgl Lahir' : 'Birth Date';?></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
 
+                <button name="btnFamilyPrev" class="btn btn-outline-secondary"><?= ($en) ? 'Previous' : 'Sebelumnya';?></button>
+                <button name="btnFamilyNext" class="btn btn-outline-primary" style="float: right;"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
+            </div>
+            <!-- end family -->
+            
             <!-- goods term & conditions -->
-            <div class="goods_t_m mt-3 d-none">
+            <div class="bc-page goods_t_m mt-3 d-none">
                 <div class="card">
                     <div class="card-body bc-bg bc-desc"><?=$desc['goods']['t&m'];?></div>
                     <div class="card-footer">
@@ -210,7 +232,7 @@
                     </div>
                 </div>
             </div>
-            <div class="goods_t_m2 mt-3 d-none">
+            <div class="bc-page goods_t_m2 mt-3 d-none">
                 <div class="card">
                     <div class="card-body bc-bg bc-desc"><?=$desc['goods']['t&m2'];?></div>
                     <div class="card-footer">
@@ -219,7 +241,7 @@
                     </div>
                 </div>
             </div>
-            <div class="goods_t_m3 mt-3 d-none">
+            <div class="bc-page goods_t_m3 mt-3 d-none">
                 <div class="card">
                     <div class="card-body bc-bg bc-desc"><?=$desc['goods']['t&m3'];?></div>
                     <div class="card-footer">
@@ -231,7 +253,7 @@
             <!-- end goods_t_m -->
 
             <!-- goods form -->
-            <div class="goods_form mt-3 d-none">
+            <div class="bc-page goods_form mt-3 d-none">
                 <h3><?= ($en) ? 'Goods' : 'Barang';?></h3><hr />
                 <?= ($en) ? 'I declare my belonging:' : 'Saya membawa'; ?>
                 <?php
@@ -264,7 +286,7 @@
             <!-- end goods form -->
 
             <!-- goods detail -->
-            <div class="goods_detail mt-3 d-none">
+            <div class="bc-page goods_detail mt-3 d-none">
                 <h3><?= ($en) ? 'Detail Goods' : 'Uraian Barang';?></h3><hr />
                 <p><?= ($en) ? 'In previous page, you declare:' : 'Di halaman sebelumnya Anda menyatakan membawa:';?></p>
                 <div class="goods_declare"></div>
@@ -314,7 +336,7 @@
             <!--end  goods detail -->
 
             <!-- rating layout -->
-            <div class="rating mt-3 d-none">
+            <div class="bc-page rating mt-3 d-none">
                 <div class="card">
                     <div class="card-header text-center bc-bg">
                         <p><b>SOEKARNO HATTA CUSTOMS</b> <br />CUSTOMS DECLARATION ONLINE</p>
@@ -335,7 +357,7 @@
             <!-- end rating -->
 
             <!-- preview -->
-            <div class="preview mt-3 d-none">
+            <div class="bc-page preview mt-3 d-none">
                 <p class="bc-desc"><?= ($en) ? 'Each arriving Passenger/Crew must submit  Customs Declaration (one customs declarations can be used for one family):' : 'Penumpang/Awak sarana pengangkut wajib menyerahkan Customs Declaration pada saat setiap kedatangan (satu keluarga dapat mengajukan satu Customs Declaration):'; ?></p>
                 <table class="table table-info" style="font-size: 10px;">
                     <tbody>
@@ -407,7 +429,7 @@
                 <button name="btnPreviewNext" class="btn btn-primary" style="float: right;" disabled="disabled"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
             </div>
             <!-- end preview -->
-            <div class="qr_code mt-3 d-none">
+            <div class="bc-page qr_code mt-3 d-none">
                 <p><b><?= ($en) ? 'Thank you' : 'Terima kasih';?>,</b></p>
                 <p><?= ($en) ? 'Hand over this QR Code to Customs Officer for Customs Inspection':'Serahkan QR code ini kepada petugas penerimaan untuk melakukan pemeriksaan';?></p>
                 <img src="" style="width: 100%;"/>
