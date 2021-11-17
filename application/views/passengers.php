@@ -290,14 +290,33 @@
             <!-- goods form -->
             <div class="bc-page goods_form mt-3 d-none">
                 <h3><?= ($en) ? 'Goods' : 'Barang';?></h3><hr />
-                <?= ($en) ? 'I declare my belonging:' : 'Saya membawa'; ?>
+                <?= ($en) ? 'I declare my belonging:' : 'Saya membawa'; ?>: <hr />
+                <div class="row">
+                    <div class="col-4"><b><?= ($en) ? 'Note' : 'Penting';?>:</b></div>
+                    <div class="col-2">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" disabled checked />
+                        </div>
+                    </div>
+                    <div class="col-2"><?= ($en) ? 'Yes':'Ya';?></div>
+                    <div class="col-2">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" disabled />
+                        </div>
+                    </div>
+                    <div class="col-2"><?= ($en) ? 'No':'Tidak';?></div>
+                </div>
+                <hr />
                 <?php
                 $idx = 1;
                 foreach($questions as $index => $val) { ?>
                 <div class="mb-3">
                     <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="question_<?=$val['id'];?>" name="question_<?=$val['id'];?>">
-                        <label style="font-size: 14px;" class="form-check-label" for="question_<?=$val['id'];?>"><?= $val['content']; ?></label>
+                        <div class="row" style="margin-left: calc(-1.5 * var(--bs-gutter-x));">
+                            <div class="col-10"><label style="font-size: 14px;" class="form-check-label" for="question_<?=$val['id'];?>"><?= $val['content']; ?></label></div>
+                            <div class="col-1">&nbsp;</div>
+                            <div class="col-1"><input class="form-check-input" type="checkbox" id="question_<?=$val['id'];?>" name="question_<?=$val['id'];?>"></div>
+                        </div> 
                     </div>
                 </div>
                 <!-- 
