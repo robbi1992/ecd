@@ -130,18 +130,25 @@
             var personalFamily = [];
             $('button[name="btnSaveFamily"]').on('click', function() {
                 var name = $('#familyName').val(), passport = $('#familyPassport').val(),
-                    birth = $('[name="familyBirthYear"]').val() + '-' + $('[name="familyBirthMonth"]').val() + '-' + $('[name="familyBirthDate"]').val();
-                if (name != '' || passport != '', birth != '--') {
+                    year = $('[name="familyBirthYear"] option:selected').val(), month = $('[name="familyBirthMonth"] option:selected').val(), date = $('[name="familyBirthDate"] option:selected').val(),
+                    birth = year + '-' + month + '-' + date;
+                if (name != '' && passport != '' && year != '' && month != '' && date != '') {
                     var dataFamily = { name: name, passport: passport, birth: birth };
                     personalFamily.push(dataFamily); 
                     // clear input
                     $('#familyName').val('');
                     $('#familyPassport').val('');
-                    $('[name="familyBirthYear"]').val('');
-                    $('[name="familyBirthMonth"]').val('');
-                    $('[name="familyBirthDate"]').val('');
+
+                    $('[name="familyBirthYear"]').val('').trigger('change');
+                    $('[name="familyBirthMonth"]').val('').trigger('change');
+                    $('[name="familyBirthDate"]').val('').trigger('change');
+                    // $('#mySelect2').val('1'); // Select the option with a value of '1'
+                    // $('#mySelect2').trigger('change'); 
+                    // $('[name="familyBirthYear"]').val('');
+                    // $('[name="familyBirthMonth"]').val('');
+                    // $('[name="familyBirthDate"]').val('');
                 } else {
-                    alert('name or passport of your family cannot be empty');
+                    alert('name or passport or birth of date cannot be empty');
                 }
 
                 if (personalFamily.length > 0) {

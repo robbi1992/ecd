@@ -196,9 +196,44 @@
                 <div class="mb-3">
                     <label><?= ($en) ? 'Date of Birth' : 'Tanggal Lahir'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'YOUR DATE OF BIRTH OF ALL YOUR FAMILY TRAVELING WITH YOU' : 'TANGGAL LAHIR ANDA (H-B-T) MASING-MASING ANGGOTA KELUARGA YANG IKUT SERTA DALAM PERJALANAN INI'; ?>"></i></label>
                     <div class="row">
-                        <div class="col"><input name="familyBirthDate" class="form-control" type="number" min="1" max="31" placeholder="dd" /></div>
-                        <div class="col"><input name="familyBirthMonth" class="form-control" type="number" min="1" max="12" placeholder="mm" /></div>
-                        <div class="col"><input name="familyBirthYear" class="form-control" type="number" min="1800" max="<?= date('Y');?>" placeholder="yyyy" /></div>
+                        <div class="col">
+                            <select class="form-control" name="familyBirthDate" required>
+                                <option value="" selected>dd</option>
+                                <?php
+                                for ($i=1; $i<=31; $i++) {?>
+                                <option value="<?=$i;?>"><?=$i;?></option>
+                                <?php
+                                }
+                                ?>
+                            </select>
+                            <!-- <input name="familyBirthDate" class="form-control" type="number" min="1" max="31" placeholder="dd" /> -->
+                        </div>
+                        <div class="col">
+                            <select class="form-control" name="familyBirthMonth" required>
+                                <option value="" selected>mm</option>
+                                <?php
+                                for ($i=1; $i<=12; $i++) {?>
+                                <option value="<?=$i;?>"><?=$i;?></option>
+                                <?php
+                                }
+                                ?>
+                            </select>
+                            <!-- <input name="familyBirthDate" class="form-control" type="number" min="1" max="31" placeholder="dd" /> -->
+                        </div>
+                        <div class="col">
+                            <select class="form-control" name="familyBirthYear" required>
+                                <option value="" selected>yyyy</option>
+                                <?php
+                                for ($i=date('Y'); $i>=1; $i--) {?>
+                                <option value="<?=$i;?>"><?=$i;?></option>
+                                <?php
+                                }
+                                ?>
+                            </select>
+                            <!-- <input name="familyBirthDate" class="form-control" type="number" min="1" max="31" placeholder="dd" /> -->
+                        </div>
+                        <!-- <div class="col"><input name="familyBirthMonth" class="form-control" type="number" min="1" max="12" placeholder="mm" /></div> -->
+                        <!-- <div class="col"><input name="familyBirthYear" class="form-control" type="number" min="1800" max="<?= date('Y');?>" placeholder="yyyy" /></div> -->
                     </div>
                 </div>
                 <div class="mb-3">
