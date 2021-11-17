@@ -10,6 +10,14 @@
             goodsDetail: [],
             rating: 0
         },
+        setIdr: function(value) {
+            var output = value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+            return output;
+        },
+        unsetIdr: function(value) {
+            newValue = value.split('.').join('');
+            return newValue;
+        },
         init: function() {
             $('.bc-link').on('click', function() {
                 // console.log('ok');
@@ -116,7 +124,7 @@
                             <th scope="row">' + number + '</th>\
                             <td>'+value.desc+'</td>\
                             <td>'+value.amount+'</td>\
-                            <td>'+value.value+' '+value.currency+'</td>\
+                            <td>'+Pass.setIdr(value.value)+' '+value.currency+'</td>\
                         </tr>';
                         theBody.append(row);
                         number++;
@@ -282,7 +290,7 @@
                             <td>' + index+1 + '</td>\
                             <td>' + value.desc + '</td>\
                             <td>' + value.amount + '</td>\
-                            <td>' + value.value + ' ' + value.currency + '</td>\
+                            <td>' + Pass.setIdr(value.value) + ' ' + value.currency + '</td>\
                         </tr>';
 
                         theContainer.append(row);
