@@ -50,7 +50,7 @@
             <div class="bc-page starter">
                 <div class="shadow-lg p-2 mt-3 bc-desc bg-body rounded"><?= $desc['text1'];?></div>
                 <div class="shadow-lg p-2 mt-3 bc-desc bg-body rounded"><?= $desc['text2'];?></div>
-
+            
                 <div class="mt-3" style="float: right;">
                     <a id="starterLink" href="#" class="btn btn-outline-info"><?= $desc['button'];?></a>
                 </div>
@@ -291,6 +291,7 @@
             <div class="bc-page goods_form mt-3 d-none">
                 <h3><?= ($en) ? 'Goods' : 'Barang';?></h3><hr />
                 <?= ($en) ? 'I declare my belonging:' : 'Saya membawa'; ?>: <hr />
+                <!-- 
                 <div class="row">
                     <div class="col-4"><b><?= ($en) ? 'Note' : 'Penting';?>:</b></div>
                     <div class="col-2">
@@ -307,15 +308,23 @@
                     <div class="col-2"><?= ($en) ? 'No':'Tidak';?></div>
                 </div>
                 <hr />
+                 -->
                 <?php
                 $idx = 1;
                 foreach($questions as $index => $val) { ?>
                 <div class="mb-3">
                     <div class="form-check form-switch">
                         <div class="row" style="margin-left: calc(-1.5 * var(--bs-gutter-x));">
-                            <div class="col-10"><label style="font-size: 14px;" class="form-check-label" for="question_<?=$val['id'];?>"><?= $val['content']; ?></label></div>
-                            <div class="col-1">&nbsp;</div>
-                            <div class="col-1"><input class="form-check-input" type="checkbox" id="question_<?=$val['id'];?>" name="question_<?=$val['id'];?>"></div>
+                            <div class="col-9"><label style="font-size: 14px;" class="form-check-label" for="question_<?=$val['id'];?>"><?= $val['content']; ?></label></div>
+                            <!-- <div class="col-1">&nbsp;</div> -->
+                            <div class="col-3">
+                                <label class="switch">
+                                    <input class="switch-input" type="checkbox" id="question_<?=$val['id'];?>" name="question_<?=$val['id'];?>" />
+                                    <span class="switch-label" data-on="<?= ($en) ? 'Yes':'Ya';?>" data-off="<?= ($en) ? 'No':'Tidak';?>"></span> 
+                                    <span class="switch-handle"></span> 
+                                </label>
+                                <!-- <input class="form-check-input" type="checkbox" id="question_<?=$val['id'];?>" name="question_<?=$val['id'];?>"> -->
+                            </div>
                         </div> 
                     </div>
                 </div>
