@@ -10,6 +10,12 @@
             goodsDetail: [],
             rating: 0
         },
+        monthList: function(month) {
+            var dataList = {
+                1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'May', 6: 'Jun', 7: 'Jul', 8: 'Aug', 9: 'Sep', 10: 'Oct', 11: 'Nov', 12: 'Dec'
+            };
+            return dataList[month];
+        },
         setIdr: function(value) {
             var output = value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
             return output;
@@ -82,11 +88,14 @@
             // action next after personal data filled
             $('form[name="formPassenger"]').on('submit', function() {
                 // pull personal data then save on param
+                var year = $('[name="birthYear"] option:selected').val(), month = $('[name="birthMonth"] option:selected').val(), date = $('[name="birthDate"] option:selected').val();
+                var arrivalYear = $('[name="arrivalYear"] option:selected').val(), arrivalMonth = $('[name="arrivalMonth"] option:selected').val(), arrivalDate = $('[name="arrivalDate"] option:selected').val();
+                var birthText = date + ' ' + Pass.monthList(parseInt(month)) + ' ' + year;
                 var personal = {
-                    name: $('#fullName').val(), birth: $('[name="birthYear"]').val() + '-' + $('[name="birthMonth"]').val() + '-' + $('[name="birthDate"]').val(),
+                    name: $('#fullName').val(), birth: year + '-' + month + '-' + date, birthText: birthText,
                     occupation: $('#occupation').val(), nationality: $('#nationality').val(), nationalityText: $('select[name="nationality"] option:selected').text(), passport: $('#passport').val(),
                     address: $('#address').val(), flight: $('#flightNumber').val(), baggageIn: $('#baggageIn').val(), baggageEx: $('#baggageEx').val(),
-                    arrival: $('[name="arrivalYear"]').val() + '-' + $('[name="arrivalMonth"]').val() + '-' + $('[name="arrivalDate"]').val()
+                    arrival: arrivalYear + '-' + arrivalMonth + '-' + arrivalDate
                 };
                 // save personal info
                 Pass.params.personal = personal;
@@ -140,8 +149,10 @@
                 var name = $('#familyName').val(), passport = $('#familyPassport').val(),
                     year = $('[name="familyBirthYear"] option:selected').val(), month = $('[name="familyBirthMonth"] option:selected').val(), date = $('[name="familyBirthDate"] option:selected').val(),
                     birth = year + '-' + month + '-' + date;
+                var birthText = date + ' ' + Pass.monthList(parseInt(month)) + ' ' + year;
+
                 if (name != '' && passport != '' && year != '' && month != '' && date != '') {
-                    var dataFamily = { name: name, passport: passport, birth: birth };
+                    var dataFamily = { name: name, passport: passport, birth: birth, birthText: birthText };
                     personalFamily.push(dataFamily); 
                     // clear input
                     $('#familyName').val('');
@@ -150,11 +161,6 @@
                     $('[name="familyBirthYear"]').val('').trigger('change');
                     $('[name="familyBirthMonth"]').val('').trigger('change');
                     $('[name="familyBirthDate"]').val('').trigger('change');
-                    // $('#mySelect2').val('1'); // Select the option with a value of '1'
-                    // $('#mySelect2').trigger('change'); 
-                    // $('[name="familyBirthYear"]').val('');
-                    // $('[name="familyBirthMonth"]').val('');
-                    // $('[name="familyBirthDate"]').val('');
                 } else {
                     alert('name or passport or birth of date cannot be empty');
                 }
@@ -168,7 +174,7 @@
                             <th scope="row">' + number + '</th>\
                             <td>'+value.name+'</td>\
                             <td>'+value.passport+'</td>\
-                            <td>'+value.birth+'</td>\
+                            <td>'+value.birthText+'</td>\
                         </tr>';
                         theBody.append(row);
                         number++;
@@ -251,13 +257,6 @@
             });
             $('button[name="btnRatingNext"]').on('click', function() {
                 $('#theContent').find('.rating').addClass('d-none');
-                /*
-                var personal = {
-                    name: $('#fullName').val(), birth: $('[name="birthYear"]').val() + '-' + $('[name="birthMonth"]').val() + '-' + $('[name="birthDate"]').val(),
-                    occupation: $('#occupation').val(), nationality: $('#nationality').val(), nationalityText: ('select[name="nationality"] option:selected').text(), passport: $('#passport').val(),
-                    address: $('#address').val(), flight: $('#flightNumber').val(), baggageIn: $('#baggageIn').val(), baggageEx: $('#baggageEx').val(),
-                    arrival: $('[name="arrivalYear"]').val() + '-' + $('[name="arrivalMonth"]').val() + '-' + $('[name="arrivalDate"]').val()
-                };*/
                 // set value of review
                 $('span[name="reviewName"]').html(Pass.params.personal.name);
                 $('span[name="reviewBirth"]').html(Pass.params.personal.birth);
