@@ -11,7 +11,7 @@ class Generate_code {
             mkdir($tempdir);
         } */
         // save qr code on folder temp
-        $fileName = time() . '_' . rand(1, 1000) . '.png';
+        $fileName = $id . '.png';
         $path = $tempdir . $fileName;
         $save = QRcode::png($id, $path, "H", 6, 4, 0); 
 

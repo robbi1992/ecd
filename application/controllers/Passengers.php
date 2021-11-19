@@ -114,7 +114,8 @@ class Passengers extends CI_Controller {
 
     public function generate_code() {
         $this->load->library('generate_code');
-        $code = 'https://www.google.com/';
+        $params = json_decode($this->input->raw_input_stream, TRUE);
+        $code = $params['code'];
         $return['name'] = $this->generate_code->generate($code);
 
         $this->output

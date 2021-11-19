@@ -12,11 +12,14 @@ class Passenger_model extends CI_Model {
     }
 
     public function save_data($data) {
-        $return_status = TRUE;
+        // 'IS_' . time() . '_' . rand(1, 1000) . '.jpg';
+        $return_status = NULL;
         $this->db->trans_start();
 
         // insert header first
         $value = $data['personal'];
+        // set unique qr_code
+        $qr_code = 'BCQR' . time() . '-' . rand(1, 1000);
         $this->db->set('full_name', $value['name']);
         $this->db->set('date_of_birth', $value['birth']);
         $this->db->set('occupation', $value['occupation']);
@@ -27,6 +30,7 @@ class Passenger_model extends CI_Model {
         $this->db->set('arrival_date', $value['arrival']);
         $this->db->set('baggage_in', $value['baggageIn']);
         $this->db->set('baggage_ex', $value['baggageEx']);
+        $this->db->set('qr_code', $qr_code);
         // zone automaticly red if any goods  yes
         $zone = '0';
         if (count($data['answer']) > 0) {
@@ -90,7 +94,9 @@ class Passenger_model extends CI_Model {
         if ($this->db->trans_status() === FALSE)
 		{
 			$return_status = FALSE;
-		}
+		} else {
+            $return_status = $qr_code;   
+        }
 
         return $return_status;
     }

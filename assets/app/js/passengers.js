@@ -1,3 +1,4 @@
+// t&c changed after starter
 (function($) {
     var Pass = {
         constant: {
@@ -8,7 +9,8 @@
             personalFamily: [],
             questionAnswer: [],
             goodsDetail: [],
-            rating: 0
+            rating: 0,
+            agreement: 0
         },
         monthList: function(month) {
             var dataList = {
@@ -47,9 +49,11 @@
             $('#agreement').on('change', function() {
                 var checked = $(this).prop('checked');
                 if (checked) {
-                    $('button[name="btnPreviewNext"]').removeAttr('disabled');
+                    $('button[name="btnAgreementNext"]').removeAttr('disabled');
+                    Pass.params.agreement = 1;
                 } else {
-                    $('button[name="btnPreviewNext"]').attr('disabled', 'disabled');
+                    $('button[name="btnAgreementNext"]').attr('disabled', 'disabled');
+                    Pass.params.agreement = 0;
                 }
 
                 // console.log(checked);
@@ -65,13 +69,15 @@
             
             $('#starterLink').on('click', function(){
                 $('#theContent').find('.starter').addClass('d-none');
-                $('#theContent').find('.headers').removeClass('d-none');
+                $('#theContent').find('.goods_t_m').removeClass('d-none');
             });
-
+            /*
+            // header not used
             $('button[name="btnheaderNext"]').on('click', function(){
                 $('#theContent').find('.headers').addClass('d-none');
                 $('#theContent').find('.passengers').removeClass('d-none');
             });
+            */
 
             // family numbers
             // family changed on diff page
@@ -100,9 +106,12 @@
                 // save personal info
                 Pass.params.personal = personal;
                 // console.log(personal);
-                // $('#theContent').find('.goods_t_m').removeClass('d-none');
                 $('#theContent').find('.family-container').removeClass('d-none');
                 $('#theContent').find('.passengers').addClass('d-none');
+
+                // set active menu
+                $('.bc-link-menu').removeClass('bc-active');
+                $('.bc-link-menu').has('a[value="1"]').addClass('bc-active');
                 return false;
             });
 
@@ -130,10 +139,10 @@
 
                     $.each(goodsDetail, function(index, value) {
                         var row = '<tr index="'+index+'">\
-                            <th scope="row">' + number + '</th>\
-                            <td>'+value.desc+'</td>\
-                            <td>'+value.amount+'</td>\
-                            <td>'+Pass.setIdr(value.value)+' '+value.currency+'</td>\
+                            <th class="text-white" scope="row">' + number + '</th>\
+                            <td class="text-white">'+value.desc+'</td>\
+                            <td class="text-white">'+value.amount+'</td>\
+                            <td class="text-white">'+Pass.setIdr(value.value)+' '+value.currency+'</td>\
                         </tr>';
                         theBody.append(row);
                         number++;
@@ -171,10 +180,10 @@
                     var number = 1;
                     $.each(personalFamily, function(index, value) {
                         var row = '<tr index="'+index+'">\
-                            <th scope="row">' + number + '</th>\
-                            <td>'+value.name+'</td>\
-                            <td>'+value.passport+'</td>\
-                            <td>'+value.birthText+'</td>\
+                            <th class="text-white" scope="row">' + number + '</th>\
+                            <td class="text-white">'+value.name+'</td>\
+                            <td class="text-white">'+value.passport+'</td>\
+                            <td class="text-white">'+value.birthText+'</td>\
                         </tr>';
                         theBody.append(row);
                         number++;
@@ -185,8 +194,13 @@
                 return false;
             });
             $('button[name="btnFamilyNext"]').on('click', function() {
-                $('#theContent').find('.goods_t_m').removeClass('d-none');
+                // $('#theContent').find('.goods_t_m').removeClass('d-none');
+                $('#theContent').find('.goods_form').removeClass('d-none');
                 $('#theContent').find('.family-container').addClass('d-none');
+
+                // set active menu
+                $('.bc-link-menu').removeClass('bc-active');
+                $('.bc-link-menu').has('a[value="2"]').addClass('bc-active');
             });
             $('button[name="btnGoodsTMNext"]').on('click', function() {
                 $('#theContent').find('.goods_t_m2').removeClass('d-none');
@@ -198,13 +212,12 @@
             });
             $('button[name="btnGoodsTM3Next"]').on('click', function() {
                 // console.log('tes');
-                $('#theContent').find('.goods_form').removeClass('d-none');
+                $('#theContent').find('.passengers').removeClass('d-none');
                 $('#theContent').find('.goods_t_m3').addClass('d-none');
-            });
-            $('button[name="btnGoodsTM3Next"]').on('click', function() {
-                // console.log('tes');
-                $('#theContent').find('.goods_form').removeClass('d-none');
-                $('#theContent').find('.goods_t_m3').addClass('d-none');
+
+                // set active menu
+                $('.bc-link-menu').removeClass('bc-active');
+                $('.bc-link-menu').has('a[value="0"]').addClass('bc-active');
             });
             $('button[name="btnGoodsFormNext"]').on('click', function() {
                 // save answer of questions
@@ -274,7 +287,7 @@
                 if (Pass.params.questionAnswer.length > 0) {
                     $.each(Pass.params.questionAnswer, function(index, value) {
                         var row = '<tr>\
-                            <td>' + value.text + '</td>\
+                            <td class="text-white">' + value.text + '</td>\
                         </tr>';
 
                         theContainer.append(row);
@@ -284,23 +297,34 @@
                 // render table of goods detail
                 var theContainer = $('table[name="reviewDetailGoods"]').find('tbody').empty();
                 if (Pass.params.goodsDetail.length > 0) {
+                    var number = 1;
                     $.each(Pass.params.goodsDetail, function(index, value) {
                         var row = '<tr>\
-                            <td>' + index+1 + '</td>\
+                            <td>' + number + '</td>\
                             <td>' + value.desc + '</td>\
                             <td>' + value.amount + '</td>\
                             <td>' + Pass.setIdr(value.value) + ' ' + value.currency + '</td>\
                         </tr>';
 
                         theContainer.append(row);
+                        number++;
                     });
                 }
 
                 $('#theContent').find('.preview').removeClass('d-none');
-            });
 
-            $('button[name="btnPreviewNext"]').on('click', function() {
-                // save function
+                // set active menu
+                $('.bc-link-menu').removeClass('bc-active');
+                $('.bc-link-menu').has('a[value="3"]').addClass('bc-active');
+            });
+            $('button[name="btnAgreementNext"]').on('click', function() {
+                if (Pass.params.personal == {}) {
+                    alert('Data Personal cannot be empty!!!');
+                    return false;
+                } else if(Pass.params.agreement == 0) {
+                    alert('Data agreement must be checked!!!');
+                    return false;
+                }
                 var params = {
                     personal: Pass.params.personal,
                     family: Pass.params.personalFamily,
@@ -315,13 +339,21 @@
                     data: JSON.stringify(params)
                 }).done(function(result) {
                     if (result) {
+                        var data_code = { code: result };
                         $.ajax({
                             url: '/passengers/generate_code',
+                            type: 'post',
+                            dataType: 'json',
+                            data: JSON.stringify(data_code)
                         }).done(function(result) {
-                            $('#theContent').find('.preview').addClass('d-none');
+                            $('#theContent').find('.agreement').addClass('d-none');
                             $('#theContent').find('.qr_code').removeClass('d-none');
                             $('#theContent').find('.qr_code').find('img').attr('src', '/temp/' + result.name);
                             $('#theContent').find('.qr_code').find('a[name="btnSaveQR"]').attr('href', '/temp/' + result.name);
+
+                            // set active menu
+                            $('.bc-link-menu').removeClass('bc-active');
+                            $('.bc-link-menu').has('a[value="4"]').addClass('bc-active');
                         });
                     } else {
                         alert('There is something wrong, try again later..');
@@ -332,8 +364,16 @@
                 return false;
                 // end save function
             });
+            $('button[name="btnPreviewNext"]').on('click', function() {
+                $('#theContent').find('.preview').addClass('d-none');
+                $('#theContent').find('.agreement').removeClass('d-none');
+            });
 
             // prev function
+            $('button[name="btnAgreementPrev"]').on('click', function() {
+                $('#theContent').find('.agreement').addClass('d-none');
+                $('#theContent').find('.preview').removeClass('d-none');
+            });
             $('button[name="btnPreviewPrev"]').on('click', function() {
                 $('#theContent').find('.preview').addClass('d-none');
                 $('#theContent').find('.rating').removeClass('d-none');
@@ -347,7 +387,10 @@
                 $('#theContent').find('.headers').addClass('d-none');
             });
             $('button[name="btnPersonalPrev"]').on('click', function() {
-                $('#theContent').find('.headers').removeClass('d-none');
+                // $('#theContent').find('.headers').removeClass('d-none');
+                // here
+                // $('#theContent').find('.starter').removeClass('d-none');
+                $('#theContent').find('.goods_t_m3').removeClass('d-none');
                 $('#theContent').find('.passengers').addClass('d-none');
             });
             $('button[name="btnFamilyPrev"]').on('click', function() {

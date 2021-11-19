@@ -17,7 +17,7 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bc-bg">
             <div class="container-fluid justify-content-center">
-                <a class="navbar-brand text-white" href="#">
+                <a class="navbar-brand text-white" href="/">
                     <img src="/assets/img/bc_logo.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
                      ECD
                 </a>
@@ -52,11 +52,12 @@
                 <div class="shadow-lg p-2 mt-3 bc-desc bg-body rounded"><?= $desc['text2'];?></div>
             
                 <div class="mt-3" style="float: right;">
-                    <a id="starterLink" href="#" class="btn btn-outline-info"><?= $desc['button'];?></a>
+                    <a id="starterLink" href="#" class="btn btn-outline-info bc-bg"><?= $desc['button'];?></a>
                 </div>
             </div>
             <!-- end starter -->
             <!-- header -->
+            <!--
             <div class="bc-page headers mt-3 d-none">
                 <h4>Custom Declaration Online</h4><hr />
                 <table class="table table-bordered bc-width-80">
@@ -100,8 +101,9 @@
                 </table>
                 <hr />
                 <button name="btnheaderPrev" class="btn btn-outline-secondary"><?= ($en) ? 'Previous' : 'Sebelumnya';?></button>
-                <button name="btnheaderNext" class="btn btn-outline-primary" style="float: right;"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
+                <button name="btnheaderNext" class="btn btn-outline-primary bc-bg" style="float: right;"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
             </div>
+             -->
             <!-- end header -->
             <div class="bc-page passengers mt-3 d-none">
             <form name="formPassenger">
@@ -252,7 +254,7 @@
                     <!-- end card body -->
                     <div class="card-footer">
                         <button name="btnPersonalPrev" class="btn btn-outline-secondary"><?= ($en) ? 'Previous' : 'Sebelumnya';?></button>
-                        <button type="submit" name="btnPersonalNext" class="btn btn-outline-primary" style="float: right;"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
+                        <button type="submit" name="btnPersonalNext" class="btn btn-outline-primary bc-bg" style="float: right;"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
                     </div>
                 </div>
             </form>
@@ -260,7 +262,7 @@
             <!-- end passengers -->
             <div class="bc-page family-container mt-3 d-none">
                 <hr />
-                <h6><?= ($en) ? 'Family Information' : 'Informasi Keluarga'; ?></h6>
+                <h4><?= ($en) ? 'Family Information' : 'Informasi Keluarga'; ?></h4>
                 <hr />
                 <div class="mb-3">
                     <label for="familyName" class="form-label"><?= ($en) ? 'Full Name' : 'Nama Lengkap';?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'FULL NAME OF ALL YOUR FAMILY TRAVELING WITH YOU' : 'NAMA LENGKAP MASING-MASING ANGGOTA KELUARGA YANG IKUT SERTA DALAM PERJALANAN INI'; ?>"></i></label>
@@ -315,10 +317,11 @@
                     </div>
                 </div>
                 <div class="mb-3">
-                    <button name="btnSaveFamily" class="btn btn-info text-white" style="float: right;"><?= ($en) ? 'Add' : 'Tambah'; ?></button>
+                    <button name="btnSaveFamily" class="btn btn-info text-white bc-sub-menu" style="float: right;"><?= ($en) ? 'Add' : 'Tambah'; ?></button>
                 </div>
                 <!-- table family information -->
-                <table name="familyTable" class="table table-striped table-sm table-dark">
+                <!-- <div class="mt-3"></div> -->
+                <table name="familyTable" class="table table-striped table-sm bc-bg bc-mt40">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -331,7 +334,7 @@
                 </table>
 
                 <button name="btnFamilyPrev" class="btn btn-outline-secondary"><?= ($en) ? 'Previous' : 'Sebelumnya';?></button>
-                <button name="btnFamilyNext" class="btn btn-outline-primary" style="float: right;"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
+                <button name="btnFamilyNext" class="btn btn-outline-primary bc-bg" style="float: right;"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
             </div>
             <!-- end family -->
             
@@ -341,7 +344,7 @@
                     <div class="card-body bc-bg bc-desc"><?=$desc['goods']['t&m'];?></div>
                     <div class="card-footer">
                         <button name="btnGoodsTMPrev" class="btn btn-outline-secondary"><?= ($en) ? 'Previous' : 'Sebelumnya';?></button>
-                        <button name="btnGoodsTMNext" class="btn btn-outline-primary" style="float: right;"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
+                        <button name="btnGoodsTMNext" class="btn btn-outline-primary bc-bg" style="float: right;"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
                     </div>
                 </div>
             </div>
@@ -350,7 +353,7 @@
                     <div class="card-body bc-bg bc-desc"><?=$desc['goods']['t&m2'];?></div>
                     <div class="card-footer">
                         <button name="btnGoodsTM2Prev" class="btn btn-outline-secondary"><?= ($en) ? 'Previous' : 'Sebelumnya';?></button>
-                        <button name="btnGoodsTM2Next" class="btn btn-outline-primary" style="float: right;"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
+                        <button name="btnGoodsTM2Next" class="btn btn-outline-primary bc-bg" style="float: right;"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
                     </div>
                 </div>
             </div>
@@ -359,7 +362,7 @@
                     <div class="card-body bc-bg bc-desc"><?=$desc['goods']['t&m3'];?></div>
                     <div class="card-footer">
                         <button name="btnGoodsTM3Prev" class="btn btn-outline-secondary"><?= ($en) ? 'Previous' : 'Sebelumnya';?></button>
-                        <button name="btnGoodsTM3Next" class="btn btn-outline-primary" style="float: right;"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
+                        <button name="btnGoodsTM3Next" class="btn btn-outline-primary bc-bg" style="float: right;"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
                     </div>
                 </div>
             </div>
@@ -388,7 +391,7 @@
                 <hr />
                  -->
                 <?php
-                $idx = 1;
+                // $idx = 1;
                 foreach($questions as $index => $val) { ?>
                 <div class="mb-3">
                     <div class="form-check form-switch">
@@ -406,6 +409,7 @@
                         </div> 
                     </div>
                 </div>
+                <hr />
                 <!-- 
                 <div class="mb-3">
                     <label for="question_<?=$idx;?>" class="form-label"><?= $val['content']; ?></label>
@@ -418,17 +422,17 @@
                 </div>
                 -->
                 <?php
-                $idx = $idx +2;
+                // $idx = $idx +2;
                 }
                 ?>
                 <button name="btnGoodsFormPrev" class="btn btn-outline-secondary"><?= ($en) ? 'Previous' : 'Sebelumnya';?></button>
-                <button name="btnGoodsFormNext" class="btn btn-outline-primary" style="float: right;"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
+                <button name="btnGoodsFormNext" class="btn btn-outline-primary bc-bg" style="float: right;"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
             </div>
             <!-- end goods form -->
 
             <!-- goods detail -->
             <div class="bc-page goods_detail mt-3 d-none">
-                <h3><?= ($en) ? 'Detail Goods' : 'Uraian Barang';?></h3><hr />
+                <h4><?= ($en) ? 'Detail Goods' : 'Uraian Barang';?></h4><hr />
                 <p><?= ($en) ? 'In previous page, you declare:' : 'Di halaman sebelumnya Anda menyatakan membawa:';?></p>
                 <div class="goods_declare"></div>
                 <p><?= ($en) ? 'Please describe the goods (including the amount/number and value) on this form below. It is possible to input data according to the goods carried.' : 'Jelaskan detail setiap barang tersebut pada form di bawah. Anda dapat memasukkan data berulang kali sejumlah barang yang Anda bawa.';?></p>
@@ -455,11 +459,11 @@
                     
                 </div>
                 <div class="mb-3">
-                    <button name="btnSaveGoods" class="btn btn-info text-white" style="float: right;"><?=($en) ? 'Add' : 'Tambah';?></button>
+                    <button name="btnSaveGoods" class="btn btn-info text-white bc-sub-menu" style="float: right;"><?=($en) ? 'Add' : 'Tambah';?></button>
                 </div>
 
                 <!-- table of goods -->
-                <table name="goods_table" class="table table-dark table-striped table-sm">
+                <table name="goods_table" class="table bc-bg table-striped table-sm">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -472,7 +476,7 @@
                     <tbody></tbody>
                 </table>
                 <button name="btnGoodsDetailPrev" class="btn btn-outline-secondary"><?= ($en) ? 'Previous' : 'Sebelumnya';?></button>
-                <button name="btnGoodsDetailNext" class="btn btn-outline-primary" style="float: right;"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
+                <button name="btnGoodsDetailNext" class="btn btn-outline-primary bc-bg" style="float: right;"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
             </div>
             <!--end  goods detail -->
 
@@ -491,7 +495,7 @@
                     </div>
                     <div class="card-footer">
                         <button name="btnRatingPrev" class="btn btn-outline-secondary"><?= ($en) ? 'Previous' : 'Sebelumnya';?></button>
-                        <button name="btnRatingNext" class="btn btn-outline-primary" style="float: right;"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
+                        <button name="btnRatingNext" class="btn btn-outline-primary bc-bg" style="float: right;"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
                     </div>
                 </div>
             </div> 
@@ -499,8 +503,9 @@
 
             <!-- preview -->
             <div class="bc-page preview mt-3 d-none">
+                <h4><?= ($en) ? 'Review Data' : 'Review Data';?></h4><hr />
                 <p class="bc-desc"><?= ($en) ? 'Each arriving Passenger/Crew must submit  Customs Declaration (one customs declarations can be used for one family):' : 'Penumpang/Awak sarana pengangkut wajib menyerahkan Customs Declaration pada saat setiap kedatangan (satu keluarga dapat mengajukan satu Customs Declaration):'; ?></p>
-                <table class="table table-info" style="font-size: 10px;">
+                <table class="table bc-bg" style="font-size: 10px;">
                     <tbody>
                         <tr>
                             <td><?= ($en) ? 'Full Name': 'Nama Lengkap';?></td>
@@ -548,7 +553,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <table class="table" name="reviewGoods">
+                                <table class="table bc-sub-menu" name="reviewGoods">
                                     <tbody></tbody>
                                 </table>
                             </td>
@@ -559,7 +564,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <table class="table" name="reviewDetailGoods">
+                                <table class="table bc-bg" name="reviewDetailGoods">
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
@@ -579,21 +584,29 @@
                         </tr>
                     </tbody>
                 </table>
+                <button name="btnPreviewPrev" class="btn btn-outline-secondary"><?= ($en) ? 'Previous' : 'Sebelumnya';?></button>
+                <button name="btnPreviewNext" class="btn btn-primary bc-bg" style="float: right;"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
+            </div>
+            <!-- end preview -->
+            <!-- new before qr after preview -->
+            <!-- agreement -->
+            <div class="bc-page agreement mt-3 d-none">
+                <h4><?= ($en) ? 'Agreement' : 'Persetujuan';?></h4><hr />
                 <p class="bc-desc"><?= ($en) ? 'MAKING A FALSE DECLARATION CONSTITUTES SERIOUS OFFENCES WHICH ATTRACT PENALTIES OR PUNISHMENT IN ACCORDANCE WITH LAWS AND REGULATIONS.' : 'SETIAP KESALAHAN PEMBERITAHUAN PABEAN DIKENAKAN SANKSI SESUAI DENGAN PERATURAN PERUNDANG-UNDANGAN';?></p>
                 <p class="bc-desc" style="margin-bottom: -1px;"><?= ($en) ? 'I HAVE READ THE INFORMATION ON THIS FORM AND HAVE MADE A TRUTHFUL DECLARATION.' : 'SAYA TELAH MEMBACA INFORMASI PADA HALAMAN CUSTOMS DECLARATION INI DAN SAYA MENYATAKAN BAHWA YANG SAYA BERITAHUKAN ADALAH BENAR'; ?></p>
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="agreement" required>
                     <label class="form-check-label" for="agreement"><?= ($en) ? 'Accept' : 'Setuju';?></label>
                 </div>
-                <button name="btnPreviewPrev" class="btn btn-outline-secondary"><?= ($en) ? 'Previous' : 'Sebelumnya';?></button>
-                <button name="btnPreviewNext" class="btn btn-primary" style="float: right;" disabled="disabled"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
+                <button name="btnAgreementPrev" class="btn btn-outline-secondary"><?= ($en) ? 'Previous' : 'Sebelumnya';?></button>
+                <button name="btnAgreementNext" class="btn btn-primary bc-bg" style="float: right;" disabled="disabled"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
             </div>
-            <!-- end preview -->
+            <!-- end agreement -->
             <div class="bc-page qr_code mt-3 d-none">
                 <p><b><?= ($en) ? 'Thank you' : 'Terima kasih';?>,</b></p>
                 <p><?= ($en) ? 'Hand over this QR Code to Customs Officer for Customs Inspection':'Serahkan QR code ini kepada petugas penerimaan untuk melakukan pemeriksaan';?></p>
                 <img src="" style="width: 100%;"/>
-                <a href="" name="btnSaveQR" class="btn btn-outline-primary" style="float: right;" download><?= ($en) ? 'SAVE QR CODE':'SIMPAN QR CODE';?></a>
+                <a href="" name="btnSaveQR" class="btn btn-outline-primary bc-bg" style="float: right;" download><?= ($en) ? 'SAVE QR CODE':'SIMPAN QR CODE';?></a>
             </div>
         </div>
         <!-- end container -->
