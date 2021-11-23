@@ -135,8 +135,8 @@
                                     <select class="form-control" name="birthMonth" required>
                                         <option value="" selected>mm</option>
                                         <?php
-                                        for ($i=1; $i<=12; $i++) {?>
-                                        <option value="<?=$i;?>"><?=$i;?></option>
+                                        foreach ($months as $idx => $val) {?>
+                                        <option value="<?=$idx;?>"><?=$val;?></option>
                                         <?php
                                         }
                                         ?>
@@ -195,39 +195,12 @@
                             <label><?= ($en) ? 'Date of Arrival' : 'Tanggal Kedatangan'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'YOUR ARRIVAL DATE' : 'TANGGAL KEDATANGAN ANDA'; ?>"></i></label>
                             <div class="row">
                                 <div class="col">
-                                    <select class="form-control" name="arrivalDate" required>
-                                        <option value="" selected>dd</option>
-                                        <?php
-                                        for ($i=1; $i<=31; $i++) {?>
-                                        <option value="<?=$i;?>"><?=$i;?></option>
-                                        <?php
-                                        }
-                                        ?>
+                                    <select class="form-control" name="arrivalDate">
+                                        <option value="<?=date('Y-m-d');?>"><?=date('d M Y');?></option>
+                                        <option value="<?=date('Y-m-d',strtotime(date('Y-m-d') . "+1 days"));?>"><?=date('d M Y',strtotime(date('Y-m-d') . "+1 days"));?></option>
+                                        <option value="<?=date('Y-m-d',strtotime(date('Y-m-d') . "+2 days"));?>"><?=date('d M Y',strtotime(date('Y-m-d') . "+2 days"));?></option>
                                     </select>
                                     <!-- <input name="familyBirthDate" class="form-control" type="number" min="1" max="31" placeholder="dd" /> -->
-                                </div>
-                                <div class="col">
-                                    <select class="form-control" name="arrivalMonth" required>
-                                        <option value="" selected>mm</option>
-                                        <?php
-                                        for ($i=1; $i<=12; $i++) {?>
-                                        <option value="<?=$i;?>"><?=$i;?></option>
-                                        <?php
-                                        }
-                                        ?>
-                                    </select>
-                                    <!-- <input name="familyBirthDate" class="form-control" type="number" min="1" max="31" placeholder="dd" /> -->
-                                </div>
-                                <div class="col">
-                                    <select class="form-control" name="arrivalYear" required>
-                                        <option value="" selected>yyyy</option>
-                                        <?php
-                                        for ($i=date('Y'); $i<=(date('Y')+1); $i++) {?>
-                                        <option value="<?=$i;?>"><?=$i;?></option>
-                                        <?php
-                                        }
-                                        ?>
-                                    </select>
                                 </div>
                             </div>
                             <!--

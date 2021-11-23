@@ -99,6 +99,8 @@ class Passengers extends CI_Controller {
         // print_r($data['country']); exit();
         $data['questions'] = $this->passenger_model->get_questions($en);
         $data['en'] = $en;
+        $this->load->helper('my_helper');
+        $data['months'] = month_list();
 		$this->load->view('passengers', $data);
 	}
 
