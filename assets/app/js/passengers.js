@@ -398,7 +398,7 @@
                 $('#theContent').find('.family-container').addClass('d-none');
             });
             $('button[name="btnGoodsTMPrev"]').on('click', function() {
-                $('#theContent').find('.family-container').removeClass('d-none');
+                $('#theContent').find('.starter').removeClass('d-none');
                 $('#theContent').find('.goods_t_m').addClass('d-none');
             });
             $('button[name="btnGoodsTM2Prev"]').on('click', function() {

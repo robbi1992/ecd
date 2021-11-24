@@ -48,8 +48,8 @@
                 </div>
             </div>
             <div class="bc-page starter">
-                <div class="shadow-lg p-2 mt-3 bc-desc bg-body rounded"><?= $desc['text1'];?></div>
-                <div class="shadow-lg p-2 mt-3 bc-desc bg-body rounded"><?= $desc['text2'];?></div>
+                <div class="shadow-lg p-2 mt-3 bc-bg bc-desc rounded"><?= $desc['text1'];?></div>
+                <div class="shadow-lg p-2 mt-3 bc-bg bc-desc rounded"><?= $desc['text2'];?></div>
             
                 <div class="mt-3" style="float: right;">
                     <a id="starterLink" href="#" class="btn btn-outline-info bc-bg"><?= $desc['button'];?></a>
@@ -294,7 +294,7 @@
                 </div>
                 <!-- table family information -->
                 <!-- <div class="mt-3"></div> -->
-                <table name="familyTable" class="table table-striped table-sm bc-bg bc-mt40">
+                <table name="familyTable" class="table table-striped table-sm bc-mt40">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -436,7 +436,7 @@
                 </div>
 
                 <!-- table of goods -->
-                <table name="goods_table" class="table bc-bg table-striped table-sm">
+                <table name="goods_table" class="table table-striped table-sm">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -478,7 +478,7 @@
             <div class="bc-page preview mt-3 d-none">
                 <h4><?= ($en) ? 'Review Data' : 'Review Data';?></h4><hr />
                 <p class="bc-desc"><?= ($en) ? 'Each arriving Passenger/Crew must submit  Customs Declaration (one customs declarations can be used for one family):' : 'Penumpang/Awak sarana pengangkut wajib menyerahkan Customs Declaration pada saat setiap kedatangan (satu keluarga dapat mengajukan satu Customs Declaration):'; ?></p>
-                <table class="table bc-bg" style="font-size: 10px;">
+                <table class="table table-bordered" style="font-size: 10px;">
                     <tbody>
                         <tr>
                             <td><?= ($en) ? 'Full Name': 'Nama Lengkap';?></td>
@@ -537,7 +537,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <table class="table bc-bg" name="reviewDetailGoods">
+                                <table class="table" name="reviewDetailGoods">
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
