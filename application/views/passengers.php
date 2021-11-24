@@ -265,8 +265,8 @@
                             <select class="form-control" name="familyBirthMonth" required>
                                 <option value="" selected>mm</option>
                                 <?php
-                                for ($i=1; $i<=12; $i++) {?>
-                                <option value="<?=$i;?>"><?=$i;?></option>
+                                foreach ($months as $idx => $val) {?>
+                                <option value="<?=$idx;?>"><?=$val;?></option>
                                 <?php
                                 }
                                 ?>
@@ -300,7 +300,7 @@
                             <th scope="col">#</th>
                             <th scope="col"><?= ($en) ? 'Name' : 'Nama';?></th>
                             <th scope="col"><?= ($en) ? 'Passport ID' : 'No. Paspor';?></th>
-                            <th scope="col"><?= ($en) ? 'Tgl Lahir' : 'Birth Date';?></th>
+                            <th scope="col"><?= ($en) ? 'Birth Date' : 'Tgl Lahir';?></th>
                         </tr>
                     </thead>
                     <tbody></tbody>
