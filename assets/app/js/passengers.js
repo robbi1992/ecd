@@ -26,6 +26,53 @@
             newValue = value.split('.').join('');
             return newValue;
         },
+        saveData: function() {
+            if (Pass.params.personal == {}) {
+                alert('Data Personal cannot be empty!!!');
+                return false;
+            } else if(Pass.params.agreement == 0) {
+                alert('Data agreement must be checked!!!');
+                return false;
+            }
+            var params = {
+                personal: Pass.params.personal,
+                family: Pass.params.personalFamily,
+                goodsDetail: Pass.params.goodsDetail,
+                answer: Pass.params.questionAnswer,
+                rating: Pass.params.rating
+            }
+            $.ajax({
+                url: '/passengers/save_data',
+                type: 'post',
+                dataType: 'json',
+                data: JSON.stringify(params)
+            }).done(function(result) {
+                if (result) {
+                    var data_code = { code: result };
+                    $.ajax({
+                        url: '/passengers/generate_code',
+                        type: 'post',
+                        dataType: 'json',
+                        data: JSON.stringify(data_code)
+                    }).done(function(result) {
+                        $('#theContent').find('.rating').addClass('d-none');
+                        $('#theContent').find('.qr_code').removeClass('d-none');
+                        $('#theContent').find('.qr_code').find('img').attr('src', '/temp/' + result.name);
+                        $('#theContent').find('.qr_code').find('a[name="btnSaveQR"]').attr('href', '/temp/' + result.name);
+
+                        // set active menu
+                        $('.bc-link-menu').removeClass('bc-active');
+                        $('.bc-link-menu').has('a[value="4"]').addClass('bc-active');
+                    });
+                } else {
+                    alert('There is something wrong, try again later..');
+                }  
+            }).fail(function() {
+                alert('There is something wrong, try again later..');
+            });
+            return false;
+            // end save function
+        },
         init: function() {
             $('.bc-link').on('click', function() {
                 // console.log('ok');
@@ -44,6 +91,10 @@
                     $('.preview').removeClass('d-none');
                 } else if (value == '4') {
                     $('.qr_code').removeClass('d-none');
+                } else if (value == '5') {
+                    $('.goods_t_m').removeClass('d-none');
+                } else if (value == '6') {
+                    $('.rating').removeClass('d-none');
                 }
             });
             $('#agreement').on('change', function() {
@@ -55,41 +106,16 @@
                     $('button[name="btnAgreementNext"]').attr('disabled', 'disabled');
                     Pass.params.agreement = 0;
                 }
-
-                // console.log(checked);
             });
-            // clear all cached data
-            // no need for now
-            /*
-            Pass.params.personal = {};
-            Pass.params.personalFamily = [];
-            Pass.params.questionAnswer = [];
-            Pass.params.rating = 0;
-            */
             
             $('#starterLink').on('click', function(){
                 $('#theContent').find('.starter').addClass('d-none');
                 $('#theContent').find('.goods_t_m').removeClass('d-none');
-            });
-            /*
-            // header not used
-            $('button[name="btnheaderNext"]').on('click', function(){
-                $('#theContent').find('.headers').addClass('d-none');
-                $('#theContent').find('.passengers').removeClass('d-none');
-            });
-            */
 
-            // family numbers
-            // family changed on diff page
-            /*
-            $('#familyNumber').on('change', function() {
-                if (parseInt($(this).val()) > 0) {
-                    $('.family-container').removeClass('d-none');
-                } else {
-                    $('.family-container').addClass('d-none');
-                } 
+                // set active menu
+                $('.bc-link-menu').removeClass('bc-active');
+                $('.bc-link-menu').has('a[value="5"]').addClass('bc-active');
             });
-            */
 
             // action next after personal data filled
             $('form[name="formPassenger"]').on('submit', function() {
@@ -139,10 +165,10 @@
 
                     $.each(goodsDetail, function(index, value) {
                         var row = '<tr index="'+index+'">\
-                            <th class="text-white" scope="row">' + number + '</th>\
-                            <td class="text-white">'+value.desc+'</td>\
-                            <td class="text-white">'+value.amount+'</td>\
-                            <td class="text-white">'+Pass.setIdr(value.value)+' '+value.currency+'</td>\
+                            <th scope="row">' + number + '</th>\
+                            <td>'+value.desc+'</td>\
+                            <td>'+value.amount+'</td>\
+                            <td>'+Pass.setIdr(value.value)+' '+value.currency+'</td>\
                         </tr>';
                         theBody.append(row);
                         number++;
@@ -180,10 +206,10 @@
                     var number = 1;
                     $.each(personalFamily, function(index, value) {
                         var row = '<tr index="'+index+'">\
-                            <th class="text-white" scope="row">' + number + '</th>\
-                            <td class="text-white">'+value.name+'</td>\
-                            <td class="text-white">'+value.passport+'</td>\
-                            <td class="text-white">'+value.birthText+'</td>\
+                            <th scope="row">' + number + '</th>\
+                            <td>'+value.name+'</td>\
+                            <td>'+value.passport+'</td>\
+                            <td>'+value.birthText+'</td>\
                         </tr>';
                         theBody.append(row);
                         number++;
@@ -264,13 +290,12 @@
                 }
                 $('#theContent').find('.goods_form').addClass('d-none');
             });
+            // goodsdetail next to preview then aggreement
+            // rating after agreement
             $('button[name="btnGoodsDetailNext"]').on('click', function() {
-                $('#theContent').find('.rating').removeClass('d-none');
+                $('#theContent').find('.preview').removeClass('d-none');
                 $('#theContent').find('.goods_detail').addClass('d-none');
-            });
-            $('button[name="btnRatingNext"]').on('click', function() {
-                $('#theContent').find('.rating').addClass('d-none');
-                // set value of review
+
                 $('span[name="reviewName"]').html(Pass.params.personal.name);
                 $('span[name="reviewBirth"]').html(Pass.params.personal.birth);
                 $('span[name="reviewNation"]').html(Pass.params.personal.nationalityText);
@@ -312,57 +337,69 @@
                 }
 
                 $('#theContent').find('.preview').removeClass('d-none');
-
+                
                 // set active menu
                 $('.bc-link-menu').removeClass('bc-active');
                 $('.bc-link-menu').has('a[value="3"]').addClass('bc-active');
             });
-            $('button[name="btnAgreementNext"]').on('click', function() {
-                if (Pass.params.personal == {}) {
-                    alert('Data Personal cannot be empty!!!');
-                    return false;
-                } else if(Pass.params.agreement == 0) {
-                    alert('Data agreement must be checked!!!');
-                    return false;
-                }
-                var params = {
-                    personal: Pass.params.personal,
-                    family: Pass.params.personalFamily,
-                    goodsDetail: Pass.params.goodsDetail,
-                    answer: Pass.params.questionAnswer,
-                    rating: Pass.params.rating
-                }
-                $.ajax({
-                    url: '/passengers/save_data',
-                    type: 'post',
-                    dataType: 'json',
-                    data: JSON.stringify(params)
-                }).done(function(result) {
-                    if (result) {
-                        var data_code = { code: result };
-                        $.ajax({
-                            url: '/passengers/generate_code',
-                            type: 'post',
-                            dataType: 'json',
-                            data: JSON.stringify(data_code)
-                        }).done(function(result) {
-                            $('#theContent').find('.agreement').addClass('d-none');
-                            $('#theContent').find('.qr_code').removeClass('d-none');
-                            $('#theContent').find('.qr_code').find('img').attr('src', '/temp/' + result.name);
-                            $('#theContent').find('.qr_code').find('a[name="btnSaveQR"]').attr('href', '/temp/' + result.name);
+            $('button[name="btnRatingNext"]').on('click', function() {
+                Pass.saveData();
+                // $('#theContent').find('.rating').addClass('d-none');
+                // set value of review
+                /*
+                $('span[name="reviewName"]').html(Pass.params.personal.name);
+                $('span[name="reviewBirth"]').html(Pass.params.personal.birth);
+                $('span[name="reviewNation"]').html(Pass.params.personal.nationalityText);
+                $('span[name="reviewPassport"]').html(Pass.params.personal.passport);
+                $('span[name="reviewAddress"]').html(Pass.params.personal.address);
+                $('span[name="reviewFlight"]').html(Pass.params.personal.flight);
+                $('span[name="reviewArrival"]').html(Pass.params.personal.arrival);
+                $('span[name="reviewBaggageIn"]').html(Pass.params.personal.baggageIn);
+                $('span[name="reviewBaggageEx"]').html(Pass.params.personal.baggageEx);
+                $('span[name="reviewNumofFamily"]').html(Pass.params.personalFamily.length);
 
-                            // set active menu
-                            $('.bc-link-menu').removeClass('bc-active');
-                            $('.bc-link-menu').has('a[value="4"]').addClass('bc-active');
-                        });
-                    } else {
-                        alert('There is something wrong, try again later..');
-                    }  
-                }).fail(function() {
-                    alert('There is something wrong, try again later..');
-                });
-                return false;
-                // end save function
+                // render table review of goods
+                var theContainer = $('table[name="reviewGoods"]').find('tbody').empty();
+                if (Pass.params.questionAnswer.length > 0) {
+                    $.each(Pass.params.questionAnswer, function(index, value) {
+                        var row = '<tr>\
+                            <td class="text-white">' + value.text + '</td>\
+                        </tr>';
+
+                        theContainer.append(row);
+                    });
+                }
+
+                // render table of goods detail
+                var theContainer = $('table[name="reviewDetailGoods"]').find('tbody').empty();
+                if (Pass.params.goodsDetail.length > 0) {
+                    var number = 1;
+                    $.each(Pass.params.goodsDetail, function(index, value) {
+                        var row = '<tr>\
+                            <td>' + number + '</td>\
+                            <td>' + value.desc + '</td>\
+                            <td>' + value.amount + '</td>\
+                            <td>' + Pass.setIdr(value.value) + ' ' + value.currency + '</td>\
+                        </tr>';
+
+                        theContainer.append(row);
+                        number++;
+                    });
+                }
+
+                $('#theContent').find('.preview').removeClass('d-none');
+                */
+                // set active menu
+                // $('.bc-link-menu').removeClass('bc-active');
+                // $('.bc-link-menu').has('a[value="3"]').addClass('bc-active');
+            });
+            $('button[name="btnAgreementNext"]').on('click', function() {
+                $('#theContent').find('.agreement').addClass('d-none');
+                $('#theContent').find('.rating').removeClass('d-none');
+
+                // set active menu
+                $('.bc-link-menu').removeClass('bc-active');
+                $('.bc-link-menu').has('a[value="6"]').addClass('bc-active');
             });
             $('button[name="btnPreviewNext"]').on('click', function() {
                 $('#theContent').find('.preview').addClass('d-none');
@@ -374,13 +411,14 @@
                 $('#theContent').find('.agreement').addClass('d-none');
                 $('#theContent').find('.preview').removeClass('d-none');
             });
+            // preview prev be goodsdetail
             $('button[name="btnPreviewPrev"]').on('click', function() {
                 $('#theContent').find('.preview').addClass('d-none');
-                $('#theContent').find('.rating').removeClass('d-none');
+                $('#theContent').find('.goods_detail').removeClass('d-none');
             });
             $('button[name="btnRatingPrev"]').on('click', function() {
                 $('#theContent').find('.rating').addClass('d-none');
-                $('#theContent').find('.goods_detail').removeClass('d-none');
+                $('#theContent').find('.agreement').removeClass('d-none');
             });
             $('button[name="btnheaderPrev"]').on('click', function() {
                 $('#theContent').find('.starter').removeClass('d-none');

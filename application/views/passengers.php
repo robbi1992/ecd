@@ -28,6 +28,10 @@
         <!-- end shortcut menu -->
         <div class="container" id="theContent">
             <div class="row bc-sub-menu text-center">
+                <div class="col-1 bc-link-menu">
+                    <a value="5" class="text-white bc-link" href="#" title="Term&Condition"><i class="fa fa-file-contract"></i></a>
+                </div>
+                <!--  -->
                 <div class="col-2 bc-link-menu">
                     <a value="0" class="text-white bc-link" href="#" title="Personal"><i class="fa fa-id-card"></i></a>
                 </div>
@@ -41,70 +45,30 @@
                     <a value="3" class="text-white bc-link" href="#" title="Preview"><i class="fa fa-eye"></i></a>
                 </div>
                 <div class="col-2 bc-link-menu">
-                    <a value="4" class="text-white bc-link" href="#" title="QR Code"><i class="fa fa-qrcode"></i></a>
+                    <a value="6" class="text-white bc-link" href="#" title="Rating"><i class="fa fa-star"></i></a>
                 </div>
-                <div class="col-2 bc-link-menu">
-                    &nbsp;
+                <div class="col-1 bc-link-menu">
+                    <a value="4" class="text-white bc-link" href="#" title="QR Code"><i class="fa fa-qrcode"></i></a>
                 </div>
             </div>
             <div class="bc-page starter">
-                <div class="shadow-lg p-2 mt-3 bc-bg bc-desc rounded"><?= $desc['text1'];?></div>
-                <div class="shadow-lg p-2 mt-3 bc-bg bc-desc rounded"><?= $desc['text2'];?></div>
-            
+                <div class="card mt-3">
+                    <div class="card-header bc-bg">
+                        <?= ($en) ? 'Welcome':'Selamat Datang';?>
+                    </div>
+                    <div class="card-body bc-desc">
+                        <p><?=$desc['text1'];?></p>
+                        <p><?=$desc['text2'];?></p>
+                    </div>
+                </div>
+                <!-- <div class="shadow-lg p-2 mt-3 bc-bg bc-desc rounded"><?= $desc['text1'];?></div> -->
+                <!-- <div class="shadow-lg p-2 mt-3 bc-bg bc-desc rounded"><?= $desc['text2'];?></div> -->
                 <div class="mt-3" style="float: right;">
                     <a id="starterLink" href="#" class="btn btn-outline-info bc-bg"><?= $desc['button'];?></a>
                 </div>
             </div>
             <!-- end starter -->
-            <!-- header -->
-            <!--
-            <div class="bc-page headers mt-3 d-none">
-                <h4>Custom Declaration Online</h4><hr />
-                <table class="table table-bordered bc-width-80">
-                    <tbody>
-                        <tr>
-                            <td rowspan="4" class="bc-bg header-title">1</td>
-                            <td><b><?= ($en) ? 'Passenger':'Data Penumpang';?></b></td>
-                        </tr>
-                        <tr>
-                            <td class="bc-desc" rowspan="3"><?= ($en) ? 'Fill in the list and passenger data':'Isi daftar dan biodata Penumpang';?></td>
-                        </tr>
-                        <tr></tr>
-                        <tr></tr>
-                    </tbody>
-                </table>
-                <table class="table table-bordered bc-width-80 bc-margin">
-                    <tbody>
-                        <tr>
-                            <td rowspan="4" class="bg-success header-title">2</td>
-                            <td><b><?= ($en) ? 'Goods':'Barang';?></b></td>
-                        </tr>
-                        <tr>
-                            <td class="bc-desc" rowspan="3"><?= ($en) ? 'Fill in passenger luggage':'Isi daftar barang bawaan Penumpang';?></td>
-                        </tr>
-                        <tr></tr>
-                        <tr></tr>
-                    </tbody>
-                </table>
-                <table class="table table-bordered bc-width-80 bc-margin">
-                    <tbody>
-                        <tr>
-                            <td rowspan="4" class="bg-success header-title">3</td>
-                            <td><b><?= ($en) ? 'Verification':'Penyelesaian';?></b></td>
-                        </tr>
-                        <tr>
-                            <td class="bc-desc" rowspan="3"><?= ($en) ? 'Data Verification':'Verifikasi data';?></td>
-                        </tr>
-                        <tr></tr>
-                        <tr></tr>
-                    </tbody>
-                </table>
-                <hr />
-                <button name="btnheaderPrev" class="btn btn-outline-secondary"><?= ($en) ? 'Previous' : 'Sebelumnya';?></button>
-                <button name="btnheaderNext" class="btn btn-outline-primary bc-bg" style="float: right;"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
-            </div>
-             -->
-            <!-- end header -->
+            
             <div class="bc-page passengers mt-3 d-none">
             <form name="formPassenger">
                 <div class="card">
@@ -234,87 +198,96 @@
             </div>
             <!-- end passengers -->
             <div class="bc-page family-container mt-3 d-none">
-                <hr />
-                <h4><?= ($en) ? 'Family Information' : 'Informasi Keluarga'; ?></h4>
-                <hr />
-                <div class="mb-3">
-                    <label for="familyName" class="form-label"><?= ($en) ? 'Full Name' : 'Nama Lengkap';?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'FULL NAME OF ALL YOUR FAMILY TRAVELING WITH YOU' : 'NAMA LENGKAP MASING-MASING ANGGOTA KELUARGA YANG IKUT SERTA DALAM PERJALANAN INI'; ?>"></i></label>
-                    <input type="text" class="form-control" id="familyName" name="familyName">
-                </div>
-                <div class="mb-3">
-                    <label for="familyPassport" class="form-label"><?= ($en) ? 'Number of Passport' : 'Nomor Paspor';?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'PASSPORT NUMBER OF ALL YOUR FAMILY TRAVELING WITH YOU' : 'NOMOR PASPOR MASING-MASING ANGGOTA KELUARGA YANG IKUT SERTA DALAM PERJALANAN INI';?>"></i></label>
-                    <input type="text" class="form-control" id="familyPassport" name="familyPassport">
-                </div>
-                <!-- added on 8 Nov 2021 -->
-                <div class="mb-3">
-                    <label><?= ($en) ? 'Date of Birth' : 'Tanggal Lahir'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'YOUR DATE OF BIRTH OF ALL YOUR FAMILY TRAVELING WITH YOU' : 'TANGGAL LAHIR ANDA (H-B-T) MASING-MASING ANGGOTA KELUARGA YANG IKUT SERTA DALAM PERJALANAN INI'; ?>"></i></label>
-                    <div class="row">
-                        <div class="col">
-                            <select class="form-control" name="familyBirthDate" required>
-                                <option value="" selected>dd</option>
-                                <?php
-                                for ($i=1; $i<=31; $i++) {?>
-                                <option value="<?=$i;?>"><?=$i;?></option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                            <!-- <input name="familyBirthDate" class="form-control" type="number" min="1" max="31" placeholder="dd" /> -->
+                <div class="card">
+                    <div class="card-header bc-bg">
+                        <?= ($en) ? 'Family Information' : 'Informasi Keluarga'; ?>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="familyName" class="form-label"><?= ($en) ? 'Full Name' : 'Nama Lengkap';?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'FULL NAME OF ALL YOUR FAMILY TRAVELING WITH YOU' : 'NAMA LENGKAP MASING-MASING ANGGOTA KELUARGA YANG IKUT SERTA DALAM PERJALANAN INI'; ?>"></i></label>
+                            <input type="text" class="form-control" id="familyName" name="familyName">
                         </div>
-                        <div class="col">
-                            <select class="form-control" name="familyBirthMonth" required>
-                                <option value="" selected>mm</option>
-                                <?php
-                                foreach ($months as $idx => $val) {?>
-                                <option value="<?=$idx;?>"><?=$val;?></option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                            <!-- <input name="familyBirthDate" class="form-control" type="number" min="1" max="31" placeholder="dd" /> -->
+                        <div class="mb-3">
+                            <label for="familyPassport" class="form-label"><?= ($en) ? 'Number of Passport' : 'Nomor Paspor';?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'PASSPORT NUMBER OF ALL YOUR FAMILY TRAVELING WITH YOU' : 'NOMOR PASPOR MASING-MASING ANGGOTA KELUARGA YANG IKUT SERTA DALAM PERJALANAN INI';?>"></i></label>
+                            <input type="text" class="form-control" id="familyPassport" name="familyPassport">
                         </div>
-                        <div class="col">
-                            <select class="form-control" name="familyBirthYear" required>
-                                <option value="" selected>yyyy</option>
-                                <?php
-                                for ($i=date('Y'); $i>=1; $i--) {?>
-                                <option value="<?=$i;?>"><?=$i;?></option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                            <!-- <input name="familyBirthDate" class="form-control" type="number" min="1" max="31" placeholder="dd" /> -->
+                        <!-- added on 8 Nov 2021 -->
+                        <div class="mb-3">
+                            <label><?= ($en) ? 'Date of Birth' : 'Tanggal Lahir'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'YOUR DATE OF BIRTH OF ALL YOUR FAMILY TRAVELING WITH YOU' : 'TANGGAL LAHIR ANDA (H-B-T) MASING-MASING ANGGOTA KELUARGA YANG IKUT SERTA DALAM PERJALANAN INI'; ?>"></i></label>
+                            <div class="row">
+                                <div class="col">
+                                    <select class="form-control" name="familyBirthDate" required>
+                                        <option value="" selected>dd</option>
+                                        <?php
+                                        for ($i=1; $i<=31; $i++) {?>
+                                        <option value="<?=$i;?>"><?=$i;?></option>
+                                        <?php
+                                        }
+                                        ?>
+                                    </select>
+                                    <!-- <input name="familyBirthDate" class="form-control" type="number" min="1" max="31" placeholder="dd" /> -->
+                                </div>
+                                <div class="col">
+                                    <select class="form-control" name="familyBirthMonth" required>
+                                        <option value="" selected>mm</option>
+                                        <?php
+                                        foreach ($months as $idx => $val) {?>
+                                        <option value="<?=$idx;?>"><?=$val;?></option>
+                                        <?php
+                                        }
+                                        ?>
+                                    </select>
+                                    <!-- <input name="familyBirthDate" class="form-control" type="number" min="1" max="31" placeholder="dd" /> -->
+                                </div>
+                                <div class="col">
+                                    <select class="form-control" name="familyBirthYear" required>
+                                        <option value="" selected>yyyy</option>
+                                        <?php
+                                        for ($i=date('Y'); $i>=1; $i--) {?>
+                                        <option value="<?=$i;?>"><?=$i;?></option>
+                                        <?php
+                                        }
+                                        ?>
+                                    </select>
+                                    <!-- <input name="familyBirthDate" class="form-control" type="number" min="1" max="31" placeholder="dd" /> -->
+                                </div>
+                                <!-- <div class="col"><input name="familyBirthMonth" class="form-control" type="number" min="1" max="12" placeholder="mm" /></div> -->
+                                <!-- <div class="col"><input name="familyBirthYear" class="form-control" type="number" min="1800" max="<?= date('Y');?>" placeholder="yyyy" /></div> -->
+                            </div>
                         </div>
-                        <!-- <div class="col"><input name="familyBirthMonth" class="form-control" type="number" min="1" max="12" placeholder="mm" /></div> -->
-                        <!-- <div class="col"><input name="familyBirthYear" class="form-control" type="number" min="1800" max="<?= date('Y');?>" placeholder="yyyy" /></div> -->
+                        <div class="mb-3">
+                            <button name="btnSaveFamily" class="btn btn-info text-white bc-sub-menu" style="float: right;"><?= ($en) ? 'Add' : 'Tambah'; ?></button>
+                        </div>
+                        <!-- table family information -->
+                        <table name="familyTable" class="table table-striped table-sm bc-mt40">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col"><?= ($en) ? 'Name' : 'Nama';?></th>
+                                    <th scope="col"><?= ($en) ? 'Passport ID' : 'No. Paspor';?></th>
+                                    <th scope="col"><?= ($en) ? 'Birth Date' : 'Tgl Lahir';?></th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    <!-- end card body -->
+                    <div class="card-footer">
+                        <button name="btnFamilyPrev" class="btn btn-outline-secondary"><?= ($en) ? 'Previous' : 'Sebelumnya';?></button>
+                        <button name="btnFamilyNext" class="btn btn-outline-primary bc-bg" style="float: right;"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
                     </div>
                 </div>
-                <div class="mb-3">
-                    <button name="btnSaveFamily" class="btn btn-info text-white bc-sub-menu" style="float: right;"><?= ($en) ? 'Add' : 'Tambah'; ?></button>
-                </div>
-                <!-- table family information -->
-                <!-- <div class="mt-3"></div> -->
-                <table name="familyTable" class="table table-striped table-sm bc-mt40">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col"><?= ($en) ? 'Name' : 'Nama';?></th>
-                            <th scope="col"><?= ($en) ? 'Passport ID' : 'No. Paspor';?></th>
-                            <th scope="col"><?= ($en) ? 'Birth Date' : 'Tgl Lahir';?></th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-
-                <button name="btnFamilyPrev" class="btn btn-outline-secondary"><?= ($en) ? 'Previous' : 'Sebelumnya';?></button>
-                <button name="btnFamilyNext" class="btn btn-outline-primary bc-bg" style="float: right;"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
+                <!-- end card -->
             </div>
             <!-- end family -->
             
             <!-- goods term & conditions -->
             <div class="bc-page goods_t_m mt-3 d-none">
                 <div class="card">
-                    <div class="card-body bc-bg bc-desc"><?=$desc['goods']['t&m'];?></div>
+                    <div class="card-header bc-bg">
+                        <?=($en) ? 'Personal Goods' : 'Barang Pribadi';?>
+                    </div>
+                    <div class="card-body bc-desc"><?=$desc['goods']['t&m'];?></div>
                     <div class="card-footer">
                         <button name="btnGoodsTMPrev" class="btn btn-outline-secondary"><?= ($en) ? 'Previous' : 'Sebelumnya';?></button>
                         <button name="btnGoodsTMNext" class="btn btn-outline-primary bc-bg" style="float: right;"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
@@ -323,7 +296,10 @@
             </div>
             <div class="bc-page goods_t_m2 mt-3 d-none">
                 <div class="card">
-                    <div class="card-body bc-bg bc-desc"><?=$desc['goods']['t&m2'];?></div>
+                    <div class="card-header bc-bg">
+                        <?=($en) ? 'Term - Custom Goods' : 'Ketentuan - Barang Kena Cukai';?>
+                    </div>
+                    <div class="card-body bc-desc"><?=$desc['goods']['t&m2'];?></div>
                     <div class="card-footer">
                         <button name="btnGoodsTM2Prev" class="btn btn-outline-secondary"><?= ($en) ? 'Previous' : 'Sebelumnya';?></button>
                         <button name="btnGoodsTM2Next" class="btn btn-outline-primary bc-bg" style="float: right;"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
@@ -332,7 +308,10 @@
             </div>
             <div class="bc-page goods_t_m3 mt-3 d-none">
                 <div class="card">
-                    <div class="card-body bc-bg bc-desc"><?=$desc['goods']['t&m3'];?></div>
+                    <div class="card-header bc-bg">
+                        <?=($en) ? 'Term - Custom Goods' : 'Ketentuan - Barang Kena Cukai';?>
+                    </div>
+                    <div class="card-body bc-desc"><?=$desc['goods']['t&m3'];?></div>
                     <div class="card-footer">
                         <button name="btnGoodsTM3Prev" class="btn btn-outline-secondary"><?= ($en) ? 'Previous' : 'Sebelumnya';?></button>
                         <button name="btnGoodsTM3Next" class="btn btn-outline-primary bc-bg" style="float: right;"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
@@ -343,26 +322,13 @@
 
             <!-- goods form -->
             <div class="bc-page goods_form mt-3 d-none">
-                <h3><?= ($en) ? 'Goods' : 'Barang';?></h3><hr />
-                <?= ($en) ? 'I declare my belonging:' : 'Saya membawa'; ?>: <hr />
-                <!-- 
-                <div class="row">
-                    <div class="col-4"><b><?= ($en) ? 'Note' : 'Penting';?>:</b></div>
-                    <div class="col-2">
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" disabled checked />
-                        </div>
+                <div class="card">
+                    <div class="card-header bc-bg">
+                        <?= ($en) ? 'Goods' : 'Barang';?>
                     </div>
-                    <div class="col-2"><?= ($en) ? 'Yes':'Ya';?></div>
-                    <div class="col-2">
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" disabled />
-                        </div>
-                    </div>
-                    <div class="col-2"><?= ($en) ? 'No':'Tidak';?></div>
                 </div>
                 <hr />
-                 -->
+                <?= ($en) ? 'I declare my belonging:' : 'Saya membawa'; ?>: <hr />
                 <?php
                 // $idx = 1;
                 foreach($questions as $index => $val) { ?>
@@ -370,32 +336,18 @@
                     <div class="form-check form-switch">
                         <div class="row" style="margin-left: calc(-1.5 * var(--bs-gutter-x));">
                             <div class="col-9"><label style="font-size: 14px;" class="form-check-label" for="question_<?=$val['id'];?>"><?= $val['content']; ?></label></div>
-                            <!-- <div class="col-1">&nbsp;</div> -->
                             <div class="col-3">
                                 <label class="switch">
                                     <input class="switch-input" type="checkbox" id="question_<?=$val['id'];?>" name="question_<?=$val['id'];?>" />
                                     <span class="switch-label" data-on="<?= ($en) ? 'Yes':'Ya';?>" data-off="<?= ($en) ? 'No':'Tidak';?>"></span> 
                                     <span class="switch-handle"></span> 
                                 </label>
-                                <!-- <input class="form-check-input" type="checkbox" id="question_<?=$val['id'];?>" name="question_<?=$val['id'];?>"> -->
                             </div>
                         </div> 
                     </div>
                 </div>
                 <hr />
-                <!-- 
-                <div class="mb-3">
-                    <label for="question_<?=$idx;?>" class="form-label"><?= $val['content']; ?></label>
-                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                        <input value="1" type="radio" class="btn-check" name="question_<?=$val['id'];?>" id="question_<?=$idx;?>">
-                        <label class="btn btn-outline-primary" for="question_<?=$idx;?>"><?= ($en) ? 'Yes':'Ya';?></label>
-                        <input value="0" type="radio" class="btn-check" name="question_<?=$val['id'];?>" id="question_<?=$idx+1;?>">
-                        <label class="btn btn-outline-primary" for="question_<?=$idx+1;?>"><?= ($en) ? 'No':'Tidak';?></label>
-                    </div>
-                </div>
-                -->
                 <?php
-                // $idx = $idx +2;
                 }
                 ?>
                 <button name="btnGoodsFormPrev" class="btn btn-outline-secondary"><?= ($en) ? 'Previous' : 'Sebelumnya';?></button>
@@ -405,12 +357,18 @@
 
             <!-- goods detail -->
             <div class="bc-page goods_detail mt-3 d-none">
-                <h4><?= ($en) ? 'Detail Goods' : 'Uraian Barang';?></h4><hr />
-                <p><?= ($en) ? 'In previous page, you declare:' : 'Di halaman sebelumnya Anda menyatakan membawa:';?></p>
-                <div class="goods_declare"></div>
-                <p><?= ($en) ? 'Please describe the goods (including the amount/number and value) on this form below. It is possible to input data according to the goods carried.' : 'Jelaskan detail setiap barang tersebut pada form di bawah. Anda dapat memasukkan data berulang kali sejumlah barang yang Anda bawa.';?></p>
-                <hr />
-                <div class="mb-3">
+                <div class="card">
+                    <div class="card-header bc-bg">
+                        <?= ($en) ? 'Detail Goods' : 'Uraian Barang';?>
+                    </div>
+                    <div class="card-body">
+                        <p style="font-size: 14px;"><?= ($en) ? 'In previous page, you declare:' : 'Di halaman sebelumnya Anda menyatakan membawa:';?></p>
+                        <div style="font-size: 14px;" class="goods_declare"></div>
+                        <p style="font-size: 14px;"><?= ($en) ? 'Please describe the goods (including the amount/number and value) on this form below. It is possible to input data according to the goods carried.' : 'Jelaskan detail setiap barang tersebut pada form di bawah. Anda dapat memasukkan data berulang kali sejumlah barang yang Anda bawa.';?></p>
+                    </div>
+                </div>
+                <!-- end card -->
+                <div class="mb-3 mt-3">
                     <label for="goodsDesc" class="form-label"><?= ($en) ? 'Description of Goods':'Uraian Barang';?><span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="goodsDesc" name="goodsDesc">
                 </div>
@@ -457,7 +415,7 @@
             <div class="bc-page rating mt-3 d-none">
                 <div class="card">
                     <div class="card-header text-center bc-bg">
-                        <p><b>SOEKARNO HATTA CUSTOMS</b> <br />CUSTOMS DECLARATION ONLINE</p>
+                        <?= ($en) ? 'Survey of Services' : 'Survei Kepuasan';?>
                     </div>
                     <div class="card-body text-center">
                         <span value="1" name="bc-rate1" class="bc-rate fa fa-star fa-3x"></span>
@@ -476,110 +434,138 @@
 
             <!-- preview -->
             <div class="bc-page preview mt-3 d-none">
-                <h4><?= ($en) ? 'Review Data' : 'Review Data';?></h4><hr />
-                <p class="bc-desc"><?= ($en) ? 'Each arriving Passenger/Crew must submit  Customs Declaration (one customs declarations can be used for one family):' : 'Penumpang/Awak sarana pengangkut wajib menyerahkan Customs Declaration pada saat setiap kedatangan (satu keluarga dapat mengajukan satu Customs Declaration):'; ?></p>
-                <table class="table table-bordered" style="font-size: 10px;">
-                    <tbody>
-                        <tr>
-                            <td><?= ($en) ? 'Full Name': 'Nama Lengkap';?></td>
-                            <td><span name="reviewName"></span></td>
-                        </tr>
-                        <tr>
-                            <td><?= ($en) ? 'Date of Birth' : 'Kelahiran'; ?></td>
-                            <td><span name="reviewBirth"></span></td>
-                        </tr>
-                        <tr>
-                            <td><?= ($en) ? 'Nationality' : 'Kebangsaan'; ?></td>
-                            <td><span name="reviewNation"></span></td>
-                        </tr>
-                        <tr>
-                            <td><?= ($en) ? 'Passport Number' : 'Nomor Paspor'; ?></td>
-                            <td><span name="reviewPassport"></span></td>
-                        </tr>
-                        <tr>
-                            <td><?= ($en) ? 'Address in Indonesia' : 'Alamat di Indonesia'; ?></td>
-                            <td><span name="reviewAddress"></span></td>
-                        </tr>
-                        <tr>
-                            <td><?= ($en) ? 'Flight or Voyage Number' : 'No Penerbangan/Pelayaran'; ?></td>
-                            <td><span name="reviewFlight"></span></td>
-                        </tr>
-                        <tr>
-                            <td><?= ($en) ? 'Date of Arrival' : 'Tanggal Kedatangan'; ?></td>
-                            <td><span name="reviewArrival"></span></td>
-                        </tr>
-                        <tr>
-                            <td><?= ($en) ? 'Number of accompanied baggage' : 'Jumlah bagasi yang dibawa'; ?></td>
-                            <td><span name="reviewBaggageIn"></span> PKG</td>
-                        </tr>
-                        <tr>
-                            <td><?= ($en) ? 'Number of unaccompanied baggage, (if any, and see the reverse side of this form)' : 'Jumlah bagasi yang datang tidak bersamaan (jika ada, baca halaman belakang)'; ?></td>
-                            <td><span name="reviewBaggageEx"></span> PKG</td>
-                        </tr>
-                        <tr>
-                            <td><?= ($en) ? 'Number of family travelling with you (only for passenger)' : 'Jumlah anggota keluarga yang bepergian bersama (untuk penumpang)'; ?></td>
-                            <td><span name="reviewNumofFamily"></span></td>
-                        </tr>
-                        <tr>
-                            <td><?= ($en) ? 'I am bringing:' : 'Saya membawa'; ?></td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <table class="table bc-sub-menu" name="reviewGoods">
-                                    <tbody></tbody>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><?= ($en) ? 'Goods Detail:' : 'Uraian Barang'; ?></td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <table class="table" name="reviewDetailGoods">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col"><?=($en) ? 'Description':'Uraian';?></th>
-                                            <th scope="col"><?=($en) ? 'Amount':'Jumlah';?></th>
-                                            <th scope="col"><?=($en) ? 'Value':'Nilai';?></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody></tbody>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" style="font-size: 10px; text-align: justify;">
-                                <?= ($en) ? '' : 'Apabila anda memberikan jawaban "Ya" pada salah satu pertanyaan nomor 11 diatas, uraikan barang tersebut pada tempat yang disediakan di halaman sebelumnya, dan silakan menuju <b>JALUR MERAH</b>. Apabila memberikan jawaban "Tidak" Pada semua pertanyaan, silahkan menuju <b>JALUR HIJAU</b>'; ?>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <button name="btnPreviewPrev" class="btn btn-outline-secondary"><?= ($en) ? 'Previous' : 'Sebelumnya';?></button>
-                <button name="btnPreviewNext" class="btn btn-primary bc-bg" style="float: right;"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
+                <div class="card">
+                    <div class="card-header bc-bg">
+                        <?=($en) ? 'Review' : 'Pratinjau';?>
+                    </div>
+                    <div class="card-body">
+                        <p class="bc-desc"><?= ($en) ? 'Each arriving Passenger/Crew must submit  Customs Declaration (one customs declarations can be used for one family):' : 'Penumpang/Awak sarana pengangkut wajib menyerahkan Customs Declaration pada saat setiap kedatangan (satu keluarga dapat mengajukan satu Customs Declaration):'; ?></p>
+                        <table class="table" style="font-size: 10px;">
+                            <tbody>
+                                <tr>
+                                    <td><?= ($en) ? 'Full Name': 'Nama Lengkap';?></td>
+                                    <td><span name="reviewName"></span></td>
+                                </tr>
+                                <tr>
+                                    <td><?= ($en) ? 'Date of Birth' : 'Kelahiran'; ?></td>
+                                    <td><span name="reviewBirth"></span></td>
+                                </tr>
+                                <tr>
+                                    <td><?= ($en) ? 'Nationality' : 'Kebangsaan'; ?></td>
+                                    <td><span name="reviewNation"></span></td>
+                                </tr>
+                                <tr>
+                                    <td><?= ($en) ? 'Passport Number' : 'Nomor Paspor'; ?></td>
+                                    <td><span name="reviewPassport"></span></td>
+                                </tr>
+                                <tr>
+                                    <td><?= ($en) ? 'Address in Indonesia' : 'Alamat di Indonesia'; ?></td>
+                                    <td><span name="reviewAddress"></span></td>
+                                </tr>
+                                <tr>
+                                    <td><?= ($en) ? 'Flight or Voyage Number' : 'No Penerbangan/Pelayaran'; ?></td>
+                                    <td><span name="reviewFlight"></span></td>
+                                </tr>
+                                <tr>
+                                    <td><?= ($en) ? 'Date of Arrival' : 'Tanggal Kedatangan'; ?></td>
+                                    <td><span name="reviewArrival"></span></td>
+                                </tr>
+                                <tr>
+                                    <td><?= ($en) ? 'Number of accompanied baggage' : 'Jumlah bagasi yang dibawa'; ?></td>
+                                    <td><span name="reviewBaggageIn"></span> PKG</td>
+                                </tr>
+                                <tr>
+                                    <td><?= ($en) ? 'Number of unaccompanied baggage, (if any, and see the reverse side of this form)' : 'Jumlah bagasi yang datang tidak bersamaan (jika ada, baca halaman belakang)'; ?></td>
+                                    <td><span name="reviewBaggageEx"></span> PKG</td>
+                                </tr>
+                                <tr>
+                                    <td><?= ($en) ? 'Number of family travelling with you (only for passenger)' : 'Jumlah anggota keluarga yang bepergian bersama (untuk penumpang)'; ?></td>
+                                    <td><span name="reviewNumofFamily"></span></td>
+                                </tr>
+                                <tr>
+                                    <td><?= ($en) ? 'I am bringing:' : 'Saya membawa'; ?></td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <table class="table bc-sub-menu" name="reviewGoods">
+                                            <tbody></tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><?= ($en) ? 'Goods Detail:' : 'Uraian Barang'; ?></td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <table class="table" name="reviewDetailGoods">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col"><?=($en) ? 'Description':'Uraian';?></th>
+                                                    <th scope="col"><?=($en) ? 'Amount':'Jumlah';?></th>
+                                                    <th scope="col"><?=($en) ? 'Value':'Nilai';?></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="font-size: 10px; text-align: justify;">
+                                        <?= ($en) ? '' : 'Apabila anda memberikan jawaban "Ya" pada salah satu pertanyaan nomor 11 diatas, uraikan barang tersebut pada tempat yang disediakan di halaman sebelumnya, dan silakan menuju <b>JALUR MERAH</b>. Apabila memberikan jawaban "Tidak" Pada semua pertanyaan, silahkan menuju <b>JALUR HIJAU</b>'; ?>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- end card body -->
+                    <div class="card-footer">
+                        <button name="btnPreviewPrev" class="btn btn-outline-secondary"><?= ($en) ? 'Previous' : 'Sebelumnya';?></button>
+                        <button name="btnPreviewNext" class="btn btn-primary bc-bg" style="float: right;"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
+                    </div>
+                </div>
+                <!-- end card -->
             </div>
             <!-- end preview -->
             <!-- new before qr after preview -->
             <!-- agreement -->
             <div class="bc-page agreement mt-3 d-none">
-                <h4><?= ($en) ? 'Agreement' : 'Persetujuan';?></h4><hr />
-                <p class="bc-desc"><?= ($en) ? 'MAKING A FALSE DECLARATION CONSTITUTES SERIOUS OFFENCES WHICH ATTRACT PENALTIES OR PUNISHMENT IN ACCORDANCE WITH LAWS AND REGULATIONS.' : 'SETIAP KESALAHAN PEMBERITAHUAN PABEAN DIKENAKAN SANKSI SESUAI DENGAN PERATURAN PERUNDANG-UNDANGAN';?></p>
-                <p class="bc-desc" style="margin-bottom: -1px;"><?= ($en) ? 'I HAVE READ THE INFORMATION ON THIS FORM AND HAVE MADE A TRUTHFUL DECLARATION.' : 'SAYA TELAH MEMBACA INFORMASI PADA HALAMAN CUSTOMS DECLARATION INI DAN SAYA MENYATAKAN BAHWA YANG SAYA BERITAHUKAN ADALAH BENAR'; ?></p>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="agreement" required>
-                    <label class="form-check-label" for="agreement"><?= ($en) ? 'Accept' : 'Setuju';?></label>
+                <div class="card">
+                    <div class="card-header bc-bg">
+                        <?= ($en) ? 'Agreement' : 'Persetujuan';?>
+                    </div>
+                    <div class="card-body">
+                        <p class="bc-desc"><?= ($en) ? 'MAKING A FALSE DECLARATION CONSTITUTES SERIOUS OFFENCES WHICH ATTRACT PENALTIES OR PUNISHMENT IN ACCORDANCE WITH LAWS AND REGULATIONS.' : 'SETIAP KESALAHAN PEMBERITAHUAN PABEAN DIKENAKAN SANKSI SESUAI DENGAN PERATURAN PERUNDANG-UNDANGAN';?></p>
+                        <p class="bc-desc" style="margin-bottom: -1px;"><?= ($en) ? 'I HAVE READ THE INFORMATION ON THIS FORM AND HAVE MADE A TRUTHFUL DECLARATION.' : 'SAYA TELAH MEMBACA INFORMASI PADA HALAMAN CUSTOMS DECLARATION INI DAN SAYA MENYATAKAN BAHWA YANG SAYA BERITAHUKAN ADALAH BENAR'; ?></p>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="agreement" required>
+                            <label class="form-check-label" for="agreement"><?= ($en) ? 'Accept' : 'Setuju';?></label>
+                        </div>
+                    </div>
+                    <!-- end card-body -->
+                    <div class="card-footer">
+                        <button name="btnAgreementPrev" class="btn btn-outline-secondary"><?= ($en) ? 'Previous' : 'Sebelumnya';?></button>
+                        <button name="btnAgreementNext" class="btn btn-primary bc-bg" style="float: right;" disabled="disabled"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
+                    </div>
                 </div>
-                <button name="btnAgreementPrev" class="btn btn-outline-secondary"><?= ($en) ? 'Previous' : 'Sebelumnya';?></button>
-                <button name="btnAgreementNext" class="btn btn-primary bc-bg" style="float: right;" disabled="disabled"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
+                <!-- end card -->
             </div>
             <!-- end agreement -->
             <div class="bc-page qr_code mt-3 d-none">
-                <p><b><?= ($en) ? 'Thank you' : 'Terima kasih';?>,</b></p>
-                <p><?= ($en) ? 'Hand over this QR Code to Customs Officer for Customs Inspection':'Serahkan QR code ini kepada petugas penerimaan untuk melakukan pemeriksaan';?></p>
-                <img src="" style="width: 100%;"/>
-                <a href="" name="btnSaveQR" class="btn btn-outline-primary bc-bg" style="float: right;" download><?= ($en) ? 'SAVE QR CODE':'SIMPAN QR CODE';?></a>
+                <div class="card">
+                    <div class="card-header text-center bc-bg">
+                    <?= ($en) ? 'Thank you' : 'Terima kasih';?>
+                    </div>
+                    <div class="card-body">
+                        <p class="bc-desc"><?= ($en) ? 'Save this QR Code or screenshoot this page and please hand over that to Customs Officer for Customs Inspection':'Simpan QR code atau tangkap layar laman QR code di bawah ini, tunjukkan kepada petugas Bea Cukai';?></p>
+                        <img src="" style="width: 100%;"/>
+                        <a href="" name="btnSaveQR" class="btn btn-outline-primary bc-bg" style="float: right;" download><?= ($en) ? 'SAVE QR CODE':'SIMPAN QR CODE';?></a>
+                    </div>
+                    <!-- end card body -->
+                </div>
+                <!-- end card -->
             </div>
         </div>
         <!-- end container -->

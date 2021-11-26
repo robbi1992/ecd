@@ -22,7 +22,7 @@ class Passengers extends CI_Controller {
                 <p>Barang pribadi Awak Sarana Pengangkut, per orang per kedatangan, mendapatkan pembebasan bea masuk, cukai, dan pajak paling banyak senilai USD 50.00 dari nilai pabean barang yang dibeli/ diperoleh di luar negeri dan tidak dibawa kembali keluar negeri.</p>
                 <p>Bagi Anda yang membawa barang impor yang akan digunakan untuk tujuan selain keperluan pribadi (jumlah tidak wajar untuk dipakai/konsumsi sendiri atau untuk keperluan perusahaan/ toko/ institusi/ industri), dipungut bea masuk dan pajak.</p>',
                 't&m2' => 'Barang Kena Cukai untuk keperluan pribadi yang dibeli/ diperoleh di luar negeri dan tidak ditujukan untuk dibawa kembali keluar negeri, diberikan pembebasan bea masuk, cukai dan pajak per orang dewasa untuk setiap kedatangan sebanyak :
-                    <table class="table text-white">
+                    <table class="table">
                     <tr>
                         <td>1.</td><td colspan="2">Penumpang</td></tr>
                     <tr>
@@ -37,7 +37,7 @@ class Passengers extends CI_Controller {
                     </table>
                     <p>Barang kena cukai yang melebihi jumlah tersebut, atas kelebihannya langsung dimusnahkan oleh Pejabat Bea dan Cukai</p>',
                 't&m3' => 'Anda wajib memberitahukan kepada Petugas Bea dan Cukai jika membawa :
-                    <table class="table text-white">
+                    <table class="table">
                     <tr>
                         <td style="vertical-align: top;">1.</td><td>uang dan/atau instrumen pembayaran lainnya dalam bentuk cek, cek perjalanan, surat sanggup bayar, atau bilyet giro, dalam rupiah atau dalam mata uang asing senilai Rp100.000.000,00 (seratus juta rupiah) atau lebih, atau</td>
                     </tr>
@@ -60,7 +60,7 @@ class Passengers extends CI_Controller {
                     't&m' => '<p>Every personal crew goods, per person on every arrival, is granted import duties, excise, and taxes exemption of USD 50.00 on his/her personal goods (personal effect) that were purchased or obtained abroad and will remain in Indonesia.</p>
                     <p>For those who import goods for other purposes than personal use (e.g. the total amount of the goods are unusual for personal use or the goods are used for commercial purposes such as companies/store/institution/industry), are subject to import duties, excise, and taxes.</p>',
                     't&m2' => 'The following amount of excusable goods for personal use that were purchased or obtained abroad and will remain in Indonesia are exempted from Import duties, excise, and taxes for every arrival:
-                    <table class="table text-white">
+                    <table class="table">
                     <tr>
                         <td>1.</td><td colspan="2">Passenger</td></tr>
                     <tr>
@@ -75,7 +75,7 @@ class Passengers extends CI_Controller {
                     </table>
                     Upon the excess of the excisable goods will be destroyed',
                     't&m3' => 'You are required to notify the Customs Officer if you are bringing :
-                    <table class="table text-white">
+                    <table class="table">
                     <tr>
                         <td style="vertical-align: top;">1.</td><td>currency and/or bearer negotiable instrument (cheque, traveller cheque, promissory notes, or bilyet giro) in Rupiah or other currencies which equal to the amount 100 million Rupiah or more, or</td>
                     </tr>
