@@ -152,7 +152,7 @@
                             <textarea class="form-control" id="address" name="address" required></textarea>
                         </div>
                         <div class="mb-3">
-                            <label for="flightNumber" class="form-label"><?= ($en) ? 'Flight or Voyage Number' : 'Nomor Penerbangan/pelayaran'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'YOUR FLIGHT OR VOYAGE NUMBER': 'NOMOR PENERBANGAN ANDA'; ?>"></i></label>
+                            <label for="flightNumber" class="form-label"><?= ($en) ? 'Flight Number' : 'Nomor Penerbangan'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'YOUR FLIGHT OR VOYAGE NUMBER': 'NOMOR PENERBANGAN ANDA'; ?>"></i></label>
                             <input type="text" class="form-control" id="flightNumber" name="flightNumber" required>
                         </div>
                         <div class="mb-3">

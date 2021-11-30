@@ -129,15 +129,26 @@
                     address: $('#address').val(), flight: $('#flightNumber').val(), baggageIn: $('#baggageIn').val(), baggageEx: $('#baggageEx').val(),
                     arrival: arrivalDate
                 };
+                var familyNumber = $('#familyNumber').val();
                 // save personal info
                 Pass.params.personal = personal;
                 // console.log(personal);
-                $('#theContent').find('.family-container').removeClass('d-none');
+                
+                // if no family skip next to 
                 $('#theContent').find('.passengers').addClass('d-none');
-
-                // set active menu
                 $('.bc-link-menu').removeClass('bc-active');
-                $('.bc-link-menu').has('a[value="1"]').addClass('bc-active');
+
+                if (familyNumber == '0') {
+                    $('.bc-link-menu').has('a[value="2"]').addClass('bc-active');
+                    $('#theContent').find('.goods_form').removeClass('d-none');
+                } else {
+                    $('.bc-link-menu').has('a[value="1"]').addClass('bc-active');
+                    $('#theContent').find('.family-container').removeClass('d-none');
+                }
+                
+                // set active menu
+                
+                
                 return false;
             });
 

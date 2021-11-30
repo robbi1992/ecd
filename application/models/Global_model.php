@@ -3,7 +3,7 @@
 class Global_model extends CI_Model {
 
     public function get_countries($en) {
-        $prefix = '';
+        $prefix = 'en_';
         if ($en) $prefix = 'en_';
         $table = $prefix . 'countries';
         $this->db->select('id, name');
