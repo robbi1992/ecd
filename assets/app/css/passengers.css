@@ -4,6 +4,16 @@
     color: white;
 }
 
+.bc-border {
+	border-color: #02275d;
+}
+.bc-div {
+	width: 100%;
+	text-align: center;
+	float: left;
+	font-size: 13px;
+	margin-top: 15px;
+}
 .bc-desc {
     text-align: justify;
     font-size: 13px;

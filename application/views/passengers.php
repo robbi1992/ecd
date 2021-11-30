@@ -261,10 +261,10 @@
                             <button name="btnSaveFamily" class="btn btn-info text-white bc-sub-menu" style="float: right;"><?= ($en) ? 'Add' : 'Tambah'; ?></button>
                         </div>
                         <!-- table family information -->
-                        <table name="familyTable" class="table table-striped table-sm bc-mt40">
+                        <table name="familyTable" class="table table-bordered text-center table-striped table-sm bc-mt40">
                             <thead>
-                                <tr>
-                                    <th scope="col">#</th>
+                                <tr class="bc-bg bc-border">
+                                    <th scope="col">No</th>
                                     <th scope="col"><?= ($en) ? 'Name' : 'Nama';?></th>
                                     <th scope="col"><?= ($en) ? 'Passport ID' : 'No. Paspor';?></th>
                                     <th scope="col"><?= ($en) ? 'Birth Date' : 'Tgl Lahir';?></th>
@@ -394,12 +394,11 @@
                 <div class="mb-3">
                     <button name="btnSaveGoods" class="btn btn-info text-white bc-sub-menu" style="float: right;"><?=($en) ? 'Add' : 'Tambah';?></button>
                 </div>
-
                 <!-- table of goods -->
-                <table name="goods_table" class="table table-striped table-sm">
+                <table name="goods_table" class="table table-bordered text-center table-striped table-sm bc-mt40">
                     <thead>
-                        <tr>
-                            <th scope="col">#</th>
+                        <tr class="bc-bg bc-border">
+                            <th scope="col">No</th>
                             <th scope="col"><?=($en) ? 'Description':'Uraian';?></th>
                             <th scope="col"><?=($en) ? 'Amount':'Jumlah';?></th>
                             <th scope="col"><?=($en) ? 'Value':'Nilai';?></th>
@@ -501,10 +500,10 @@
                                 </tr>
                                 <tr>
                                     <td colspan="2">
-                                        <table class="table" name="reviewDetailGoods">
+                                        <table class="table table-bordered text-center table-sm" name="reviewDetailGoods">
                                             <thead>
-                                                <tr>
-                                                    <th scope="col">#</th>
+                                                <tr class="bc-bg bc-border">
+                                                    <th scope="col">No</th>
                                                     <th scope="col"><?=($en) ? 'Description':'Uraian';?></th>
                                                     <th scope="col"><?=($en) ? 'Amount':'Jumlah';?></th>
                                                     <th scope="col"><?=($en) ? 'Value':'Nilai';?></th>
@@ -514,11 +513,13 @@
                                         </table>
                                     </td>
                                 </tr>
+                                <!-- remove description
                                 <tr>
                                     <td colspan="2" style="font-size: 10px; text-align: justify;">
                                         <?= ($en) ? '' : 'Apabila anda memberikan jawaban "Ya" pada salah satu pertanyaan nomor 11 diatas, uraikan barang tersebut pada tempat yang disediakan di halaman sebelumnya, dan silakan menuju <b>JALUR MERAH</b>. Apabila memberikan jawaban "Tidak" Pada semua pertanyaan, silahkan menuju <b>JALUR HIJAU</b>'; ?>
                                     </td>
                                 </tr>
+                                 -->
                             </tbody>
                         </table>
                     </div>
@@ -540,11 +541,13 @@
                     </div>
                     <div class="card-body">
                         <p class="bc-desc"><?= ($en) ? 'MAKING A FALSE DECLARATION CONSTITUTES SERIOUS OFFENCES WHICH ATTRACT PENALTIES OR PUNISHMENT IN ACCORDANCE WITH LAWS AND REGULATIONS.' : 'SETIAP KESALAHAN PEMBERITAHUAN PABEAN DIKENAKAN SANKSI SESUAI DENGAN PERATURAN PERUNDANG-UNDANGAN';?></p>
-                        <p class="bc-desc" style="margin-bottom: -1px;"><?= ($en) ? 'I HAVE READ THE INFORMATION ON THIS FORM AND HAVE MADE A TRUTHFUL DECLARATION.' : 'SAYA TELAH MEMBACA INFORMASI PADA HALAMAN CUSTOMS DECLARATION INI DAN SAYA MENYATAKAN BAHWA YANG SAYA BERITAHUKAN ADALAH BENAR'; ?></p>
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="agreement" required>
-                            <label class="form-check-label" for="agreement"><?= ($en) ? 'Accept' : 'Setuju';?></label>
-                        </div>
+                        <!-- <p class="bc-desc" style="margin-bottom: -1px;"><?= ($en) ? 'I HAVE READ THE INFORMATION ON THIS FORM AND HAVE MADE A TRUTHFUL DECLARATION.' : 'SAYA TELAH MEMBACA INFORMASI PADA HALAMAN CUSTOMS DECLARATION INI DAN SAYA MENYATAKAN BAHWA YANG SAYA BERITAHUKAN ADALAH BENAR'; ?></p> -->
+                        <table>
+                            <tr>
+                                <td style="padding-right: 10px;"><input style="width:2em !important; height:2em !important;" type="checkbox" class="form-check-input" id="agreement" required></td>
+                                <td style="font-size: 13px; font-weight: bold;"><label class="form-check-label" for="agreement"><?= ($en) ? 'I HAVE READ THE INFORMATION ON THIS FORM AND HAVE MADE A TRUTHFUL DECLARATION.' : 'SAYA TELAH MEMBACA INFORMASI PADA HALAMAN CUSTOMS DECLARATION INI DAN SAYA MENYATAKAN BAHWA YANG SAYA BERITAHUKAN ADALAH BENAR'; ?></label></td>
+                            </tr>
+                        </table>
                     </div>
                     <!-- end card-body -->
                     <div class="card-footer">
@@ -564,6 +567,9 @@
                         <p class="bc-desc"><?= ($en) ? 'Save this QR Code or screenshoot this page and please hand over that to Customs Officer for Customs Inspection':'Simpan QR code atau tangkap layar laman QR code di bawah ini, tunjukkan kepada petugas Bea Cukai';?></p>
                         <img src="" style="width: 100%;"/>
                         <a href="" name="btnSaveQR" class="btn btn-outline-primary bc-bg" style="float: right;" download><?= ($en) ? 'SAVE QR CODE':'SIMPAN QR CODE';?></a>
+                        <div class="bc-div">
+                            Bagi penumpang yang tinggal lebih dari 90 hari di Indonesia dan menggunakan ponsel Indonesia, silahkan menuju halaman berikut <a href="https://www.beacukai.go.id/register-imei.html">klik disini</a>
+                        </div>
                     </div>
                     <!-- end card body -->
                 </div>
