@@ -17,9 +17,11 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bc-bg">
             <div class="container-fluid justify-content-center">
-                <a class="navbar-brand text-white" href="/">
-                    <img src="/assets/img/bc_logo.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
-                     ECD
+                <a class="navbar-brand text-white" href="/"> 
+                    <div style="width:100%;">
+                        <img src="/assets/img/bc_logo.png" alt="" width="40" height="34" class="d-inline-block align-text-top">E - Customs Declaration
+                    </div>
+                    <div style="width:100%;font-size: 10px;margin-left: 40px; margin-top:-10px;">Soekarno Hatta</div>
                 </a>
             </div>
         </nav>
