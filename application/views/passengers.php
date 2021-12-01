@@ -376,7 +376,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="goodsAmount" class="form-label"><?= ($en) ? 'Amount' : 'Jumlah';?><span class="text-danger">*</span></label>
-                    <input type="number" class="form-control" id="goodsAmount" name="goodsAmount">
+                    <input type="number" min="0" class="form-control" id="goodsAmount" name="goodsAmount">
                 </div>
                 <div class="mb-3">
                     <div class="row">
@@ -385,8 +385,8 @@
                             <input type="text" class="form-control" id="goodsCurrency" name="goodsCurrency">
                         </div>
                         <div class="col-8">
-                            <label for="goodsValue" class="form-label"><?= ($en) ? 'Value':'Nilai Barang';?><span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="goodsValue" name="goodsValue">
+                            <label for="goodsValue" class="form-label"><?= ($en) ? 'Value':'Nilai Barang';?><span class="text-danger">*</span><span name="valueValidation" class="text-danger d-none">(Numbers Only)</span></label>
+                            <input type="number" min="0" class="form-control" id="goodsValue" name="goodsValue">
                         </div>
                     </div>
                     
@@ -476,11 +476,11 @@
                                     <td><span name="reviewBaggageIn"></span> PKG</td>
                                 </tr>
                                 <tr>
-                                    <td><?= ($en) ? 'Number of unaccompanied baggage, (if any, and see the reverse side of this form)' : 'Jumlah bagasi yang datang tidak bersamaan (jika ada, baca halaman belakang)'; ?></td>
+                                    <td><?= ($en) ? 'Number of unaccompanied baggage' : 'Jumlah bagasi yang datang tidak bersamaan'; ?></td>
                                     <td><span name="reviewBaggageEx"></span> PKG</td>
                                 </tr>
                                 <tr>
-                                    <td><?= ($en) ? 'Number of family travelling with you (only for passenger)' : 'Jumlah anggota keluarga yang bepergian bersama (untuk penumpang)'; ?></td>
+                                    <td><?= ($en) ? 'Number of family travelling with you' : 'Jumlah anggota keluarga yang bepergian bersama'; ?></td>
                                     <td><span name="reviewNumofFamily"></span></td>
                                 </tr>
                                 <tr>
@@ -513,13 +513,11 @@
                                         </table>
                                     </td>
                                 </tr>
-                                <!-- remove description
                                 <tr>
                                     <td colspan="2" style="font-size: 10px; text-align: justify;">
                                         <?= ($en) ? '' : 'Apabila anda memberikan jawaban "Ya" pada salah satu pertanyaan nomor 11 diatas, uraikan barang tersebut pada tempat yang disediakan di halaman sebelumnya, dan silakan menuju <b>JALUR MERAH</b>. Apabila memberikan jawaban "Tidak" Pada semua pertanyaan, silahkan menuju <b>JALUR HIJAU</b>'; ?>
                                     </td>
                                 </tr>
-                                 -->
                             </tbody>
                         </table>
                     </div>

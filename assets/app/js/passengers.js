@@ -158,13 +158,20 @@
                 var desc = $('#goodsDesc').val(), amount = $('#goodsAmount').val(), value = $('#goodsValue').val(),
                     currency = $('#goodsCurrency').val();
                 if (desc != '' || amount != '' || value != '' || currency != '') {
-                    var dataGoods = { desc: desc, amount: amount, value: value, currency: currency};
-                    goodsDetail.push(dataGoods);
+                    // set value only for number
+                    if (value.match(/^\d+$/)) {
+                        var dataGoods = { desc: desc, amount: amount, value: value, currency: currency};
+                        goodsDetail.push(dataGoods);
 
-                    $('#goodsDesc').val('');
-                    $('#goodsAmount').val('');
-                    $('#goodsValue').val('');
-                    $('#goodsCurrency').val('');
+                        $('#goodsDesc').val('');
+                        $('#goodsAmount').val('');
+                        $('#goodsValue').val('');
+                        $('#goodsCurrency').val(''); 
+                    } else {
+                        $('#goodsValue').focus();
+                        $('span[name="valueValidation"]').removeClass('d-none');
+                        return false;
+                    }   
                 } else {
                     alert('Description or amount or value of goods cannot be empty');
                 }
