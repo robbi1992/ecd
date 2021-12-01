@@ -14,7 +14,7 @@ class Home extends CI_Controller {
 
         if ($en) {
             $data = array (
-                'text' => '<p>Imported goods carried by Passengers or Crew must be notified to Customs Officer by Customs Declaration</p> <p style="margin-top:-15px;"><b>PMK 203/PMK.04/2017</b></p>',
+                'text' => '<p>Imported goods carried by Passengers or Crews must be notified to Customs Officer by Customs Declaration</p> <p style="margin-top:-15px;"><b>PMK 203/PMK.04/2017</b></p>',
                 'button' => 'START',
                 'header' => 'Welcome',
                 'active' => 1

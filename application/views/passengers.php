@@ -469,7 +469,7 @@
                                     <td><span name="reviewAddress"></span></td>
                                 </tr>
                                 <tr>
-                                    <td><?= ($en) ? 'Flight or Voyage Number' : 'No Penerbangan/Pelayaran'; ?></td>
+                                    <td><?= ($en) ? 'Flight or Voyage Number' : 'No Penerbangan'; ?></td>
                                     <td><span name="reviewFlight"></span></td>
                                 </tr>
                                 <tr>
@@ -544,13 +544,13 @@
                     </div>
                     <div class="card-body">
                         <p class="bc-desc"><?= ($en) ? 'MAKING A FALSE DECLARATION CONSTITUTES SERIOUS OFFENCES WHICH ATTRACT PENALTIES OR PUNISHMENT IN ACCORDANCE WITH LAWS AND REGULATIONS.' : 'SETIAP KESALAHAN PEMBERITAHUAN PABEAN DIKENAKAN SANKSI SESUAI DENGAN PERATURAN PERUNDANG-UNDANGAN';?></p>
-                        <!-- <p class="bc-desc" style="margin-bottom: -1px;"><?= ($en) ? 'I HAVE READ THE INFORMATION ON THIS FORM AND HAVE MADE A TRUTHFUL DECLARATION.' : 'SAYA TELAH MEMBACA INFORMASI PADA HALAMAN CUSTOMS DECLARATION INI DAN SAYA MENYATAKAN BAHWA YANG SAYA BERITAHUKAN ADALAH BENAR'; ?></p> -->
-                        <table>
-                            <tr>
-                                <td style="padding-right: 10px;"><input style="width:2em !important; height:2em !important;" type="checkbox" class="form-check-input" id="agreement" required></td>
-                                <td style="font-size: 13px; font-weight: bold;"><label class="form-check-label" for="agreement"><?= ($en) ? 'I HAVE READ THE INFORMATION ON THIS FORM AND HAVE MADE A TRUTHFUL DECLARATION.' : 'SAYA TELAH MEMBACA INFORMASI PADA HALAMAN CUSTOMS DECLARATION INI DAN SAYA MENYATAKAN BAHWA YANG SAYA BERITAHUKAN ADALAH BENAR'; ?></label></td>
-                            </tr>
-                        </table>
+                        <p class="bc-desc"><?= ($en) ? 'I HAVE READ THE INFORMATION ON THIS FORM AND HAVE MADE A TRUTHFUL DECLARATION.' : 'SAYA TELAH MEMBACA INFORMASI PADA HALAMAN CUSTOMS DECLARATION INI DAN SAYA MENYATAKAN BAHWA YANG SAYA BERITAHUKAN ADALAH BENAR'; ?></p>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="agreement" required>
+                            <label class="form-check-label" for="agreement">
+                                Setuju
+                            </label>
+                        </div>
                     </div>
                     <!-- end card-body -->
                     <div class="card-footer">
@@ -566,11 +566,11 @@
                     <div class="card-body">
                         <h4 class="text-center text-success"><?= ($en) ? 'Thank You!' : 'Terima Kasih!';?></h4>
                         <p class="text-center" style="margin-top: -10px; font-weight: bold; font-size: 13px;">
-                            <?= ($en) ? 'Pengisian anda telah kami terima' : 'Your submission has been received';?>
+                            <?= ($en) ? 'Your submission has been received' : 'Pengisian anda telah kami terima';?>
                         </p>
-                        <p class="bc-desc"><?= ($en) ? 'Save this QR Code or screenshoot this page and please scan to Customs Officer':'Simpan kode QR atau tangkap layar laman ini, kemudian serahkan kepada petugas Bea Cukai';?></p>
+                        <p class="bc-desc"><?= ($en) ? 'Save this QR Code or screenshot this page and please scan to Customs Officer':'Simpan kode QR atau tangkap layar laman ini, kemudian serahkan kepada petugas Bea Cukai';?></p>
                         <img src="" style="width: 100%;"/>
-                        <div class="text-center" style="width: 100%;"><a href="" name="btnSaveQR" class="btn btn-outline-primary bc-bg" download><?= ($en) ? 'SAVE QR CODE':'SIMPAN QR CODE';?></a></div>
+                        <div class="text-center" style="width: 100%;"><a href="" name="btnSaveQR" class="btn btn-outline-primary bc-bg" download><?= ($en) ? 'SAVE QR CODE':'SIMPAN KODE QR';?></a></div>
                         <div class="bc-div">
                         <?= ($en) ? 'Passengers who bring cellphones or other telecommunications equipment obtained from abroad can register IMEI to get Indonesian network services by filling out the following form' : 'Penumpang yang membawa handphone atau perangkat telekomunikasi lainnya yang diperoleh dari luar negeri dapat mendaftarkan IMEI untuk mendapatkan layanan jaringan Indonesia dengan mengisi form berikut';?> <a href="https://www.beacukai.go.id/register-imei.html"><?= ($en) ? 'click here' : 'Registrasi IMEI';?></a>
                         </div>
@@ -621,7 +621,7 @@
                 }
 
                 // use setTimeout() to execute
-                setTimeout(showStart, 1000);
+                setTimeout(showStart, 3000);
                 
             });
         </script>
