@@ -34,14 +34,20 @@
 
             <!-- space -->
             <div class="mt-5">&nbsp;</div>
-            <div class="mt-5">&nbsp;</div>
+            <div class="mt-5">
+                <div class="mt-0 p-3 text-center">
+                    <a href="/passengers<?= isset($_GET['lang']) ? '?lang=' . $_GET['lang'] : '';?>" class="btn btn-primary"><?= $home['button'];?></a>
+                </div>
+            </div>
             <div class="mt-5">&nbsp;</div>
             <div class="mt-5 text-white p-3 bc-desc">
                 <?= $home['text']; ?>
             </div>
+            <!-- 
             <div class="mt-0 p-3 text-center">
                 <a href="/passengers<?= isset($_GET['lang']) ? '?lang=' . $_GET['lang'] : '';?>" class="btn btn-primary"><?= $home['button'];?></a>
             </div>
+            -->
             <!-- end containter-fluid -->
         </div>
         <!-- end my-container -->

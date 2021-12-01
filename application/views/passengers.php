@@ -53,7 +53,10 @@
                     <a value="4" class="text-white bc-link" href="#" title="QR Code"><i class="fa fa-qrcode"></i></a>
                 </div>
             </div>
-            <div class="bc-page starter">
+            <div class="bc-page g20-page mt-3">
+                <img src="/assets/img/g20_page.jpg" style="width:100%;" />
+            </div>
+            <div class="bc-page starter d-none">
                 <div class="card mt-3">
                     <div class="card-header bc-bg">
                         <?= ($en) ? 'Welcome':'Selamat Datang';?>
@@ -299,7 +302,7 @@
             <div class="bc-page goods_t_m2 mt-3 d-none">
                 <div class="card">
                     <div class="card-header bc-bg">
-                        <?=($en) ? 'Term - Custom Goods' : 'Ketentuan - Barang Kena Cukai';?>
+                        <?=($en) ? 'Excisable Goods' : 'Barang Kena Cukai';?>
                     </div>
                     <div class="card-body bc-desc"><?=$desc['goods']['t&m2'];?></div>
                     <div class="card-footer">
@@ -311,7 +314,7 @@
             <div class="bc-page goods_t_m3 mt-3 d-none">
                 <div class="card">
                     <div class="card-header bc-bg">
-                        <?=($en) ? 'Term - Custom Goods' : 'Ketentuan - Barang Kena Cukai';?>
+                        <?=($en) ? 'Term - Currency / Bearer Negotiable Instrument' : 'Ketentuan - Uang / Instrumen Pembayaran Lain';?>
                     </div>
                     <div class="card-body bc-desc"><?=$desc['goods']['t&m3'];?></div>
                     <div class="card-footer">
@@ -330,7 +333,7 @@
                     </div>
                 </div>
                 <hr />
-                <?= ($en) ? 'I declare my belonging:' : 'Saya membawa'; ?>: <hr />
+                <?= ($en) ? 'I declare my belonging' : 'Saya membawa'; ?>: <hr />
                 <?php
                 // $idx = 1;
                 foreach($questions as $index => $val) { ?>
@@ -416,7 +419,7 @@
             <div class="bc-page rating mt-3 d-none">
                 <div class="card">
                     <div class="card-header text-center bc-bg">
-                        <?= ($en) ? 'Survey of Services' : 'Survei Kepuasan';?>
+                        <?= ($en) ? 'Satisfaction Survey' : 'Survei Kepuasan';?>
                     </div>
                     <div class="card-body text-center">
                         <span value="1" name="bc-rate1" class="bc-rate fa fa-star fa-3x"></span>
@@ -559,14 +562,14 @@
             <div class="bc-page qr_code mt-3 d-none">
                 <div class="card">
                     <div class="card-header text-center bc-bg">
-                    <?= ($en) ? 'Thank you' : 'Terima kasih';?>
+                    <?= ($en) ? 'Thank You' : 'Terima Kasih';?>
                     </div>
                     <div class="card-body">
                         <p class="bc-desc"><?= ($en) ? 'Save this QR Code or screenshoot this page and please hand over that to Customs Officer for Customs Inspection':'Simpan QR code atau tangkap layar laman QR code di bawah ini, tunjukkan kepada petugas Bea Cukai';?></p>
                         <img src="" style="width: 100%;"/>
                         <a href="" name="btnSaveQR" class="btn btn-outline-primary bc-bg" style="float: right;" download><?= ($en) ? 'SAVE QR CODE':'SIMPAN QR CODE';?></a>
                         <div class="bc-div">
-                            Bagi penumpang yang tinggal lebih dari 90 hari di Indonesia dan menggunakan ponsel Indonesia, silahkan menuju halaman berikut <a href="https://www.beacukai.go.id/register-imei.html">klik disini</a>
+                        <?= ($en) ? 'Passengers who bring cellphones or other telecommunications equipment obtained from abroad can register IMEI to get Indonesian network services by filling out the following form' : 'Penumpang yang membawa handphone atau perangkat telekomunikasi lainnya yang diperoleh dari luar negeri dapat mendaftarkan IMEI untuk mendapatkan layanan jaringan Indonesia dengan mengisi form berikut';?> <a href="https://www.beacukai.go.id/register-imei.html"><?= ($en) ? 'IMEI Registration' : 'Registrasi IMEI';?></a>
                         </div>
                     </div>
                     <!-- end card body -->
@@ -601,6 +604,18 @@
         <script>
             $(document).ready(function() {
                 $('select').select2();
+
+                // set animate for g20
+                 // place this within dom ready function
+                function showStart() {    
+                    // console.log('oke'); 
+                    $('.g20-page').fadeOut(2000).addClass('d-none');
+                    // $('.g20-page').hide();
+                    $('.starter').fadeIn(2000).removeClass('d-none');
+                }
+
+                // use setTimeout() to execute
+                setTimeout(showStart, 5000)
             });
         </script>
     </body>

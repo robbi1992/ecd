@@ -39,10 +39,10 @@ class Passengers extends CI_Controller {
                 't&m3' => 'Anda wajib memberitahukan kepada Petugas Bea dan Cukai jika membawa :
                     <table class="table">
                     <tr>
-                        <td style="vertical-align: top;">1.</td><td>uang dan/atau instrumen pembayaran lainnya dalam bentuk cek, cek perjalanan, surat sanggup bayar, atau bilyet giro, dalam rupiah atau dalam mata uang asing senilai Rp100.000.000,00 (seratus juta rupiah) atau lebih, atau</td>
+                        <td style="vertical-align: top;">1.</td><td>Uang dan/atau instrumen pembayaran lainnya dalam bentuk cek, cek perjalanan, surat sanggup bayar, atau bilyet giro, dalam rupiah atau dalam mata uang asing senilai Rp100.000.000,00 (seratus juta rupiah) atau lebih, atau</td>
                     </tr>
                     <tr>
-                        <td style="vertical-align: top;">2.</td><td>uang kertas asing paling sedikit setara dengan Rp1.000.000.000,00 (satu milyar rupiah).</td>
+                        <td style="vertical-align: top;">2.</td><td>Uang kertas asing paling sedikit setara dengan Rp1.000.000.000,00 (satu milyar rupiah).</td>
                     </tr>
                     </table>'
             )
@@ -59,7 +59,7 @@ class Passengers extends CI_Controller {
                 'goods' => array(
                     't&m' => '<p>Every personal crew goods, per person on every arrival, is granted import duties, excise, and taxes exemption of USD 50.00 on his/her personal goods (personal effect) that were purchased or obtained abroad and will remain in Indonesia.</p>
                     <p>For those who import goods for other purposes than personal use (e.g. the total amount of the goods are unusual for personal use or the goods are used for commercial purposes such as companies/store/institution/industry), are subject to import duties, excise, and taxes.</p>',
-                    't&m2' => 'The following amount of excusable goods for personal use that were purchased or obtained abroad and will remain in Indonesia are exempted from Import duties, excise, and taxes for every arrival:
+                    't&m2' => 'The following amount of excisable goods for personal use that were purchased or obtained abroad and will remain in Indonesia are exempted from Import duties, excise, and taxes for every arrival:
                     <table class="table">
                     <tr>
                         <td>1.</td><td colspan="2">Passenger</td></tr>
@@ -77,10 +77,10 @@ class Passengers extends CI_Controller {
                     't&m3' => 'You are required to notify the Customs Officer if you are bringing :
                     <table class="table">
                     <tr>
-                        <td style="vertical-align: top;">1.</td><td>currency and/or bearer negotiable instrument (cheque, traveller cheque, promissory notes, or bilyet giro) in Rupiah or other currencies which equal to the amount 100 million Rupiah or more, or</td>
+                        <td style="vertical-align: top;">1.</td><td>Currency and/or bearer negotiable instrument (cheque, traveller cheque, promissory notes, or bilyet giro) in Rupiah or other currencies which equal to the amount 100 million Rupiah or more, or</td>
                     </tr>
                     <tr>
-                        <td style="vertical-align: top;">2.</td><td>foreign banknotes which equal to the amount of 1 billion Rupiah or more.</td>
+                        <td style="vertical-align: top;">2.</td><td>Foreign banknotes which equal to the amount of 1 billion Rupiah or more.</td>
                     </tr>
                     </table>'
                 )

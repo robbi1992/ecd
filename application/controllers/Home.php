@@ -13,7 +13,7 @@ class Home extends CI_Controller {
 
         if ($en) {
             $data = array (
-                'text' => 'Before continuing your trip, please fill in Electronic Customs Declaration first',
+                'text' => 'Imported goods carried by Passengers or Transportation Means Crew must be notified to Customs Officer by Customs Declaration or PIBK <b>PMK 203/PMK.04/2017</b>',
                 'button' => 'START',
                 'active' => 1
             );
