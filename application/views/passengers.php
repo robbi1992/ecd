@@ -576,6 +576,19 @@
         </div>
         <!-- end container -->
 
+        <!-- modal -->
+        <div name="modalTooltip" class="modal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end modal -->
+
         <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="/assets/jquery.min.js"></script>
         <!-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->

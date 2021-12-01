@@ -74,6 +74,12 @@
             // end save function
         },
         init: function() {
+            // set info
+            $('.fa-question-circle').on('click', function(){
+                var text = $(this).attr('title');
+                $('[name="modalTooltip"]').find('.modal-title').html(text);
+                $('[name="modalTooltip"]').modal('show');
+            });
             $('.bc-link').on('click', function() {
                 // console.log('ok');
                 $('.bc-link-menu').removeClass('bc-active');
