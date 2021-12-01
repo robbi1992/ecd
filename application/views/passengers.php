@@ -14,8 +14,8 @@
         <link href="/assets/app/css/passengers.css" rel="stylesheet" />
         <link href="/assets/app/css/select.min.css" rel="stylesheet" />
     </head>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-light bc-bg">
+    <body class="my-body">
+        <nav class="navbar navbar-expand-lg navbar-light bc-bg d-none">
             <div class="container-fluid justify-content-center">
                 <a class="navbar-brand text-white" href="/"> 
                     <div style="width:100%;">
@@ -28,7 +28,7 @@
         <!-- shortcut menu -->
         
         <!-- end shortcut menu -->
-        <div class="container" id="theContent">
+        <div class="container d-none" id="theContent">
             <div class="row bc-sub-menu text-center">
                 <div class="col-1 bc-link-menu">
                     <a value="5" class="text-white bc-link" href="#" title="Term&Condition"><i class="fa fa-file-contract"></i></a>
@@ -53,9 +53,11 @@
                     <a value="4" class="text-white bc-link" href="#" title="QR Code"><i class="fa fa-qrcode"></i></a>
                 </div>
             </div>
+            <!-- 
             <div class="bc-page g20-page mt-3">
                 <img src="/assets/img/g20_page.jpg" style="width:100%;" />
             </div>
+             -->
             <div class="bc-page starter d-none">
                 <div class="card mt-3">
                     <div class="card-header bc-bg">
@@ -607,15 +609,19 @@
 
                 // set animate for g20
                  // place this within dom ready function
-                function showStart() {    
+                function showStart() {
+                    $('body').removeClass('my-body');
+                    $('nav').removeClass('d-none');
+                    $('#theContent').removeClass('d-none');
                     // console.log('oke'); 
-                    $('.g20-page').fadeOut(2000).addClass('d-none');
+                    // $('.g20-page').fadeOut(2000).addClass('d-none');
                     // $('.g20-page').hide();
                     $('.starter').fadeIn(2000).removeClass('d-none');
                 }
 
                 // use setTimeout() to execute
-                setTimeout(showStart, 5000)
+                setTimeout(showStart, 5000);
+                
             });
         </script>
     </body>

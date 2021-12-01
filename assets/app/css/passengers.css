@@ -172,3 +172,11 @@
 	-moz-transition: All 0.3s ease;
 	-o-transition: All 0.3s ease;
 }
+
+.my-body { 
+    background: url("/assets/img/g20_page.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
