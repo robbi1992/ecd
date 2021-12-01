@@ -316,7 +316,7 @@
             <div class="bc-page goods_t_m3 mt-3 d-none">
                 <div class="card">
                     <div class="card-header bc-bg">
-                        <?=($en) ? 'Term - Currency / Bearer Negotiable Instrument' : 'Ketentuan - Uang / Instrumen Pembayaran Lain';?>
+                        <?=($en) ? 'Currency / Bearer Negotiable Instrument' : 'Uang / Instrumen Pembayaran Lain';?>
                     </div>
                     <div class="card-body bc-desc"><?=$desc['goods']['t&m3'];?></div>
                     <div class="card-footer">

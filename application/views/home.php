@@ -41,6 +41,7 @@
             </div>
             <div class="mt-5">&nbsp;</div>
             <div class="mt-5 text-white p-3 bc-desc">
+                <h4><?=$home['header'];?></h4>
                 <?= $home['text']; ?>
             </div>
             <!-- 

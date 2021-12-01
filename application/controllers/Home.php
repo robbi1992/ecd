@@ -5,16 +5,18 @@ class Home extends CI_Controller {
     
     private function get_language($en = false) {
         $data = array (
-            'text' => 'Barang impor yang dibawa oleh penumpang atau Awak Sarana Pengangkut wajib diberitahukan kepada Pejabat Bea dan Cukai
-            menggunakan Customs Declaration atau PIBK <b>PMK 203/PMK.04/2017</b>',
+            'text' => '<p>Barang impor yang dibawa oleh penumpang atau Awak Sarana Pengangkut wajib diberitahukan kepada Pejabat Bea dan Cukai
+            menggunakan Customs Declaration</p><p style="margin-top:-15px;"><b>PMK 203/PMK.04/2017</b></p>',
             'button' => 'MULAI',
+            'header' => 'Selamat Datang',
             'active' => 0
         );
 
         if ($en) {
             $data = array (
-                'text' => 'Imported goods carried by Passengers or Transportation Means Crew must be notified to Customs Officer by Customs Declaration or PIBK <b>PMK 203/PMK.04/2017</b>',
+                'text' => '<p>Imported goods carried by Passengers or Crew must be notified to Customs Officer by Customs Declaration</p> <p style="margin-top:-15px;"><b>PMK 203/PMK.04/2017</b></p>',
                 'button' => 'START',
+                'header' => 'Welcome',
                 'active' => 1
             );
         }
