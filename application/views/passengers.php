@@ -188,7 +188,7 @@
                             <input type="number" class="form-control" id="baggageEx" name="baggageEx" placeholder="pck" required value="0">
                         </div>
                         <div class="mb-3">
-                            <label for="familyNumber" class="form-label"><?= ($en) ? 'Number of family members traveling with you (only for passenger)' : 'Jumlah anggota keluarga yang bepergian bersama (untuk penumpang)'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'number of family member (including you) traveling with you. fill 0 if traveling alone' : 'jumlah anggota keluarga termasuk anda (penumpang), yg ikut serta dalam perjalanan ini. isi 1 jika bepergian sendiri'; ?>"></i></label>
+                            <label for="familyNumber" class="form-label"><?= ($en) ? 'Number of family members traveling with you (only for passenger)' : 'Jumlah anggota keluarga yang bepergian bersama (untuk penumpang)'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'number of family member (including you) traveling with you. fill 0 if traveling alone' : 'jumlah anggota keluarga termasuk anda (penumpang), yg ikut serta dalam perjalanan ini. isi 0 jika bepergian sendiri'; ?>"></i></label>
                             <input type="number" class="form-control" id="familyNumber" name="familyNumber" value="0" required>
                         </div>
                     </div>
@@ -632,7 +632,6 @@
 
                 // use setTimeout() to execute
                 setTimeout(showStart, 3000);
-                
             });
         </script>
     </body>
