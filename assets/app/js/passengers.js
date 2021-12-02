@@ -101,7 +101,10 @@
                     $('.goods_t_m').removeClass('d-none');
                 } else if (value == '6') {
                     $('.rating').removeClass('d-none');
+                } else if (value == '7') {
+                    $('.agreement').removeClass('d-none');
                 }
+
             });
             $('#agreement').on('change', function() {
                 var checked = $(this).prop('checked');
@@ -428,6 +431,10 @@
             $('button[name="btnPreviewNext"]').on('click', function() {
                 $('#theContent').find('.preview').addClass('d-none');
                 $('#theContent').find('.agreement').removeClass('d-none');
+
+                // set active menu
+                $('.bc-link-menu').removeClass('bc-active');
+                $('.bc-link-menu').has('a[value="7"]').addClass('bc-active');
             });
 
             // prev function

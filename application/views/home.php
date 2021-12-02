@@ -35,12 +35,17 @@
             <!-- space -->
             <div class="mt-5">&nbsp;</div>
             <div class="mt-5">
-                <div class="mt-0 p-3 text-center">
-                    <a href="/passengers<?= isset($_GET['lang']) ? '?lang=' . $_GET['lang'] : '';?>" class="btn btn-primary"><?= $home['button'];?></a>
+                &nbsp;
+            </div>
+            <div class="mt-5">
+                &nbsp;
+            </div>
+            <div class="mt-4">
+                <div class="p-3 text-center">
+                    <a style="padding-left: 15px; padding-right: 15px;" href="/passengers<?= isset($_GET['lang']) ? '?lang=' . $_GET['lang'] : '';?>" class="btn btn-primary btn-sm"><?= $home['button'];?></a>
                 </div>
             </div>
-            <div class="mt-5">&nbsp;</div>
-            <div class="mt-5 text-white p-3 bc-desc">
+            <div class="mt-0 text-white p-3 bc-desc">
                 <h4><?=$home['header'];?></h4>
                 <?= $home['text']; ?>
             </div>

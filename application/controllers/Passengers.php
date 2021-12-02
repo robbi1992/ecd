@@ -57,7 +57,8 @@ class Passengers extends CI_Controller {
                     'header' => 'Passenger'
                 ),
                 'goods' => array(
-                    't&m' => '<p>Every personal crew goods, per person on every arrival, is granted import duties, excise, and taxes exemption of USD 50.00 on his/her personal goods (personal effect) that were purchased or obtained abroad and will remain in Indonesia.</p>
+                    't&m' => '<p>Every personal goods, per person on every arrival, is granted import duties, excise, and taxes exemption of USD 500.00 on his/her personal goods (personal effect) that were purchased or obtained abroad and will remain in Indonesia.</p>
+                    <p>Every personal crew goods, per person on every arrival, is granted import duties, excise, and taxes exemption of USD 50.00 on his/her personal goods (personal effect) that were purchased or obtained abroad and will remain in Indonesia.</p>
                     <p>For those who import goods for other purposes than personal use (e.g. the total amount of the goods are unusual for personal use or the goods are used for commercial purposes such as companies/store/institution/industry), are subject to import duties, excise, and taxes.</p>',
                     't&m2' => 'The following amount of excisable goods for personal use that were purchased or obtained abroad and will remain in Indonesia are exempted from Import duties, excise, and taxes for every arrival:
                     <table class="table">

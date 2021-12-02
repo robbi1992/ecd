@@ -33,11 +33,10 @@
                 <div class="col-1 bc-link-menu">
                     <a value="5" class="text-white bc-link" href="#" title="Term&Condition"><i class="fa fa-file-contract"></i></a>
                 </div>
-                <!--  -->
                 <div class="col-2 bc-link-menu">
                     <a value="0" class="text-white bc-link" href="#" title="Personal"><i class="fa fa-id-card"></i></a>
                 </div>
-                <div class="col-2 bc-link-menu">
+                <div class="col-1 bc-link-menu">
                     <a value="1" class="text-white bc-link" href="#" title="Family"><i class="fa fa-users"></i></a>
                 </div>
                 <div class="col-2 bc-link-menu">
@@ -45,6 +44,9 @@
                 </div>
                 <div class="col-2 bc-link-menu">
                     <a value="3" class="text-white bc-link" href="#" title="Preview"><i class="fa fa-eye"></i></a>
+                </div>
+                <div class="col-1 bc-link-menu">
+                    <a value="7" class="text-white bc-link" href="#" title="Agreement"><i class="fa fa-file-signature"></i></a>
                 </div>
                 <div class="col-2 bc-link-menu">
                     <a value="6" class="text-white bc-link" href="#" title="Rating"><i class="fa fa-star"></i></a>
@@ -357,6 +359,7 @@
                 <?php
                 }
                 ?>
+                <p style="font-size: 13px; text-align: justify;"><?= ($en) ? 'If you tick "Yes" to any of questions above, please notify on the next page and please go to <b>RED CHANNEL</b>. If you tick "No" to all of the questions above, please go to <b>GREEN CHANNEL</b>.' : 'Apabila anda memberikan jawaban "Ya" pada salah satu pertanyaan diatas, uraikan barang tersebut pada tempat yang disediakan di halaman selanjutnya, dan silakan menuju <b>JALUR MERAH</b>. Apabila memberikan jawaban "Tidak" Pada semua pertanyaan, silahkan menuju <b>JALUR HIJAU</b>'; ?></p>
                 <button name="btnGoodsFormPrev" class="btn btn-outline-secondary"><?= ($en) ? 'Previous' : 'Sebelumnya';?></button>
                 <button name="btnGoodsFormNext" class="btn btn-outline-primary bc-bg" style="float: right;"><?= ($en) ? 'Next' : 'Selanjutnya'; ?></button>
             </div>
@@ -380,7 +383,7 @@
                     <input type="text" class="form-control" id="goodsDesc" name="goodsDesc">
                 </div>
                 <div class="mb-3">
-                    <label for="goodsAmount" class="form-label"><?= ($en) ? 'Amount' : 'Jumlah';?><span class="text-danger">*</span></label>
+                    <label for="goodsAmount" class="form-label"><?= ($en) ? 'Quantity' : 'Jumlah';?><span class="text-danger">*</span></label>
                     <input type="number" min="0" class="form-control" id="goodsAmount" name="goodsAmount">
                 </div>
                 <div class="mb-3">
@@ -405,7 +408,7 @@
                         <tr class="bc-bg bc-border">
                             <th scope="col">No</th>
                             <th scope="col"><?=($en) ? 'Description':'Uraian';?></th>
-                            <th scope="col"><?=($en) ? 'Amount':'Jumlah';?></th>
+                            <th scope="col"><?=($en) ? 'Qty':'Jumlah';?></th>
                             <th scope="col"><?=($en) ? 'Value':'Nilai';?></th>
                             <!-- <th scope="col"><?=($en) ? 'Action':'Aksi';?></th> -->
                         </tr>
@@ -445,7 +448,7 @@
                         <?=($en) ? 'Review' : 'Pratinjau';?>
                     </div>
                     <div class="card-body">
-                        <p class="bc-desc"><?= ($en) ? 'Each arriving Passenger/Crew must submit  Customs Declaration (one customs declarations can be used for one family):' : 'Penumpang/Awak sarana pengangkut wajib menyerahkan Customs Declaration pada saat setiap kedatangan (satu keluarga dapat mengajukan satu Customs Declaration):'; ?></p>
+                        <!-- <p class="bc-desc"><?= ($en) ? 'Each arriving Passenger/Crew must submit  Customs Declaration (one customs declarations can be used for one family):' : 'Penumpang/Awak sarana pengangkut wajib menyerahkan Customs Declaration pada saat setiap kedatangan (satu keluarga dapat mengajukan satu Customs Declaration):'; ?></p> -->
                         <table class="table" style="font-size: 10px;">
                             <tbody>
                                 <tr>
@@ -510,7 +513,7 @@
                                                 <tr class="bc-bg bc-border">
                                                     <th scope="col">No</th>
                                                     <th scope="col"><?=($en) ? 'Description':'Uraian';?></th>
-                                                    <th scope="col"><?=($en) ? 'Amount':'Jumlah';?></th>
+                                                    <th scope="col"><?=($en) ? 'Qty':'Jumlah';?></th>
                                                     <th scope="col"><?=($en) ? 'Value':'Nilai';?></th>
                                                 </tr>
                                             </thead>
@@ -518,11 +521,13 @@
                                         </table>
                                     </td>
                                 </tr>
+                                <!--
                                 <tr>
                                     <td colspan="2" style="font-size: 10px; text-align: justify;">
                                         <?= ($en) ? '' : 'Apabila anda memberikan jawaban "Ya" pada salah satu pertanyaan nomor 11 diatas, uraikan barang tersebut pada tempat yang disediakan di halaman sebelumnya, dan silakan menuju <b>JALUR MERAH</b>. Apabila memberikan jawaban "Tidak" Pada semua pertanyaan, silahkan menuju <b>JALUR HIJAU</b>'; ?>
                                     </td>
                                 </tr>
+                                -->
                             </tbody>
                         </table>
                     </div>
@@ -543,12 +548,12 @@
                         <?= ($en) ? 'Agreement' : 'Persetujuan';?>
                     </div>
                     <div class="card-body">
-                        <p class="bc-desc"><?= ($en) ? 'MAKING A FALSE DECLARATION CONSTITUTES SERIOUS OFFENCES WHICH ATTRACT PENALTIES OR PUNISHMENT IN ACCORDANCE WITH LAWS AND REGULATIONS.' : 'SETIAP KESALAHAN PEMBERITAHUAN PABEAN DIKENAKAN SANKSI SESUAI DENGAN PERATURAN PERUNDANG-UNDANGAN';?></p>
-                        <p class="bc-desc"><?= ($en) ? 'I HAVE READ THE INFORMATION ON THIS FORM AND HAVE MADE A TRUTHFUL DECLARATION.' : 'SAYA TELAH MEMBACA INFORMASI PADA HALAMAN CUSTOMS DECLARATION INI DAN SAYA MENYATAKAN BAHWA YANG SAYA BERITAHUKAN ADALAH BENAR'; ?></p>
+                        <p class="bc-desc"><?= ($en) ? '<p>Should you have unaccompanied baggage, please duplicate this Customs Declaration and request an approval from Customs Officer for claiming the unaccompanied baggage.</p><p>To expendite the customs services, please notify the goods that you are bringing/carrying completely and correctly in this form, then submit it to Customs Officer.</p><p>Making a false declaration constitutes serious offences which attract penalties or punishment in accordance with laws and regulations.</p>' : '<p>Jika ada bagasi yang tidak datang bersama, agar Anda menduplikasikan Customs Declaration ini dan meminta pengesahan kepada petugas Bea dan Cukai untuk keperluan  pengeluaran bagasi tersebut.</p><p>Demi kelancaran dalam pelayanan kepabeanan, agar Anda memberitahukan barang yang Anda bawa dengan lengkap dan benar dalam Customs Declaration ini untuk kemudian disampaikan kepada Petugas Bea dan Cukai.</p><p>Setiap kesalahan pemberitahuan pabean dikenakan sanksi sesuai  dengan peraturan perundang-undangan.</p>';?></p>
+                        <p class="bc-desc"><b><?= ($en) ? 'I HAVE READ THE INFORMATION ON THIS FORM AND HAVE MADE A TRUTHFUL DECLARATION.' : 'SAYA TELAH MEMBACA INFORMASI PADA HALAMAN CUSTOMS DECLARATION INI DAN SAYA MENYATAKAN BAHWA YANG SAYA BERITAHUKAN ADALAH BENAR'; ?></b></p>
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="agreement" required>
                             <label class="form-check-label" for="agreement">
-                                Setuju
+                                <?= ($en) ? 'Agree' : 'Setuju';?>
                             </label>
                         </div>
                     </div>
