@@ -63,6 +63,10 @@
                         // set active menu
                         $('.bc-link-menu').removeClass('bc-active');
                         $('.bc-link-menu').has('a[value="4"]').addClass('bc-active');
+
+                        // set thanks
+                        $('div[name="error-msg"]').addClass('d-none');
+                        $('div[name="success-msg"]').removeClass('d-none');
                     });
                 } else {
                     alert('There is something wrong, try again later..');
@@ -440,8 +444,11 @@
             });
             $('button[name="btnGoodsFormPrev"]').on('click', function() {
                 // console.log('tes');
-                $('#theContent').find('.goods_t_m3').removeClass('d-none');
+                $('#theContent').find('.family-container').removeClass('d-none');
                 $('#theContent').find('.goods_form').addClass('d-none');
+
+                $('.bc-link-menu').removeClass('bc-active');
+                $('.bc-link-menu').has('a[value="2"]').addClass('bc-active');
             });
             $('button[name="btnGoodsDetailPrev"]').on('click', function() {
                 // console.log('tes');
