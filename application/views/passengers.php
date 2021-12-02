@@ -30,31 +30,43 @@
         <!-- end shortcut menu -->
         <div class="container d-none" id="theContent">
             <div class="row bc-sub-menu text-center">
-                <div class="col-1 bc-link-menu">
-                    <a value="5" class="text-white bc-link" href="#" title="Term&Condition"><i class="fa fa-file-contract"></i></a>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-3 bc-link-menu">
+                            <a value="5" class="text-white bc-link" href="#" title="Term&Condition"><i class="fa fa-file-contract"></i></a>
+                        </div>
+                        <div class="col-3 bc-link-menu">
+                            <a value="0" class="text-white bc-link" href="#" title="Personal"><i class="fa fa-id-card"></i></a>
+                        </div>
+                        <div class="col-3 bc-link-menu">
+                            <a value="1" class="text-white bc-link" href="#" title="Family"><i class="fa fa-users"></i></a>
+                        </div>
+                        <div class="col-3 bc-link-menu">
+                            <a value="2" class="text-white bc-link" href="#" title="Barang"><i class="fa fa-briefcase"></i></a>
+                        </div>
+                    </div>
+                    <!-- end row inside -->
                 </div>
-                <div class="col-2 bc-link-menu">
-                    <a value="0" class="text-white bc-link" href="#" title="Personal"><i class="fa fa-id-card"></i></a>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-3 bc-link-menu">
+                            <a value="3" class="text-white bc-link" href="#" title="Preview"><i class="fa fa-eye"></i></a>
+                        </div>
+                        <div class="col-3 bc-link-menu">
+                            <a value="7" class="text-white bc-link" href="#" title="Agreement"><i class="fa fa-file-signature"></i></a>
+                        </div>
+                        <div class="col-3 bc-link-menu">
+                            <a value="6" class="text-white bc-link" href="#" title="Rating"><i class="fa fa-star"></i></a>
+                        </div>
+                        <div class="col-3 bc-link-menu">
+                            <a value="4" class="text-white bc-link" href="#" title="QR Code"><i class="fa fa-qrcode"></i></a>
+                        </div>
+                    </div>
+                    <!-- end row inside -->
                 </div>
-                <div class="col-1 bc-link-menu">
-                    <a value="1" class="text-white bc-link" href="#" title="Family"><i class="fa fa-users"></i></a>
-                </div>
-                <div class="col-2 bc-link-menu">
-                    <a value="2" class="text-white bc-link" href="#" title="Barang"><i class="fa fa-briefcase"></i></a>
-                </div>
-                <div class="col-2 bc-link-menu">
-                    <a value="3" class="text-white bc-link" href="#" title="Preview"><i class="fa fa-eye"></i></a>
-                </div>
-                <div class="col-1 bc-link-menu">
-                    <a value="7" class="text-white bc-link" href="#" title="Agreement"><i class="fa fa-file-signature"></i></a>
-                </div>
-                <div class="col-2 bc-link-menu">
-                    <a value="6" class="text-white bc-link" href="#" title="Rating"><i class="fa fa-star"></i></a>
-                </div>
-                <div class="col-1 bc-link-menu">
-                    <a value="4" class="text-white bc-link" href="#" title="QR Code"><i class="fa fa-qrcode"></i></a>
-                </div>
+                <!-- end col inside -->
             </div>
+            <!-- end row -->
             <!-- 
             <div class="bc-page g20-page mt-3">
                 <img src="/assets/img/g20_page.jpg" style="width:100%;" />
@@ -569,10 +581,20 @@
             <div class="bc-page qr_code mt-3 d-none">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="text-center text-success"><?= ($en) ? 'Thank You!' : 'Terima Kasih!';?></h4>
-                        <p class="text-center" style="margin-top: -10px; font-weight: bold; font-size: 13px;">
-                            <?= ($en) ? 'Your submission has been received' : 'Pengisian anda telah kami terima';?>
-                        </p>
+                        <!-- show when the process completed -->
+                        <div class="d-none" name="success-msg">
+                            <h4 class="text-center text-success"><?= ($en) ? 'Thank You!' : 'Terima Kasih!';?></h4>
+                            <p class="text-center" style="margin-top: -10px; font-weight: bold; font-size: 13px;">
+                                <?= ($en) ? 'Your submission has been received' : 'Pengisian anda telah kami terima';?>
+                            </p>
+                        </div>
+                        <div class="d-none" name="error-msg">
+                            <h4 class="text-center text-danger"><?= ($en) ? 'Sorry!' : 'Maaf!';?></h4>
+                            <p class="text-center" style="margin-top: -10px; font-weight: bold; font-size: 13px;">
+                                <?= ($en) ? 'Please fill in your data correctly' : 'Mohon melakukan pengisian dengan benar';?>
+                            </p>
+                        </div>
+                        <!--  -->
                         <p class="bc-desc"><?= ($en) ? 'Save this QR Code or screenshot this page and please scan to Customs Officer':'Simpan kode QR atau tangkap layar laman ini, kemudian serahkan kepada petugas Bea Cukai';?></p>
                         <img src="" style="width: 100%;"/>
                         <div class="text-center" style="width: 100%;"><a href="" name="btnSaveQR" class="btn btn-outline-primary bc-bg" download><?= ($en) ? 'SAVE QR CODE':'SIMPAN KODE QR';?></a></div>

@@ -96,6 +96,14 @@
                 } else if (value == '3') {
                     $('.preview').removeClass('d-none');
                 } else if (value == '4') {
+                    var isEmptyPersonal = Object.keys(Pass.params.personal).length;
+                    if (isEmptyPersonal === 0 || Pass.params.agreement === 0) {
+                        $('div[name="error-msg"]').removeClass('d-none');
+                        $('div[name="success-msg"]').addClass('d-none');
+                    } else {
+                        $('div[name="error-msg"]').addClass('d-none');
+                        $('div[name="success-msg"]').removeClass('d-none');
+                    }
                     $('.qr_code').removeClass('d-none');
                 } else if (value == '5') {
                     $('.goods_t_m').removeClass('d-none');
