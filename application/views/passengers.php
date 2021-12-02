@@ -98,11 +98,11 @@
                     </div>
                     <div class="card-body">
                         <div class="mb-3">
-                            <label for="fullName" class="form-label"><?= ($en) ? 'Full Name' : 'Nama Lengkap'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'YOUR FULL NAME ACCORDING TO PASSPORT' : 'NAMA LENGKAP ANDA SESUAI PASPOR';?>"></i></label>
+                            <label for="fullName" class="form-label"><?= ($en) ? 'Full Name' : 'Nama Lengkap'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'your full name according to passport' : 'nama lengkap anda sesuai paspor';?>"></i></label>
                             <input type="text" class="form-control" id="fullName" name="fullName" required>
                         </div>
                         <div class="mb-3">
-                            <label><?= ($en) ? 'Date of Birth' : 'Tanggal Lahir'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'YOUR DATE OF BIRTH' : 'TANGGAL LAHIR ANDA (H-B-T)'; ?>"></i></label>
+                            <label><?= ($en) ? 'Date of Birth' : 'Tanggal Lahir'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'your date of birth' : 'tanggal lahir anda (H-B-T)'; ?>"></i></label>
                             <div class="row">
                                 <div class="col">
                                     <select class="form-control" name="birthDate" required>
@@ -114,7 +114,6 @@
                                         }
                                         ?>
                                     </select>
-                                    <!-- <input name="familyBirthDate" class="form-control" type="number" min="1" max="31" placeholder="dd" /> -->
                                 </div>
                                 <div class="col">
                                     <select class="form-control" name="birthMonth" required>
@@ -126,7 +125,6 @@
                                         }
                                         ?>
                                     </select>
-                                    <!-- <input name="familyBirthDate" class="form-control" type="number" min="1" max="31" placeholder="dd" /> -->
                                 </div>
                                 <div class="col">
                                     <select class="form-control" name="birthYear" required>
@@ -140,20 +138,13 @@
                                     </select>
                                 </div>
                             </div>
-                            <!--
-                            <div class="row">
-                                <div class="col"><input name="birthDate" class="form-control" type="number" min="1" max="31" placeholder="dd" required /></div>
-                                <div class="col"><input name="birthMonth" class="form-control" type="number" min="1" max="12" placeholder="mm" required /></div>
-                                <div class="col"><input name="birthYear" class="form-control" type="number" min="1800" max="<?= date('Y');?>" placeholder="yyyy" required /></div>
-                            </div>
-                            -->
                         </div>
                         <div class="mb-3">
-                            <label for="occupation" class="form-label"><?= ($en) ? 'Occupation' : 'Pekerjaan'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'YOUR OCCUPATION' : 'PEKERJAAN ANDA'; ?>"></i></label>
+                            <label for="occupation" class="form-label"><?= ($en) ? 'Occupation' : 'Pekerjaan'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'your occupation' : 'pekerjaan anda'; ?>"></i></label>
                             <input type="text" class="form-control" id="occupation" name="occupation" required>
                         </div>
                         <div class="mb-3">
-                            <label for="nationality" class="form-label"><?= ($en) ? 'Nationality' : 'Kebangsaan'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'YOUR NATIONALITY' : 'KEBANGSAAN ANDA'; ?>"></i></label>
+                            <label for="nationality" class="form-label"><?= ($en) ? 'Nationality' : 'Kebangsaan'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'your nationality' : 'kebangsaan anda'; ?>"></i></label>
                             <select class="form-control" id="nationality" name="nationality" required>
                                 <option value=""><?= ($en) ? 'Select Nationality' : 'Pilih Kebangsaan';?></option>
                                 <?php
@@ -165,19 +156,19 @@
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label for="passport" class="form-label"><?= ($en) ? 'Passport Number' : 'Nomor Paspor'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'YOUR PASSPORT NUMBER. FILL IN USING NUMBER AND/OR LETTER' : 'NOMOR PASPOR ANDA. ISI HURUF DAN/ATAU ANGKA'; ?>"></i></label>
+                            <label for="passport" class="form-label"><?= ($en) ? 'Passport Number' : 'Nomor Paspor'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'your passport number. fill in using number and/or letter' : 'nomor paspor anda. isi huruf dan/atau angka'; ?>"></i></label>
                             <input type="text" class="form-control" id="passport" name="passport" required>
                         </div>
                         <div class="mb-3">
-                            <label for="address" class="form-label"><?= ($en) ? 'Address in Indonesia (hotel name/residence address)' : 'Alamat di Indonesia (nama hotel/alamat tinggal)'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'FILL IN YOUR ADDRESS IN INDONESIA (HOTEL NAME OR RESIDENCE ADDRESS)' : 'ISIKAN ALAMAT TINGGAL / NAMA HOTEL DI INDONESIA'; ?>"></i></label>
+                            <label for="address" class="form-label"><?= ($en) ? 'Address in Indonesia (hotel name/residence address)' : 'Alamat di Indonesia (nama hotel/alamat tinggal)'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'fill in your address in indonesia (hotel name or residence address)' : 'isikan alamat tinggal / nama hotel di indonesia'; ?>"></i></label>
                             <textarea class="form-control" id="address" name="address" required></textarea>
                         </div>
                         <div class="mb-3">
-                            <label for="flightNumber" class="form-label"><?= ($en) ? 'Flight Number' : 'Nomor Penerbangan'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'YOUR FLIGHT OR VOYAGE NUMBER': 'NOMOR PENERBANGAN ANDA'; ?>"></i></label>
+                            <label for="flightNumber" class="form-label"><?= ($en) ? 'Flight Number' : 'Nomor Penerbangan'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'your flight or voyage number': 'nomor penerbangan anda'; ?>"></i></label>
                             <input type="text" class="form-control" id="flightNumber" name="flightNumber" required>
                         </div>
                         <div class="mb-3">
-                            <label><?= ($en) ? 'Date of Arrival' : 'Tanggal Kedatangan'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'YOUR ARRIVAL DATE' : 'TANGGAL KEDATANGAN ANDA'; ?>"></i></label>
+                            <label><?= ($en) ? 'Date of Arrival' : 'Tanggal Kedatangan'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'your arrival date' : 'tanggal kedatangan anda'; ?>"></i></label>
                             <div class="row">
                                 <div class="col">
                                     <select class="form-control" name="arrivalDate">
@@ -185,27 +176,19 @@
                                         <option value="<?=date('Y-m-d',strtotime(date('Y-m-d') . "+1 days"));?>"><?=date('d M Y',strtotime(date('Y-m-d') . "+1 days"));?></option>
                                         <option value="<?=date('Y-m-d',strtotime(date('Y-m-d') . "+2 days"));?>"><?=date('d M Y',strtotime(date('Y-m-d') . "+2 days"));?></option>
                                     </select>
-                                    <!-- <input name="familyBirthDate" class="form-control" type="number" min="1" max="31" placeholder="dd" /> -->
                                 </div>
                             </div>
-                            <!--
-                            <div class="row">
-                                <div class="col"><input name="arrivalDate" class="form-control" type="number" min="1" max="31" placeholder="dd" required /></div>
-                                <div class="col"><input name="arrivalMonth" class="form-control" type="number" min="1" max="12" placeholder="mm" required /></div>
-                                <div class="col"><input name="arrivalYear" class="form-control" type="number" min="1800" max="<?= date('Y');?>" placeholder="yyyy" required /></div>
-                            </div>
-                            -->
                         </div>
                         <div class="mb-3">
-                            <label for="baggageIn" class="form-label"><?= ($en) ? 'Number of accompanied baggage' : 'Jumlah bagasi yang dibawa'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'NUMBER OF ACCOMPANIED BAGAGE TRAVELING WITH YOU AND YOUR FAMILY. FILL 0 IF NONE' : 'JUMLAH BAGASI YANG DIBAWA BERSAMA PENUMPANG. TERMASUK JUMLAH BAGASI ANGGOTA KELUARGA YANG IKUT SERTA DALAM PERJALANAN INI. ISI 0 JIKA TIDAK ADA'; ?>"></i></label>
+                            <label for="baggageIn" class="form-label"><?= ($en) ? 'Number of accompanied baggage' : 'Jumlah bagasi yang dibawa'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'number of accompanied bagage traveling with you and your family. fill 0 if none' : 'jumlah bagasi yang dibawa bersama penumpang. termasuk jumlah bagasi anggota keluarga yang ikut serta dalam perjalanan ini. isi 0 jika tidak ada'; ?>"></i></label>
                             <input type="number" class="form-control" id="baggageIn" name="baggageIn" placeholder="pck" required value="0">
                         </div>
                         <div class="mb-3">
-                            <label for="baggageEx" class="form-label"><?= ($en) ? 'Number of unaccompanied baggage' : 'Jumlah bagasi yang datang tidak bersamaan'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'NUMBER OF UNACCOMPANIED BAGAGE TRAVELING WITH YOU AND YOUR FAMILY. FILL 0 IF NONE' : 'JUMLAH BAGASI YANG DATANG TIDAK BERSAMA PENUMPANG. TERMASUK JUMLAH BAGASI ANGGOTA KELUARGA YANG IKUT SERTA DALAM PERJALANAN INI. ISI 0 JIKA TIDAK ADA'; ?>"></i></label>
+                            <label for="baggageEx" class="form-label"><?= ($en) ? 'Number of unaccompanied baggage' : 'Jumlah bagasi yang datang tidak bersamaan'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'number of unaccompanied bagage traveling with you and your family. fill 0 if none' : 'jumlah bagasi yang datang tidak bersama penumpang. termasuk jumlah bagasi anggota keluarga yang ikut serta dalam perjalanan ini. isi 0 jika tidak ada'; ?>"></i></label>
                             <input type="number" class="form-control" id="baggageEx" name="baggageEx" placeholder="pck" required value="0">
                         </div>
                         <div class="mb-3">
-                            <label for="familyNumber" class="form-label"><?= ($en) ? 'Number of family members traveling with you (only for passenger)' : 'Jumlah anggota keluarga yang bepergian bersama (untuk penumpang)'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'NUMBER OF FAMILY MEMBER (INCLUDING YOU) TRAVELING WITH YOU. FILL 1 IF TRAVELING ALONE' : 'JUMLAH ANGGOTA KELUARGA TERMASUK ANDA (PENUMPANG), YG IKUT SERTA DALAM PERJALANAN INI. ISI 1 JIKA BEPERGIAN SENDIRI'; ?>"></i></label>
+                            <label for="familyNumber" class="form-label"><?= ($en) ? 'Number of family members traveling with you (only for passenger)' : 'Jumlah anggota keluarga yang bepergian bersama (untuk penumpang)'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'number of family member (including you) traveling with you. fill 0 if traveling alone' : 'jumlah anggota keluarga termasuk anda (penumpang), yg ikut serta dalam perjalanan ini. isi 1 jika bepergian sendiri'; ?>"></i></label>
                             <input type="number" class="form-control" id="familyNumber" name="familyNumber" value="0" required>
                         </div>
                     </div>
@@ -225,16 +208,16 @@
                     </div>
                     <div class="card-body">
                         <div class="mb-3">
-                            <label for="familyName" class="form-label"><?= ($en) ? 'Full Name' : 'Nama Lengkap';?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'FULL NAME OF ALL YOUR FAMILY TRAVELING WITH YOU' : 'NAMA LENGKAP MASING-MASING ANGGOTA KELUARGA YANG IKUT SERTA DALAM PERJALANAN INI'; ?>"></i></label>
+                            <label for="familyName" class="form-label"><?= ($en) ? 'Full Name' : 'Nama Lengkap';?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'full name of all your family traveling with you' : 'nama lengkap masing-masing anggota keluarga yang ikut serta dalam perjalanan ini'; ?>"></i></label>
                             <input type="text" class="form-control" id="familyName" name="familyName">
                         </div>
                         <div class="mb-3">
-                            <label for="familyPassport" class="form-label"><?= ($en) ? 'Number of Passport' : 'Nomor Paspor';?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'PASSPORT NUMBER OF ALL YOUR FAMILY TRAVELING WITH YOU' : 'NOMOR PASPOR MASING-MASING ANGGOTA KELUARGA YANG IKUT SERTA DALAM PERJALANAN INI';?>"></i></label>
+                            <label for="familyPassport" class="form-label"><?= ($en) ? 'Passport Number' : 'Nomor Paspor';?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'passport number of all your family traveling with you' : 'nomor paspor masing-masing anggota keluarga yang ikut serta dalam perjalanan ini';?>"></i></label>
                             <input type="text" class="form-control" id="familyPassport" name="familyPassport">
                         </div>
                         <!-- added on 8 Nov 2021 -->
                         <div class="mb-3">
-                            <label><?= ($en) ? 'Date of Birth' : 'Tanggal Lahir'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'YOUR DATE OF BIRTH OF ALL YOUR FAMILY TRAVELING WITH YOU' : 'TANGGAL LAHIR ANDA (H-B-T) MASING-MASING ANGGOTA KELUARGA YANG IKUT SERTA DALAM PERJALANAN INI'; ?>"></i></label>
+                            <label><?= ($en) ? 'Date of Birth' : 'Tanggal Lahir'; ?><span class="text-danger">*</span> <i class="far fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="<?= ($en) ? 'your date of birth of all your family traveling with you' : 'tanggal lahir anda (h-b-t) masing-masing anggota keluarga yang ikut serta dalam perjalanan ini'; ?>"></i></label>
                             <div class="row">
                                 <div class="col">
                                     <select class="form-control" name="familyBirthDate" required>
@@ -559,8 +542,8 @@
                     <div class="card-header bc-bg">
                         <?= ($en) ? 'Agreement' : 'Persetujuan';?>
                     </div>
-                    <div class="card-body">
-                        <p class="bc-desc"><?= ($en) ? '<p>Should you have unaccompanied baggage, please duplicate this Customs Declaration and request an approval from Customs Officer for claiming the unaccompanied baggage.</p><p>To expendite the customs services, please notify the goods that you are bringing/carrying completely and correctly in this form, then submit it to Customs Officer.</p><p>Making a false declaration constitutes serious offences which attract penalties or punishment in accordance with laws and regulations.</p>' : '<p>Jika ada bagasi yang tidak datang bersama, agar Anda menduplikasikan Customs Declaration ini dan meminta pengesahan kepada petugas Bea dan Cukai untuk keperluan  pengeluaran bagasi tersebut.</p><p>Demi kelancaran dalam pelayanan kepabeanan, agar Anda memberitahukan barang yang Anda bawa dengan lengkap dan benar dalam Customs Declaration ini untuk kemudian disampaikan kepada Petugas Bea dan Cukai.</p><p>Setiap kesalahan pemberitahuan pabean dikenakan sanksi sesuai  dengan peraturan perundang-undangan.</p>';?></p>
+                    <div class="card-body bc-desc">
+                        <?= ($en) ? '<p>Should you have unaccompanied baggage, please duplicate this Customs Declaration and request an approval from Customs Officer for claiming the unaccompanied baggage.</p><p>To expendite the customs services, please notify the goods that you are bringing/carrying completely and correctly in this form, then submit it to Customs Officer.</p><p>Making a false declaration constitutes serious offences which attract penalties or punishment in accordance with laws and regulations.</p>' : '<p>Jika ada bagasi yang tidak datang bersama, agar Anda menduplikasikan Customs Declaration ini dan meminta pengesahan kepada petugas Bea dan Cukai untuk keperluan  pengeluaran bagasi tersebut.</p><p>Demi kelancaran dalam pelayanan kepabeanan, agar Anda memberitahukan barang yang Anda bawa dengan lengkap dan benar dalam Customs Declaration ini untuk kemudian disampaikan kepada Petugas Bea dan Cukai.</p><p>Setiap kesalahan pemberitahuan pabean dikenakan sanksi sesuai  dengan peraturan perundang-undangan.</p>';?>
                         <p class="bc-desc"><b><?= ($en) ? 'I HAVE READ THE INFORMATION ON THIS FORM AND HAVE MADE A TRUTHFUL DECLARATION.' : 'SAYA TELAH MEMBACA INFORMASI PADA HALAMAN CUSTOMS DECLARATION INI DAN SAYA MENYATAKAN BAHWA YANG SAYA BERITAHUKAN ADALAH BENAR'; ?></b></p>
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="agreement" required>
