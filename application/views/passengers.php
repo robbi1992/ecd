@@ -268,7 +268,7 @@
                                 <tr class="bc-bg bc-border">
                                     <th scope="col">No</th>
                                     <th scope="col"><?= ($en) ? 'Name' : 'Nama';?></th>
-                                    <th scope="col"><?= ($en) ? 'Passport ID' : 'No. Paspor';?></th>
+                                    <th scope="col"><?= ($en) ? 'Passport No.' : 'No. Paspor';?></th>
                                     <th scope="col"><?= ($en) ? 'Birth Date' : 'Tgl Lahir';?></th>
                                 </tr>
                             </thead>
