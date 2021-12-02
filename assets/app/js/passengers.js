@@ -332,7 +332,7 @@
                 $('#theContent').find('.goods_detail').addClass('d-none');
 
                 $('span[name="reviewName"]').html(Pass.params.personal.name);
-                $('span[name="reviewBirth"]').html(Pass.params.personal.birth);
+                $('span[name="reviewBirth"]').html(Pass.params.personal.birthText);
                 $('span[name="reviewNation"]').html(Pass.params.personal.nationalityText);
                 $('span[name="reviewPassport"]').html(Pass.params.personal.passport);
                 $('span[name="reviewAddress"]').html(Pass.params.personal.address);
@@ -379,54 +379,6 @@
             });
             $('button[name="btnRatingNext"]').on('click', function() {
                 Pass.saveData();
-                // $('#theContent').find('.rating').addClass('d-none');
-                // set value of review
-                /*
-                $('span[name="reviewName"]').html(Pass.params.personal.name);
-                $('span[name="reviewBirth"]').html(Pass.params.personal.birth);
-                $('span[name="reviewNation"]').html(Pass.params.personal.nationalityText);
-                $('span[name="reviewPassport"]').html(Pass.params.personal.passport);
-                $('span[name="reviewAddress"]').html(Pass.params.personal.address);
-                $('span[name="reviewFlight"]').html(Pass.params.personal.flight);
-                $('span[name="reviewArrival"]').html(Pass.params.personal.arrival);
-                $('span[name="reviewBaggageIn"]').html(Pass.params.personal.baggageIn);
-                $('span[name="reviewBaggageEx"]').html(Pass.params.personal.baggageEx);
-                $('span[name="reviewNumofFamily"]').html(Pass.params.personalFamily.length);
-
-                // render table review of goods
-                var theContainer = $('table[name="reviewGoods"]').find('tbody').empty();
-                if (Pass.params.questionAnswer.length > 0) {
-                    $.each(Pass.params.questionAnswer, function(index, value) {
-                        var row = '<tr>\
-                            <td class="text-white">' + value.text + '</td>\
-                        </tr>';
-
-                        theContainer.append(row);
-                    });
-                }
-
-                // render table of goods detail
-                var theContainer = $('table[name="reviewDetailGoods"]').find('tbody').empty();
-                if (Pass.params.goodsDetail.length > 0) {
-                    var number = 1;
-                    $.each(Pass.params.goodsDetail, function(index, value) {
-                        var row = '<tr>\
-                            <td>' + number + '</td>\
-                            <td>' + value.desc + '</td>\
-                            <td>' + value.amount + '</td>\
-                            <td>' + Pass.setIdr(value.value) + ' ' + value.currency + '</td>\
-                        </tr>';
-
-                        theContainer.append(row);
-                        number++;
-                    });
-                }
-
-                $('#theContent').find('.preview').removeClass('d-none');
-                */
-                // set active menu
-                // $('.bc-link-menu').removeClass('bc-active');
-                // $('.bc-link-menu').has('a[value="3"]').addClass('bc-active');
             });
             $('button[name="btnAgreementNext"]').on('click', function() {
                 $('#theContent').find('.agreement').addClass('d-none');

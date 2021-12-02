@@ -117,7 +117,7 @@
                                 </div>
                                 <div class="col">
                                     <select class="form-control" name="birthMonth" required>
-                                        <option value="" selected>mm</option>
+                                        <option value="" selected>mmm</option>
                                         <?php
                                         foreach ($months as $idx => $val) {?>
                                         <option value="<?=$idx;?>"><?=$val;?></option>
@@ -233,7 +233,7 @@
                                 </div>
                                 <div class="col">
                                     <select class="form-control" name="familyBirthMonth" required>
-                                        <option value="" selected>mm</option>
+                                        <option value="" selected>mmm</option>
                                         <?php
                                         foreach ($months as $idx => $val) {?>
                                         <option value="<?=$idx;?>"><?=$val;?></option>

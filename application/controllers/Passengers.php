@@ -54,7 +54,7 @@ class Passengers extends CI_Controller {
                 'text2' => 'Illicitly bringing those goods into Indonesia and doing smuggling activities, are considered violations and will lead to legal action.',
                 'button' => 'Next',
                 'passenger' => array(
-                    'header' => 'Passenger'
+                    'header' => 'Passenger Information'
                 ),
                 'goods' => array(
                     't&m' => '<p>Every personal goods, per person on every arrival, is granted import duties, excise, and taxes exemption of USD 500.00 on his/her personal goods (personal effect) that were purchased or obtained abroad and will remain in Indonesia.</p>
