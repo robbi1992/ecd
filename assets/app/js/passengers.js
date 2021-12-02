@@ -405,30 +405,42 @@
             $('button[name="btnAgreementPrev"]').on('click', function() {
                 $('#theContent').find('.agreement').addClass('d-none');
                 $('#theContent').find('.preview').removeClass('d-none');
+
+                $('.bc-link-menu').removeClass('bc-active');
+                $('.bc-link-menu').has('a[value="3"]').addClass('bc-active');
             });
             // preview prev be goodsdetail
             $('button[name="btnPreviewPrev"]').on('click', function() {
                 $('#theContent').find('.preview').addClass('d-none');
                 $('#theContent').find('.goods_detail').removeClass('d-none');
+
+                $('.bc-link-menu').removeClass('bc-active');
+                $('.bc-link-menu').has('a[value="2"]').addClass('bc-active');
             });
             $('button[name="btnRatingPrev"]').on('click', function() {
                 $('#theContent').find('.rating').addClass('d-none');
                 $('#theContent').find('.agreement').removeClass('d-none');
+
+                $('.bc-link-menu').removeClass('bc-active');
+                $('.bc-link-menu').has('a[value="7"]').addClass('bc-active');
             });
             $('button[name="btnheaderPrev"]').on('click', function() {
                 $('#theContent').find('.starter').removeClass('d-none');
                 $('#theContent').find('.headers').addClass('d-none');
             });
             $('button[name="btnPersonalPrev"]').on('click', function() {
-                // $('#theContent').find('.headers').removeClass('d-none');
-                // here
-                // $('#theContent').find('.starter').removeClass('d-none');
                 $('#theContent').find('.goods_t_m3').removeClass('d-none');
                 $('#theContent').find('.passengers').addClass('d-none');
+
+                $('.bc-link-menu').removeClass('bc-active');
+                $('.bc-link-menu').has('a[value="5"]').addClass('bc-active');
             });
             $('button[name="btnFamilyPrev"]').on('click', function() {
                 $('#theContent').find('.passengers').removeClass('d-none');
                 $('#theContent').find('.family-container').addClass('d-none');
+
+                $('.bc-link-menu').removeClass('bc-active');
+                $('.bc-link-menu').has('a[value="0"]').addClass('bc-active');
             });
             $('button[name="btnGoodsTMPrev"]').on('click', function() {
                 $('#theContent').find('.starter').removeClass('d-none');
@@ -448,7 +460,7 @@
                 $('#theContent').find('.goods_form').addClass('d-none');
 
                 $('.bc-link-menu').removeClass('bc-active');
-                $('.bc-link-menu').has('a[value="2"]').addClass('bc-active');
+                $('.bc-link-menu').has('a[value="1"]').addClass('bc-active');
             });
             $('button[name="btnGoodsDetailPrev"]').on('click', function() {
                 // console.log('tes');
