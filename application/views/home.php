@@ -14,6 +14,8 @@
     </head>
 
     <body>
+        <!-- load image here -->
+        <img class="d-none" src="/assets/img/g20_page.jpg" />
         <div class="my-container">
             <div class="container-fluid">
                 <ul class="nav nav-pills justify-content-center">
