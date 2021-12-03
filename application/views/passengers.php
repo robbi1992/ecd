@@ -332,7 +332,7 @@
                     </div>
                 </div>
                 <hr />
-                <?= ($en) ? 'I declare my belonging' : 'Saya membawa'; ?>: <hr />
+                <?= ($en) ? 'I am bringing' : 'Saya membawa'; ?>: <hr />
                 <?php
                 // $idx = 1;
                 foreach($questions as $index => $val) { ?>
@@ -498,7 +498,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><?= ($en) ? 'Goods Detail:' : 'Uraian Barang'; ?></td>
+                                    <td><?= ($en) ? 'GOODS DECLARED:' : 'BARANG YANG DIBERITAHUKAN'; ?></td>
                                     <td>&nbsp;</td>
                                 </tr>
                                 <tr>
@@ -507,7 +507,7 @@
                                             <thead>
                                                 <tr class="bc-bg bc-border">
                                                     <th scope="col">No</th>
-                                                    <th scope="col"><?=($en) ? 'Description':'Uraian';?></th>
+                                                    <th scope="col"><?=($en) ? 'Description of Goods':'Uraian Barang';?></th>
                                                     <th scope="col"><?=($en) ? 'Qty':'Jumlah';?></th>
                                                     <th scope="col"><?=($en) ? 'Value':'Nilai';?></th>
                                                 </tr>
