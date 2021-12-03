@@ -632,6 +632,11 @@
 
                 // use setTimeout() to execute
                 setTimeout(showStart, 3000);
+
+                window.onbeforeunload = function ()
+                {
+                    return "";
+                };
             });
         </script>
     </body>
