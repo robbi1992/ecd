@@ -42,7 +42,7 @@
             </div>
             <div class="mt-4">
                 <div class="p-3 text-center">
-                    <a style="padding-left: 15px; padding-right: 15px;" href="/passengers<?= isset($_GET['lang']) ? '?lang=' . $_GET['lang'] : '';?>" class="btn btn-primary btn-sm"><?= $home['button'];?></a>
+                    <a style="padding-left: 20px; padding-right: 20px;" href="/passengers<?= isset($_GET['lang']) ? '?lang=' . $_GET['lang'] : '';?>" class="btn btn-primary"><?= $home['button'];?></a>
                 </div>
             </div>
             <div class="mt-0 text-white p-3 bc-desc">
