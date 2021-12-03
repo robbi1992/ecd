@@ -142,13 +142,13 @@
             $('form[name="formPassenger"]').on('submit', function() {
                 // pull personal data then save on param
                 var year = $('[name="birthYear"] option:selected').val(), month = $('[name="birthMonth"] option:selected').val(), date = $('[name="birthDate"] option:selected').val();
-                var arrivalDate = $('[name="arrivalDate"] option:selected').val();
+                var arrivalDate = $('[name="arrivalDate"] option:selected').val(), arrivalDateText = $('[name="arrivalDate"] option:selected').text();
                 var birthText = date + ' ' + Pass.monthList(parseInt(month)) + ' ' + year;
                 var personal = {
                     name: $('#fullName').val(), birth: year + '-' + month + '-' + date, birthText: birthText,
                     occupation: $('#occupation').val(), nationality: $('#nationality').val(), nationalityText: $('select[name="nationality"] option:selected').text(), passport: $('#passport').val(),
                     address: $('#address').val(), flight: $('#flightNumber').val(), baggageIn: $('#baggageIn').val(), baggageEx: $('#baggageEx').val(),
-                    arrival: arrivalDate
+                    arrival: arrivalDate, arrivalText: arrivalDateText
                 };
                 var familyNumber = $('#familyNumber').val();
                 // save personal info
@@ -341,7 +341,7 @@
                 $('span[name="reviewPassport"]').html(Pass.params.personal.passport);
                 $('span[name="reviewAddress"]').html(Pass.params.personal.address);
                 $('span[name="reviewFlight"]').html(Pass.params.personal.flight);
-                $('span[name="reviewArrival"]').html(Pass.params.personal.arrival);
+                $('span[name="reviewArrival"]').html(Pass.params.personal.arrivalText);
                 $('span[name="reviewBaggageIn"]').html(Pass.params.personal.baggageIn);
                 $('span[name="reviewBaggageEx"]').html(Pass.params.personal.baggageEx);
                 $('span[name="reviewNumofFamily"]').html(Pass.params.personalFamily.length);
