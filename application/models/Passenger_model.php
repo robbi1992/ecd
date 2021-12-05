@@ -84,7 +84,8 @@ class Passenger_model extends CI_Model {
                     'personal_id' => $header_id,
                     'description' => $val['desc'],
                     'quantity' => $val['amount'],
-                    'value' => $val['value']
+                    'value' => $val['value'],
+                    'currency' => $val['currency']
                 );
             }
             $this->db->insert_batch('ecd_goods', $data_goods);
