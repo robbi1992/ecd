@@ -19,7 +19,7 @@ class Passenger_model extends CI_Model {
         // insert header first
         $value = $data['personal'];
         // set unique qr_code
-        $qr_code = 'BCQR' . time() . '-' . rand(1, 1000);
+        $qr_code = 'BCQR' . time() . '-' . rand(100, 999);
         $this->db->set('full_name', $value['name']);
         $this->db->set('date_of_birth', $value['birth']);
         $this->db->set('occupation', $value['occupation']);
