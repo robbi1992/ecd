@@ -65,11 +65,13 @@ class Passenger_model extends CI_Model {
         $answer = $data['answer'];
         if (count($answer) > 0) {
             $data_answer = array();
+            // value is enum 1 
+            // set string '1' cus always be 1
             foreach($answer as $val) {
                 $data_answer[] = array(
                     'personal_id' => $header_id,
                     'goods_declare_id' => $val['id'],
-                    'answer' => $val['value']
+                    'answer' => '1'
                 );
             }
             $this->db->insert_batch('ecd_declare_answer', $data_answer);
