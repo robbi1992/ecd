@@ -11,7 +11,7 @@
  Target Server Version : 100119
  File Encoding         : 65001
 
- Date: 19/11/2021 16:56:07
+ Date: 05/12/2021 08:17:14
 */
 
 SET NAMES utf8mb4;
@@ -40,7 +40,7 @@ CREATE TABLE `ecd_personal` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `personal_qr_code_unique_item` (`qr_code`) USING BTREE,
   KEY `personal_nationality_fk_country_id` (`nationality`),
-  CONSTRAINT `personal_nationality_fk_country_id` FOREIGN KEY (`nationality`) REFERENCES `countries` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+  CONSTRAINT `personal_nationality_fk_country_id` FOREIGN KEY (`nationality`) REFERENCES `en_countries` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 SET FOREIGN_KEY_CHECKS = 1;
