@@ -427,6 +427,9 @@
                         <span value="3" name="bc-rate3" class="bc-rate fa fa-star fa-3x"></span>
                         <span value="4" name="bc-rate4" class="bc-rate fa fa-star fa-3x"></span>
                         <span value="5" name="bc-rate5" class="bc-rate fa fa-star fa-3x"></span>
+                        <div class="alert alert-danger d-none mt-4" role="alert">
+                            <?= ($en) ? 'Sorry, please choose one of star above' : 'Maaf, anda harus memilih salah satu bintang diatas';?>
+                        </div>
                     </div>
                     <div class="card-footer">
                         <button name="btnRatingPrev" class="btn btn-outline-secondary"><?= ($en) ? 'Previous' : 'Sebelumnya';?></button>

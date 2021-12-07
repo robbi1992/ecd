@@ -375,7 +375,12 @@
                 Pass.renderReview();
             });
             $('button[name="btnRatingNext"]').on('click', function() {
-                Pass.saveData();
+                if (Pass.params.rating == 0) {
+                    $('.alert').removeClass('d-none');
+                } else {
+                    $('.alert').addClass('d-none');
+                    Pass.saveData();
+                }   
             });
             $('button[name="btnAgreementNext"]').on('click', function() {
                 $('#theContent').find('.agreement').addClass('d-none');
