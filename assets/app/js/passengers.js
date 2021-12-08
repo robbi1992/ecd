@@ -376,7 +376,13 @@
             // goodsdetail next to preview then aggreement
             // rating after agreement
             $('button[name="btnGoodsDetailNext"]').on('click', function() {
-                Pass.renderReview();
+                // if any goods bringing, detail are mandatory
+                if (Pass.params.goodsDetail.length === 0) {
+                    alert('Please, fill out goods description what you declare before');
+                    $('input[name="goodsDesc"]').focus();
+                } else {
+                    Pass.renderReview();
+                }     
             });
             $('button[name="btnRatingNext"]').on('click', function() {
                 if (Pass.params.rating == 0) {
