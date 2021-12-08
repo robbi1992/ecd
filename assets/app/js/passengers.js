@@ -10,7 +10,8 @@
             questionAnswer: [],
             goodsDetail: [],
             rating: 0,
-            agreement: 0
+            agreement: 0,
+            isSave: 0
         },
         renderReview: function() {
             $('#theContent').find('.preview').removeClass('d-none');
@@ -117,6 +118,9 @@
                         // set thanks
                         $('div[name="error-msg"]').addClass('d-none');
                         $('div[name="success-msg"]').removeClass('d-none');
+
+                        // set save data
+                        Pass.params.isSave = 1;
                     });
                 } else {
                     alert('There is something wrong, try again later..');
@@ -378,8 +382,15 @@
                 if (Pass.params.rating == 0) {
                     $('.alert').removeClass('d-none');
                 } else {
-                    $('.alert').addClass('d-none');
-                    Pass.saveData();
+                    if (Pass.params.isSave == 0) {
+                        $('.alert').addClass('d-none');
+                        Pass.saveData();
+                    } else {
+                        $('#theContent').find('.rating').addClass('d-none');
+                        $('#theContent').find('.qr_code').removeClass('d-none');
+                        $('.bc-link-menu').removeClass('bc-active');
+                        $('.bc-link-menu').has('a[value="4"]').addClass('bc-active');
+                    }   
                 }   
             });
             $('button[name="btnAgreementNext"]').on('click', function() {
