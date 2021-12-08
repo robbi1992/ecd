@@ -194,6 +194,11 @@
 
             // action next after personal data filled
             $('form[name="formPassenger"]').on('submit', function() {
+                if ($.trim($('#fullName').val()) == '') {
+                    alert('Full Name cannot be empty');
+                    $('#fullName').val('').focus();
+                    return false;
+                }
                 // pull personal data then save on param
                 var year = $('[name="birthYear"] option:selected').val(), month = $('[name="birthMonth"] option:selected').val(), date = $('[name="birthDate"] option:selected').val();
                 var arrivalDate = $('[name="arrivalDate"] option:selected').val(), arrivalDateText = $('[name="arrivalDate"] option:selected').text();
