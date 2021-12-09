@@ -45,15 +45,15 @@ class Passenger_model extends CI_Model {
             // select data completed
             $this->db->where('id', $header_id);
             $this->db->select('full_name, date_of_birth, passport_number');
-            $passenger = $this->db->get('ecd_personal')->row();
+            $passenger = $this->db->get('ecd_personal')->row_array();
         
             // check in risk engine
             if (count($passenger) > 0) {
                 $this->db->select('id');
-                $this->db->where('nama', $passenger->full_name);
-                $this->db->where('tgl_lahir', $passenger->date_of_birth);
-                $this->db->where('no_paspor', $passenger->passport_number);
-                $result = $this->db->get('reff_atensi_merah_header')->row();
+                $this->db->where('nama', $passenger['full_name']);
+                $this->db->where('tgl_lahir', $passenger['date_of_birth']);
+                $this->db->where('no_paspor', $passenger['passport_number']);
+                $result = $this->db->get('reff_atensi_merah_header')->row_array();
 
                 if (count($result) > 0) {
                     $this->db->set('zone', '1');
@@ -131,21 +131,21 @@ class Passenger_model extends CI_Model {
         // select data completed
         $this->db->where('id', $header_id);
         $this->db->select('full_name, date_of_birth, passport_number');
-        $data = $this->db->get('ecd_personal')->row();
-       
+        $data = $this->db->get('ecd_personal')->row_array();
+        // print_r($data); exit();
         // check in risk engine
         $this->db->select('id');
-        $this->db->where('nama', $data->full_name);
-        $this->db->where('tgl_lahir', $data->date_of_birth);
-        $this->db->where('no_paspor', $data->passport_number);
-        $result = $this->db->get('reff_atensi_merah_header')->row();
-
+        $this->db->where('nama', $data['full_name']);
+        $this->db->where('tgl_lahir', $data['date_of_birth']);
+        $this->db->where('no_paspor', $data['passport_number']);
+        $result = $this->db->get('reff_atensi_merah_header')->row_array();
+        // print_r($result); exit();
         if (count($result) > 0) {
             $this->db->set('zone', '1');
             $this->db->set('zone_by', 'Risk Engine');
             $this->db->where('id', $header_id);
             $update = $this->db->update('ecd_personal');
         } 
-    }
-    */
+    }*/
+    
 }

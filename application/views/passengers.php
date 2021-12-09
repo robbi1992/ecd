@@ -428,7 +428,7 @@
                         <span value="4" name="bc-rate4" class="bc-rate fa fa-star fa-3x"></span>
                         <span value="5" name="bc-rate5" class="bc-rate fa fa-star fa-3x"></span>
                         <div class="alert alert-danger d-none mt-4" role="alert">
-                            <?= ($en) ? 'Sorry, please choose one of star above' : 'Maaf, anda harus memilih salah satu bintang diatas';?>
+                            <?= ($en) ? 'Please choose the satisfaction survey above to go the next step' : 'Harap mengisi survey kepuasan pelayanan diatas, sebelum lanjut ke tahap berikutnya';?>
                         </div>
                     </div>
                     <div class="card-footer">
