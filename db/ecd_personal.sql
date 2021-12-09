@@ -11,7 +11,7 @@
  Target Server Version : 100119
  File Encoding         : 65001
 
- Date: 05/12/2021 08:17:14
+ Date: 09/12/2021 16:40:40
 */
 
 SET NAMES utf8mb4;
@@ -35,12 +35,13 @@ CREATE TABLE `ecd_personal` (
   `baggage_ex` int(4) NOT NULL,
   `scan_status` enum('0','1') NOT NULL DEFAULT '0',
   `zone` enum('0','1') NOT NULL DEFAULT '0',
+  `zone_by` varchar(128) NOT NULL,
   `qr_code` varchar(32) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `personal_qr_code_unique_item` (`qr_code`) USING BTREE,
   KEY `personal_nationality_fk_country_id` (`nationality`),
   CONSTRAINT `personal_nationality_fk_country_id` FOREIGN KEY (`nationality`) REFERENCES `en_countries` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
 
 SET FOREIGN_KEY_CHECKS = 1;
