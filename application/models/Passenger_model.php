@@ -42,6 +42,7 @@ class Passenger_model extends CI_Model {
 
         // risk engine
         if (count($data['answer']) == 0) {
+            $passenger = array();
             // select data completed
             $this->db->where('id', $header_id);
             $this->db->select('full_name, date_of_birth, passport_number');
@@ -49,6 +50,7 @@ class Passenger_model extends CI_Model {
         
             // check in risk engine
             if (count($passenger) > 0) {
+                $result = array();
                 $this->db->select('id');
                 $this->db->where('nama', $passenger['full_name']);
                 $this->db->where('tgl_lahir', $passenger['date_of_birth']);
