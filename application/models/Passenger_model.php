@@ -42,22 +42,20 @@ class Passenger_model extends CI_Model {
 
         // risk engine
         if (count($data['answer']) == 0) {
-            $passenger = array();
             // select data completed
             $this->db->where('id', $header_id);
             $this->db->select('full_name, date_of_birth, passport_number');
             $passenger = $this->db->get('ecd_personal')->row_array();
         
             // check in risk engine
-            if (count($passenger) > 0) {
-                $result = array();
+            if ($passenger !== NULL) {
                 $this->db->select('id');
                 $this->db->where('nama', $passenger['full_name']);
                 $this->db->where('tgl_lahir', $passenger['date_of_birth']);
                 $this->db->where('no_paspor', $passenger['passport_number']);
                 $result = $this->db->get('reff_atensi_merah_header')->row_array();
 
-                if (count($result) > 0) {
+                if ($result !== NULL) {
                     $this->db->set('zone', '1');
                     $this->db->set('zone_by', 'Risk Engine');
                     $this->db->where('id', $header_id);
