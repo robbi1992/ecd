@@ -11,7 +11,7 @@
  Target Server Version : 100119
  File Encoding         : 65001
 
- Date: 09/12/2021 16:40:59
+ Date: 12/12/2021 15:23:50
 */
 
 SET NAMES utf8mb4;
@@ -30,7 +30,10 @@ CREATE TABLE `reff_atensi_merah_header` (
   `no_dok_hist` varchar(256) DEFAULT NULL,
   `tgl_dok_hist` date DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `reff_header_nama_idx` (`nama`(191)) USING BTREE,
+  KEY `reff_header_paspor_idx` (`no_paspor`) USING BTREE,
+  KEY `reff_header_tgl_lahir_idx` (`tgl_lahir`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1001 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
