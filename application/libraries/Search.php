@@ -3,12 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Search {
     public function compare($input, $data) {
-        $closest = NULL;
+        // $closest = NULL;
         // no shortest distance found, yet
-        // $shortest = -1;
-        // set shortest 80%?
-        $input_length = strlen($input);
-        $shortest =  floor($input_length / 2);
+        $shortest = -1;
         // loop through words to find the closest
         foreach ($data as $word) {
 
@@ -41,6 +38,11 @@ class Search {
         } else {
             echo "Did you mean: $closest?\n";
         }*/
+        // check is 80% similar
+        $similar_percentage = similar_text($input, $closest, $perc);
+        if ($perc <= 80) {
+            $closest = NULL;
+        } 
         return $closest;
     }
 }

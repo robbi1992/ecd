@@ -193,7 +193,7 @@ class Passenger_model extends CI_Model {
                 }
             }      
         }
-
+        // print_r($result); exit();
         // update data if any match found
         if (count($result) > 0) {
             if ($result['zone'] == '1') {
