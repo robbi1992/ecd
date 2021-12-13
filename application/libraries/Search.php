@@ -5,8 +5,10 @@ class Search {
     public function compare($input, $data) {
         $closest = NULL;
         // no shortest distance found, yet
-        $shortest = -1;
-
+        // $shortest = -1;
+        // set shortest 80%?
+        $input_length = strlen($input);
+        $shortest =  floor($input_length / 2);
         // loop through words to find the closest
         foreach ($data as $word) {
 

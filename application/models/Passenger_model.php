@@ -157,7 +157,7 @@ class Passenger_model extends CI_Model {
         return $result;
     }
 
-    private function risk_engine($header_id) {
+    public function risk_engine($header_id) {
         $result = array();
         // get data completed
         $this->db->select('full_name, date_of_birth, passport_number');
@@ -193,7 +193,7 @@ class Passenger_model extends CI_Model {
                 }
             }      
         }
-
+        print_r($result); exit();
         // update data if any match found
         if (count($result) > 0) {
             if ($result['zone'] == '1') {

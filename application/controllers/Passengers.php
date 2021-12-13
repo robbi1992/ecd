@@ -125,9 +125,8 @@ class Passengers extends CI_Controller {
 			->set_content_type('application/json')
 			->set_output(json_encode($return));
     }
-    /*
+    
     public function risk_engine() {
         $save_data =  $this->passenger_model->risk_engine(25);
     }
-    */
 }
