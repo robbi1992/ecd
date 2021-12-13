@@ -120,7 +120,9 @@
                         $('div[name="success-msg"]').removeClass('d-none');
 
                         // set save data
-                        Pass.params.isSave = 1;
+                        // Pass.params.isSave = 1;
+                        // bypass generatecode
+                        Pass.params.isSave = 0;
                     });
                 } else {
                     alert('There is something wrong, try again later..');
