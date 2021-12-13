@@ -128,5 +128,6 @@ class Passengers extends CI_Controller {
     /*
     public function risk_engine() {
         $save_data =  $this->passenger_model->risk_engine(25);
-    }*/
+    }
+    */
 }

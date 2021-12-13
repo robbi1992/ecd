@@ -41,27 +41,8 @@ class Passenger_model extends CI_Model {
         $header_id = $this->db->insert_id();
 
         // risk engine
-        if (count($data['answer']) == 0) {
-            // select data completed
-            $this->db->where('id', $header_id);
-            $this->db->select('full_name, date_of_birth, passport_number');
-            $passenger = $this->db->get('ecd_personal')->row_array();
-        
-            // check in risk engine
-            if ($passenger !== NULL) {
-                $this->db->select('id');
-                $this->db->where('nama', $passenger['full_name']);
-                $this->db->where('tgl_lahir', $passenger['date_of_birth']);
-                $this->db->where('no_paspor', $passenger['passport_number']);
-                $result = $this->db->get('reff_atensi_merah_header')->row_array();
-
-                if ($result !== NULL) {
-                    $this->db->set('zone', '1');
-                    $this->db->set('zone_by', 'Risk Engine');
-                    $this->db->where('id', $header_id);
-                    $this->db->update('ecd_personal');
-                }
-            }
+        if (count($data['answer']) === 0) {
+            $this->risk_engine($header_id);
         }
         // insert family info if any
         $family = $data['family'];
@@ -126,26 +107,115 @@ class Passenger_model extends CI_Model {
 
         return $return_status;
     }
-    /*
-    public function risk_engine($header_id) {
-        // select data completed
-        $this->db->where('id', $header_id);
+    
+    private function get_reff_data($date, $passport) {
+        $this->db->select('id, nama as full_name, no_paspor as passport_number, tgl_lahir as date_of_birth');
+        $this->db->from('reff_atensi_merah_header'); 
+        $this->db->group_start()
+            ->where('tgl_lahir', $date)
+            ->or_where('no_paspor', $passport)
+        ->group_end();   
+        // $this->db->where('tgl_lahir', $date);
+        $reff_data = $this->db->get()->result_array();
+        // print_r($reff_data); exit();
+        return $reff_data;
+    }
+    private function risk_engine_process($reff_data, $name, $birth, $passport) {
+        // list names as master data
+        // $result = array();
+        $names = array();
+        foreach ($reff_data as $val) {
+            $names[] = $val['full_name'];
+        }
+
+        // load library then compare exact or closest name
+        $this->load->library('search');
+        $closest_name = $this->search->compare($name, $names);
+        // echo $closest_name; exit();
+        // rule set
+        // zone 0 green 1 red
+        $zone = '0';
+        $reff_id = array();
+        foreach ($reff_data as $val) {
+            if ($closest_name == $val['full_name'] &&  $birth == $val['date_of_birth'] && $passport == $val['passport_number']) {
+                $zone = '1';
+                $reff_id[] =  $val['id'];
+            } elseif ($closest_name == $val['full_name'] &&  $birth == $val['date_of_birth']) {
+                $zone = '1';
+                $reff_id[] =  $val['id'];
+            } elseif ($closest_name == $val['full_name'] &&  $passport == $val['passport_number']) {
+                $zone = '1';
+                $reff_id[] =  $val['id'];
+            } elseif ($birth == $val['date_of_birth'] &&  $passport == $val['passport_number']) {
+                $zone = '1';
+                $reff_id[] =  $val['id'];
+            }
+        }
+        $result = array(
+            'zone' => $zone, 'reff' => $reff_id
+        );
+        return $result;
+    }
+
+    private function risk_engine($header_id) {
+        $result = array();
+        // get data completed
         $this->db->select('full_name, date_of_birth, passport_number');
-        $data = $this->db->get('ecd_personal')->row_array();
-        // print_r($data); exit();
-        // check in risk engine
-        $this->db->select('id');
-        $this->db->where('nama', $data['full_name']);
-        $this->db->where('tgl_lahir', $data['date_of_birth']);
-        $this->db->where('no_paspor', $data['passport_number']);
-        $result = $this->db->get('reff_atensi_merah_header')->row_array();
-        // print_r($result); exit();
+        $this->db->from('ecd_personal');
+        $this->db->where('id', $header_id);
+        $ecd = $this->db->get()->row_array();
+        $name = $ecd['full_name'];
+        $birth = $ecd['date_of_birth'];
+        $passport = $ecd['passport_number'];
+
+        // get data from table reff heaer with birth & passport params
+        $reff_data = $this->get_reff_data($birth, $passport); 
+        // var_dump($reff_data); exit();
+        // if no blacklist go to family data
+        if (count($reff_data) > 0) { 
+            $result = $this->risk_engine_process($reff_data, $name, $birth, $passport);
+        } else {
+            $this->db->select('full_name, date_of_birth, passport_number');
+            $this->db->from('ecd_personal_family');
+            $this->db->where('personal_id', $header_id);
+            $ecd = $this->db->get()->result_array();
+            // print_r($ecd); exit();
+            if (count($ecd) > 0) {
+                foreach ($ecd as $val) {
+                    $name = $val['full_name'];
+                    $birth = $val['date_of_birth'];
+                    $passport = $val['passport_number'];
+
+                    $reff_data = $this->get_reff_data($birth, $passport);   
+                    if ($reff_data !== NULL) { 
+                        $result = $this->risk_engine_process($reff_data, $name, $birth, $passport);
+                    }                  
+                }
+            }      
+        }
+
+        // update data if any match found
         if (count($result) > 0) {
-            $this->db->set('zone', '1');
-            $this->db->set('zone_by', 'Risk Engine');
-            $this->db->where('id', $header_id);
-            $update = $this->db->update('ecd_personal');
-        } 
-    }*/
+            if ($result['zone'] == '1') {
+                // update personal
+                $this->db->set('zone', '1');
+                $this->db->set('zone_by', 'Risk Engine');
+                $this->db->where('id', $header_id);
+                $this->db->update('ecd_personal');
+
+                // update relation history
+                if (count($result['reff']) > 0) {
+                    $data_reff = array();
+                    foreach ($result['reff'] as $val) {
+                        $data_reff[] = array(
+                            'personal_id' => $header_id, 
+                            'header_reff_id' => $val
+                        );
+                    }
+                    $this->db->insert_batch('ecd_reff_personal', $data_reff);
+                }                
+            }
+        }                
+    }
     
 }
