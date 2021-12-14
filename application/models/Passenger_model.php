@@ -40,10 +40,6 @@ class Passenger_model extends CI_Model {
         $this->db->insert('ecd_personal');
         $header_id = $this->db->insert_id();
 
-        // risk engine
-        if (count($data['answer']) === 0) {
-            $this->risk_engine($header_id);
-        }
         // insert family info if any
         $family = $data['family'];
         if (count($family) > 0) {
@@ -57,6 +53,11 @@ class Passenger_model extends CI_Model {
                 );
             }
             $this->db->insert_batch('ecd_personal_family', $data_family);
+        }
+        
+        // risk engine
+        if (count($data['answer']) === 0) {
+            $this->risk_engine($header_id);
         }
         
         // set rate
@@ -121,11 +122,11 @@ class Passenger_model extends CI_Model {
         return $reff_data;
     }
     private function risk_engine_process($reff_data, $name, $birth, $passport) {
-        // list names as master data
+        // list names as master data (set as lower case)
         // $result = array();
         $names = array();
         foreach ($reff_data as $val) {
-            $names[] = $val['full_name'];
+            $names[] = strtolower($val['full_name']);
         }
 
         // load library then compare exact or closest name
@@ -164,7 +165,7 @@ class Passenger_model extends CI_Model {
         $this->db->from('ecd_personal');
         $this->db->where('id', $header_id);
         $ecd = $this->db->get()->row_array();
-        $name = $ecd['full_name'];
+        $name = strtolower($ecd['full_name']);
         $birth = $ecd['date_of_birth'];
         $passport = $ecd['passport_number'];
 
