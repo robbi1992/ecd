@@ -138,13 +138,14 @@ class Passenger_model extends CI_Model {
         $zone = '0';
         $reff_id = array();
         foreach ($reff_data as $val) {
-            if ($closest_name == $val['full_name'] &&  $birth == $val['date_of_birth'] && $passport == $val['passport_number']) {
+            $lower_name = strtolower($val['full_name']);
+            if ($closest_name == $lower_name &&  $birth == $val['date_of_birth'] && $passport == $val['passport_number']) {
                 $zone = '1';
                 $reff_id[] =  $val['id'];
-            } elseif ($closest_name == $val['full_name'] &&  $birth == $val['date_of_birth']) {
+            } elseif ($closest_name == $lower_name &&  $birth == $val['date_of_birth']) {
                 $zone = '1';
                 $reff_id[] =  $val['id'];
-            } elseif ($closest_name == $val['full_name'] &&  $passport == $val['passport_number']) {
+            } elseif ($closest_name == $lower_name &&  $passport == $val['passport_number']) {
                 $zone = '1';
                 $reff_id[] =  $val['id'];
             } elseif ($birth == $val['date_of_birth'] &&  $passport == $val['passport_number']) {
@@ -186,7 +187,7 @@ class Passenger_model extends CI_Model {
             // print_r($ecd); exit();
             if (count($ecd) > 0) {
                 foreach ($ecd as $val) {
-                    $name = $val['full_name'];
+                    $name = strtolower($val['full_name']);
                     $birth = $val['date_of_birth'];
                     $passport = $val['passport_number'];
 
