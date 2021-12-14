@@ -172,9 +172,12 @@ class Passenger_model extends CI_Model {
         $reff_data = $this->get_reff_data($birth, $passport); 
         // var_dump($reff_data); exit();
         // if no blacklist go to family data
-        if (count($reff_data) > 0 || $reff_data !== NULL) { 
+        // $reff_data = array();
+        if (count($reff_data) > 0 && $reff_data !== NULL) { 
+            // echo 'HERE'; exit();
             $result = $this->risk_engine_process($reff_data, $name, $birth, $passport);
         } else {
+            // echo 'OK'; exit();
             $this->db->select('full_name, date_of_birth, passport_number');
             $this->db->from('ecd_personal_family');
             $this->db->where('personal_id', $header_id);
