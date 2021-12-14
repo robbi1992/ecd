@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Search {
-    public function compare($input, $data) {
+    public function compare($input, $data, $try=1) {
         // $closest = NULL;
         // no shortest distance found, yet
         $shortest = -1;
@@ -40,9 +40,19 @@ class Search {
         }*/
         // check is 80% similar
         $similar_percentage = similar_text($input, $closest, $perc);
-        if ($perc <= 80) {
+        if ($perc < 80 && $try == 1) {
+            $new_string = explode(' ', $input);
+            $max = count($new_string);
+            $new_input = '';
+            for ($i=$max; $i>0; $i--) {
+                $new_input .= $new_string[$max-1];
+                $max--;
+            }
+            $this->compare($new_input, $data, 2);  
+        } elseif ($perc < 80 && $try > 1) {
             $closest = NULL;
-        } 
+        }
+        // echo $perc; exit();
         return $closest;
     }
 }

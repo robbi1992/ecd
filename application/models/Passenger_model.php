@@ -157,7 +157,7 @@ class Passenger_model extends CI_Model {
         return $result;
     }
 
-    private function risk_engine($header_id) {
+    public function risk_engine($header_id) {
         $result = array();
         // get data completed
         $this->db->select('full_name, date_of_birth, passport_number');
@@ -172,7 +172,7 @@ class Passenger_model extends CI_Model {
         $reff_data = $this->get_reff_data($birth, $passport); 
         // var_dump($reff_data); exit();
         // if no blacklist go to family data
-        if (count($reff_data) > 0) { 
+        if (count($reff_data) > 0 || $reff_data !== NULL) { 
             $result = $this->risk_engine_process($reff_data, $name, $birth, $passport);
         } else {
             $this->db->select('full_name, date_of_birth, passport_number');
