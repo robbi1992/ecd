@@ -49,7 +49,7 @@ class Search {
                 $max--;
             }
             // $closest = NULL;
-            $this->compare($new_input, $data, 2);  
+            $closest = $this->compare($new_input, $data, 2);  
         } elseif ($perc < 80 && $try > 1) {
             $closest = NULL;
             // echo $closest;
