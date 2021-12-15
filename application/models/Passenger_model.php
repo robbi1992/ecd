@@ -132,7 +132,7 @@ class Passenger_model extends CI_Model {
         // load library then compare exact or closest name
         $this->load->library('search');
         $closest_name = $this->search->compare($name, $names);
-        var_dump($closest_name); exit();
+        // var_dump($closest_name); exit();
         // rule set
         // zone 0 green 1 red
         $zone = '0';
