@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Search {
     public function compare($input, $data, $try=1) {
-        // $closest = NULL;
+        $closest = NULL;
         // no shortest distance found, yet
         $shortest = -1;
         // loop through words to find the closest
@@ -48,7 +48,7 @@ class Search {
                 $new_input .= $new_string[$max-1];
                 $max--;
             }
-            $closest = NULL;
+            // $closest = NULL;
             $this->compare($new_input, $data, 2);  
         } elseif ($perc < 80 && $try > 1) {
             $closest = NULL;
