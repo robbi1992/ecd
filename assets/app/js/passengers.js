@@ -13,6 +13,15 @@
             agreement: 0,
             isSave: 0
         },
+        alphaNumericValidate: function(string) {
+            var regex = new RegExp("^[a-zA-Z0-9]+$");
+            // var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+            if (regex.test(string)) {
+                return true;
+            } else {
+                return false;
+            }
+        },
         renderReview: function() {
             $('#theContent').find('.preview').removeClass('d-none');
             $('#theContent').find('.goods_detail').addClass('d-none');
@@ -201,6 +210,7 @@
                     $('#fullName').val('').focus();
                     return false;
                 }
+
                 // pull personal data then save on param
                 var year = $('[name="birthYear"] option:selected').val(), month = $('[name="birthMonth"] option:selected').val(), date = $('[name="birthDate"] option:selected').val();
                 var arrivalDate = $('[name="arrivalDate"] option:selected').val(), arrivalDateText = $('[name="arrivalDate"] option:selected').text();
@@ -211,6 +221,13 @@
                     address: $('#address').val(), flight: $('#flightNumber').val(), baggageIn: $('#baggageIn').val(), baggageEx: $('#baggageEx').val(),
                     arrival: arrivalDate, arrivalText: arrivalDateText
                 };
+
+                if (!Pass.alphaNumericValidate(personal.passport)) {
+                    alert('Only alpha numeric allowed for passport');
+                    $('#passport').val('').focus();
+                    return false;
+                }
+                
                 var familyNumber = $('#familyNumber').val();
                 // save personal info
                 Pass.params.personal = personal;
