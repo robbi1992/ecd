@@ -48,11 +48,13 @@ class Search {
                 $new_input .= $new_string[$max-1];
                 $max--;
             }
+            $closest = NULL;
             $this->compare($new_input, $data, 2);  
         } elseif ($perc < 80 && $try > 1) {
             $closest = NULL;
+            // echo $closest;
         }
-        // echo $perc; exit();
+        // var_dump($closest); exit();
         return $closest;
     }
 }
