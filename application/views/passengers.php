@@ -438,9 +438,9 @@
                 </div>
             </div> 
             <!-- end rating -->
-
+            
             <!-- preview -->
-            <div class="bc-page preview mt-3 d-none">
+            <div class="bc-page preview mt-3 d-none" id="previewPDF">
                 <div class="card">
                     <div class="card-header bc-bg">
                         <?=($en) ? 'Review' : 'Pratinjau';?>
@@ -584,6 +584,8 @@
                         <p class="bc-desc"><?= ($en) ? 'Save this QR Code or screenshot this page and please scan to Customs Officer':'Simpan kode QR atau tangkap layar laman ini, kemudian serahkan kepada petugas Bea Cukai';?></p>
                         <img src="" style="width: 100%;"/>
                         <div class="text-center" style="width: 100%;"><a href="" name="btnSaveQR" class="btn btn-outline-primary bc-bg" download><?= ($en) ? 'SAVE QR CODE':'SIMPAN KODE QR';?></a></div>
+                        <div class="text-center mt-2" style="width: 100%;"><a name="linkpdf" href="/passengers/generate_pdf" target="_blank" class="btn btn-outline-secondary"><?= ($en) ? 'SAVE ECD DATA':'SIMPAN DATA ECD';?></a></div>
+                        <!-- <a href="javascript:generatePDF()">Dowload PDF</a> -->
                         <div class="bc-div">
                         <?= ($en) ? 'Passengers who bring cellphones or other telecommunications equipment obtained from abroad can register IMEI to get Indonesian network services by filling out the following form' : 'Penumpang yang membawa handphone atau perangkat telekomunikasi lainnya yang diperoleh dari luar negeri dapat mendaftarkan IMEI untuk mendapatkan layanan jaringan Indonesia dengan mengisi form berikut';?> <a href="https://www.beacukai.go.id/register-imei.html"><?= ($en) ? 'click here' : 'Registrasi IMEI';?></a>
                         </div>

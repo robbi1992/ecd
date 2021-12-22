@@ -222,5 +222,68 @@ class Passenger_model extends CI_Model {
             }
         }                
     }
-    
+
+    private function get_declare($id) {
+        $this->db->select('B.en_content AS declare');
+        $this->db->from('ecd_declare_answer A');
+        $this->db->join('ecd_goods_declare B', 'A.goods_declare_id = B.id');
+        $this->db->where('A.personal_id', $id);
+        $this->db->where('A.answer', '1');
+        $goods = $this->db->get()->result_array();
+
+        $return = array();
+        foreach($goods as $val) {
+            $return[] = array(
+                'content' => $val['declare']
+            );
+        }
+
+        return $return;
+    }
+
+    private function get_goods($id) {
+        $this->db->where('personal_id', $id);
+        $goods = $this->db->get('ecd_goods')->result_array();
+
+        $return = array();
+        foreach($goods as $val) {
+            $return[] = array(
+                'id' => $val['id'],
+                'description' => $val['description'],
+                'quantity' => $val['quantity'],
+                'value' => setIDR($val['value']),
+                'currency' => $val['currency']
+            );
+        }
+
+        return $return;
+    }
+
+    public function get_detail($qrcode) {
+        $data = array();
+        $personal = array();
+        $family = array();
+
+        $this->db->select('A.*, B.name AS nationality');
+        $this->db->from('ecd_personal A');
+        $this->db->join('en_countries B', 'B.id = A.nationality');
+        $this->db->where('A.qr_code', $qrcode);
+        $personal = $this->db->get()->row_array();
+
+        if (count($personal) > 0) {
+            $header =  $personal['id'];
+            // get family 
+            $this->db->select('id');
+            $this->db->where('personal_id', $header);
+            $family = $this->db->get('ecd_personal_family')->result_array();
+            // $this->db->select('id');
+        }
+        
+        $data['personal'] =  $personal;
+        $data['family'] = $family;
+        $data['declare'] = $this->get_declare($header);
+        $data['goods'] = $this->get_goods($header);
+
+        return $data;
+    }
 }

@@ -119,7 +119,8 @@
                         $('#theContent').find('.qr_code').removeClass('d-none');
                         $('#theContent').find('.qr_code').find('img').attr('src', '/temp/' + result.name);
                         $('#theContent').find('.qr_code').find('a[name="btnSaveQR"]').attr('href', '/temp/' + result.name);
-
+                        // set link to download pdf
+                        $('#theContent').find('.qr_code').find('a[name="linkpdf"]').attr('href', '/passengers/generate_pdf/' + result.name);
                         // set active menu
                         $('.bc-link-menu').removeClass('bc-active');
                         $('.bc-link-menu').has('a[value="4"]').addClass('bc-active');
@@ -129,9 +130,9 @@
                         $('div[name="success-msg"]').removeClass('d-none');
 
                         // set save data
-                        // Pass.params.isSave = 1;
+                        Pass.params.isSave = 1;
                         // bypass generatecode
-                        Pass.params.isSave = 0;
+                        // Pass.params.isSave = 0;
                     });
                 } else {
                     alert('There is something wrong, try again later..');

@@ -129,4 +129,14 @@ class Passengers extends CI_Controller {
     public function risk_engine() {
         $save_data =  $this->passenger_model->risk_engine(25);
     }
+
+    public function generate_pdf($params) {
+        $this->load->helper('my_helper');
+        $new =  explode('.', $params);
+        $qr_code = $new[0];
+        // echo $qr_code; exit();
+        $data = $this->passenger_model->get_detail($qr_code);
+        // print_r($data); exit();
+        $this->load->view('passengers_pdf', $data);
+    }
 }

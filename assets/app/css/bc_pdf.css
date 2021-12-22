@@ -1,0 +1,23 @@
+.text-center {
+    text-align: center;
+}
+
+.full-width {
+    width: 100%;
+}
+.my-table {
+    border-top: 1px solid;
+    border-left: 1px solid;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    width: 100%;
+    font-size: 12px;
+}
+
+.bt-1 {
+    border-top: 1px solid;
+}
+
+.br-1 {
+    border-right: 1px solid;
+}
