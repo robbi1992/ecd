@@ -8,12 +8,12 @@
     <div id="content-pdf">
         <p class="text-center" style="margin-bottom: -15px;">CUSTOMS DECLARATION</p>
         <p class="text-center">(BC 2.2)</p>
-        <p>Each arriving Passenger/Crew must submit Customs Declaration (only one Customs Declaration per family is required)</p>
+        <p class="text-justify">Each arriving Passenger/Crew must submit Customs Declaration (only one Customs Declaration per family is required)</p>
         <table class="full-width">
             <tr>
-                <td>1.</td>
-                <td>Full Name</td>
-                <td><?= $personal['full_name'];?></td>
+                <td width="2%">1.</td>
+                <td width="60%">Full Name</td>
+                <td width="38%"><?= $personal['full_name'];?></td>
             </tr>
             <tr>
                 <td>2.</td>
@@ -107,6 +107,20 @@
                 }
             }
             ?>
+        </table>
+        <p class="text-justify"><b>I HAVE READ THE INFORMATION ON THIS FORM AND HAVE MADE A TRUTHFUL DECLARATION.</b></p>
+
+        <!-- bottom -->
+        <hr />
+        <table width="100%">
+            <tr>
+                <td width="50%"><u><?= $personal['full_name'];?></u></td>
+                <td width="50%">&nbsp;</td>
+            </tr>
+            <tr>
+                <td width="50%">Signature</td>
+                <td class="text-right" width="50%"><?= date('d/m/Y'); ?></td>
+            </tr>
         </table>
     </div>
 
