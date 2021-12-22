@@ -8,8 +8,8 @@
     <div id="content-pdf">
         <table class="bc-table">
             <tr>
-                <td class="text-center" width="28%"><img style="width: 80px" src="/assets/img/bc_logo.png" /></td>
-                <td class="text-center" width="68%" style="font-size:18px;">Kementerian Keuangan Republik Indonesia<br />Direktorat Jenderal Bea dan Cukai</td>
+                <td class="text-right" width="20%"><img style="width: 80px" src="/assets/img/bc_logo.png" /></td>
+                <td class="text-center" width="80%" style="font-size:18px;"><b>Kementerian Keuangan Republik Indonesia<br />Direktorat Jenderal Bea dan Cukai</b></td>
             </tr>
             <tr>
                 <td colspan="2">
