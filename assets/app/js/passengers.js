@@ -10,6 +10,7 @@
             questionAnswer: [],
             goodsDetail: [],
             rating: 0,
+            ratingText: '',
             agreement: 0,
             isSave: 0
         },
@@ -99,7 +100,8 @@
                 family: Pass.params.personalFamily,
                 goodsDetail: Pass.params.goodsDetail,
                 answer: Pass.params.questionAnswer,
-                rating: Pass.params.rating
+                rating: Pass.params.rating,
+                ratingText: Pass.params.ratingText
             }
             $.ajax({
                 url: '/passengers/save_data',
@@ -415,7 +417,14 @@
                 } else {
                     if (Pass.params.isSave == 0) {
                         $('.alert').addClass('d-none');
-                        Pass.saveData();
+                        // check input form
+                        var rateText = $('#rateInput').val();
+                        if (rateText.length < 15) {
+                            $('#rateInput').focus();
+                        } else {
+                            Pass.params.ratingText = rateText;
+                            Pass.saveData();
+                        }  
                     } else {
                         $('#theContent').find('.rating').addClass('d-none');
                         $('#theContent').find('.qr_code').removeClass('d-none');
@@ -512,6 +521,14 @@
             $('.bc-rate').on('click', function() {
                 $('.bc-rate').removeClass('bc-checked');
                 var value = $(this).attr('value');
+                // set form
+                var intValue = parseInt(value);
+                if (intValue <= 3) {
+                    $('.rate-form').removeClass('d-none');
+                } else {
+                    $('.rate-form').addClass('d-none');
+                }
+
                 if (value == '5') {
                     $('[name="bc-rate1"], [name="bc-rate2"], [name="bc-rate3"], [name="bc-rate4"], [name="bc-rate5"]').addClass('bc-checked');   
                 } else if (value == '4') {

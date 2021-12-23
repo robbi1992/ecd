@@ -62,8 +62,10 @@ class Passenger_model extends CI_Model {
         
         // set rate
         $rate = $data['rating'];
+        $rateText = $data['ratingText'];
         $this->db->set('personal_id', $header_id);
         $this->db->set('rate', $rate);
+        $this->db->set('rate_text', $rateText);
         $this->db->insert('ecd_rates');
 
         // set declare answer insert batch

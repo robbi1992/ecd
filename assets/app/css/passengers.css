@@ -180,3 +180,9 @@
     -o-background-size: cover;
     background-size: cover;
 }
+
+.rate-form {
+	border: 1px solid;
+	border-color: #02275d;
+	padding: 15px;
+}

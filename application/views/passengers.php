@@ -430,6 +430,11 @@
                         <div class="alert alert-danger d-none mt-4" role="alert">
                             <?= ($en) ? 'Please choose the satisfaction survey above to go the next step' : 'Harap mengisi survey kepuasan pelayanan diatas, sebelum lanjut ke tahap berikutnya';?>
                         </div>
+                        <div class="form-group rate-form mt-3 d-none">
+                            <label for="rateInput">Satisfaction Form</label>
+                            <textarea class="form-control" id="rateInput" aria-describedby="rateHelp" placeholder="Enter criticism and suggestions"></textarea>
+                            <small id="rateHelp" class="form-text text-muted">Min. 15 Characters</small>
+                        </div>
                     </div>
                     <div class="card-footer">
                         <button name="btnRatingPrev" class="btn btn-outline-secondary"><?= ($en) ? 'Previous' : 'Sebelumnya';?></button>
