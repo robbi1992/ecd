@@ -419,7 +419,7 @@
                         $('.alert').addClass('d-none');
                         // check input form
                         var rateText = $('#rateInput').val();
-                        if (rateText.length < 15) {
+                        if (rateText.length < 15 && Pass.params.rating <= 3) {
                             $('#rateInput').focus();
                         } else {
                             Pass.params.ratingText = rateText;
