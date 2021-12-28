@@ -587,7 +587,7 @@
                         </div>
                         <!--  -->
                         <p class="bc-desc"><?= ($en) ? 'Save this QR Code or screenshot this page and please scan to Customs Officer':'Simpan kode QR atau tangkap layar laman ini, kemudian serahkan kepada petugas Bea Cukai';?></p>
-                        <img src="" style="width: 100%;"/>
+                        <div style="width: 100%; text-align:center;"><img src="" style="width: 100%; max-width: 600px;" /></div>
                         <div class="text-center" style="width: 100%;"><a href="" name="btnSaveQR" class="btn btn-outline-primary bc-bg" download><?= ($en) ? 'SAVE QR CODE':'SIMPAN KODE QR';?></a></div>
                         <div class="text-center mt-2" style="width: 100%;"><a name="linkpdf" href="/passengers/generate_pdf" target="_blank" class="btn btn-outline-secondary"><?= ($en) ? 'SAVE ECD DATA':'SIMPAN DATA ECD';?></a></div>
                         <!-- <a href="javascript:generatePDF()">Dowload PDF</a> -->
