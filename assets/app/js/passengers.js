@@ -135,6 +135,14 @@
                         Pass.params.isSave = 1;
                         // bypass generatecode
                         // Pass.params.isSave = 0;
+                        
+                        // set data cache to browser
+                        localStorage.setItem('ecd-name', Pass.params.personal.name);
+                        localStorage.setItem('ecd-passport', Pass.params.personal.passport);
+                        localStorage.setItem('ecd-occupation', Pass.params.personal.occupation);
+                        localStorage.setItem('ecd-address', Pass.params.personal.address);
+                        localStorage.setItem('ecd-nationality', Pass.params.personal.nationality);
+                        localStorage.setItem('ecd-birth', Pass.params.personal.birth);
                     });
                 } else {
                     alert('There is something wrong, try again later..');
@@ -145,7 +153,38 @@
             return false;
             // end save function
         },
+        getCacheData() {
+            // set localstorage
+            if (localStorage.getItem('ecd-name')) {
+                $('[name="modalCache"]').modal('show');
+            }
+        },
         init: function() {
+            $('.close').on('click', function() {
+                $('[name="modalCache"]').modal('hide');
+            });
+            // if confirm cache
+            $('[name="confirmCache"').on('click', function() {
+                var localName = localStorage.getItem('ecd-name');
+                var localPassport = localStorage.getItem('ecd-passport');
+                var localOccupation = localStorage.getItem('ecd-occupation');
+                var localAddress = localStorage.getItem('ecd-address');
+                var localNationality = localStorage.getItem('ecd-nationality');
+                var localBirth = localStorage.getItem('ecd-birth');
+                
+                var myForm = $('form[name="formPassenger"]');
+                myForm.find('[name="fullName"]').val(localName);
+                myForm.find('[name="passport"]').val(localPassport);
+                myForm.find('[name="occupation"]').val(localOccupation);
+                myForm.find('[name="address"]').val(localAddress);
+                myForm.find('[name="nationality"]').val(localNationality).trigger('change');
+                var newLocalBirth =  localBirth.split('-');
+                myForm.find('[name="birthDate"]').val(newLocalBirth[2]).trigger('change');;
+                myForm.find('[name="birthMonth"]').val(newLocalBirth[1]).trigger('change');;
+                myForm.find('[name="birthYear"]').val(newLocalBirth[0]).trigger('change');;
+
+                $('[name="modalCache"]').modal('hide');
+            });
             // set info
             $('.fa-question-circle').on('click', function(){
                 var text = $(this).attr('title');
@@ -161,6 +200,7 @@
                 $('.bc-page').addClass('d-none');
                 if (value == '0') {
                     $('.passengers').removeClass('d-none');
+                    Pass.getCacheData();
                 } else if (value == '1') {
                     $('.family-container').removeClass('d-none');
                 } else if (value == '2') {
@@ -361,6 +401,8 @@
                 $('#theContent').find('.passengers').removeClass('d-none');
                 $('#theContent').find('.goods_t_m3').addClass('d-none');
 
+                Pass.getCacheData();
+
                 // set active menu
                 $('.bc-link-menu').removeClass('bc-active');
                 $('.bc-link-menu').has('a[value="0"]').addClass('bc-active');
@@ -485,6 +527,8 @@
                 $('.bc-link-menu').has('a[value="5"]').addClass('bc-active');
             });
             $('button[name="btnFamilyPrev"]').on('click', function() {
+                Pass.getCacheData();
+                
                 $('#theContent').find('.passengers').removeClass('d-none');
                 $('#theContent').find('.family-container').addClass('d-none');
 

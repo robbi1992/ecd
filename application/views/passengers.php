@@ -431,8 +431,8 @@
                             <?= ($en) ? 'Please choose the satisfaction survey above to go the next step' : 'Harap mengisi survey kepuasan pelayanan diatas, sebelum lanjut ke tahap berikutnya';?>
                         </div>
                         <div class="form-group rate-form mt-3 d-none">
-                            <label for="rateInput">Satisfaction Form</label>
-                            <textarea class="form-control" id="rateInput" aria-describedby="rateHelp" placeholder="Enter criticism and suggestions"></textarea>
+                            <label for="rateInput"><?= ($en) ? 'Satisfaction Form' : 'Form Kepuasan'; ?></label>
+                            <textarea class="form-control" id="rateInput" aria-describedby="rateHelp" placeholder="<?= ($en) ? 'Enter criticism and suggestions' : 'Masukan Kritik dan saran'; ?>"></textarea>
                             <small id="rateHelp" class="form-text text-muted">Min. 15 Characters</small>
                         </div>
                     </div>
@@ -592,7 +592,7 @@
                         <div class="text-center mt-2" style="width: 100%;"><a name="linkpdf" href="/passengers/generate_pdf" target="_blank" class="btn btn-outline-secondary"><?= ($en) ? 'SAVE ECD DATA':'SIMPAN DATA ECD';?></a></div>
                         <!-- <a href="javascript:generatePDF()">Dowload PDF</a> -->
                         <div class="bc-div">
-                        <?= ($en) ? 'Passengers who bring cellphones or other telecommunications equipment obtained from abroad can register IMEI to get Indonesian network services by filling out the following form' : 'Penumpang yang membawa handphone atau perangkat telekomunikasi lainnya yang diperoleh dari luar negeri dapat mendaftarkan IMEI untuk mendapatkan layanan jaringan Indonesia dengan mengisi form berikut';?> <a href="https://www.beacukai.go.id/register-imei.html"><?= ($en) ? 'click here' : 'Registrasi IMEI';?></a>
+                        <?= ($en) ? 'Passengers who bring cellphones or other telecommunications equipment obtained from abroad can register IMEI to get Indonesian network services by filling out the following form' : 'Penumpang yang membawa handphone atau perangkat telekomunikasi lainnya yang diperoleh dari luar negeri dapat mendaftarkan IMEI untuk mendapatkan layanan jaringan Indonesia dengan mengisi form berikut';?> <a target="_blank" href="https://www.beacukai.go.id/register-imei.html"><?= ($en) ? 'click here' : 'Registrasi IMEI';?></a>
                         </div>
                     </div>
                     <!-- end card body -->
@@ -610,6 +610,24 @@
                         <h5 class="modal-title"></h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <div name="modalCache" class="modal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"><?= ($en) ? 'Data History' : 'Data Sebelumnya';?></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p><?= ($en) ? 'Do you want to fill form automatically with your historical data?' : 'Apakah anda mau menampilkan data isian anda sebelumnya?';?></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary close" data-dismiss="modal"><?= ($en) ? 'Close' : 'Tutup';?></button>
+                        <button type="button" name="confirmCache" class="btn btn-primary"><?= ($en) ? 'Yes' : 'Ya';?></button>
+                    </div>       
                 </div>
             </div>
         </div>
