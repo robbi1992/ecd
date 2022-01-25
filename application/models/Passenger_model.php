@@ -12,7 +12,6 @@ class Passenger_model extends CI_Model {
     }
 
     public function save_data($data) {
-        // 'IS_' . time() . '_' . rand(1, 1000) . '.jpg';
         $return_status = NULL;
         $this->db->trans_start();
 
@@ -34,6 +33,7 @@ class Passenger_model extends CI_Model {
         // zone automaticly red if any goods  yes
         $zone = '0';
         if (count($data['answer']) > 0) {
+            $this->db->set('zone_by', 'Declare');
             $zone = '1';
         }
         $this->db->set('zone', $zone);
@@ -112,8 +112,11 @@ class Passenger_model extends CI_Model {
     }
     
     private function get_reff_data($date, $passport) {
-        $this->db->select('id, nama as full_name, no_paspor as passport_number, tgl_lahir as date_of_birth');
+        // add number_increment parameter to know is analis or history
+        // get only status 0 or active, 1 inactive
+        $this->db->select('id, nama as full_name, no_paspor as passport_number, tgl_lahir as date_of_birth, number_increment');
         $this->db->from('reff_atensi_merah_header'); 
+        $this->db->where('status', '0');
         $this->db->group_start()
             ->where('tgl_lahir', $date)
             ->or_where('no_paspor', $passport)
@@ -123,6 +126,7 @@ class Passenger_model extends CI_Model {
         // print_r($reff_data); exit();
         return $reff_data;
     }
+
     private function risk_engine_process($reff_data, $name, $birth, $passport) {
         // list names as master data (set as lower case)
         // $result = array();
@@ -134,25 +138,29 @@ class Passenger_model extends CI_Model {
         // load library then compare exact or closest name
         $this->load->library('search');
         $closest_name = $this->search->compare($name, $names);
-        // var_dump($closest_name); exit();
         // rule set
         // zone 0 green 1 red
         $zone = '0';
         $reff_id = array();
         foreach ($reff_data as $val) {
             $lower_name = strtolower($val['full_name']);
+            // change reff structure to get status history or analis
             if ($closest_name == $lower_name &&  $birth == $val['date_of_birth'] && $passport == $val['passport_number']) {
                 $zone = '1';
-                $reff_id[] =  $val['id'];
+                $reff_value = array('id' => $val['id'], 'increment' => $val['number_increment']);
+                $reff_id[] =  $reff_value;
             } elseif ($closest_name == $lower_name &&  $birth == $val['date_of_birth']) {
                 $zone = '1';
-                $reff_id[] =  $val['id'];
+                $reff_value = array('id' => $val['id'], 'increment' => $val['number_increment']);
+                $reff_id[] =  $reff_value;
             } elseif ($closest_name == $lower_name &&  $passport == $val['passport_number']) {
                 $zone = '1';
-                $reff_id[] =  $val['id'];
+                $reff_value = array('id' => $val['id'], 'increment' => $val['number_increment']);
+                $reff_id[] =  $reff_value;
             } elseif ($birth == $val['date_of_birth'] &&  $passport == $val['passport_number']) {
                 $zone = '1';
-                $reff_id[] =  $val['id'];
+                $reff_value = array('id' => $val['id'], 'increment' => $val['number_increment']);
+                $reff_id[] =  $reff_value;
             }
         }
         $result = array(
@@ -174,19 +182,16 @@ class Passenger_model extends CI_Model {
 
         // get data from table reff heaer with birth & passport params
         $reff_data = $this->get_reff_data($birth, $passport); 
-        // var_dump($reff_data); exit();
         // if no blacklist go to family data
         // $reff_data = array();
-        if (count($reff_data) > 0 && $reff_data !== NULL) { 
-            // echo 'HERE'; exit();
+        if (count($reff_data) > 0 && $reff_data !== NULL) {
             $result = $this->risk_engine_process($reff_data, $name, $birth, $passport);
         } else {
-            // echo 'OK'; exit();
             $this->db->select('full_name, date_of_birth, passport_number');
             $this->db->from('ecd_personal_family');
             $this->db->where('personal_id', $header_id);
             $ecd = $this->db->get()->result_array();
-            // print_r($ecd); exit();
+            
             if (count($ecd) > 0) {
                 foreach ($ecd as $val) {
                     $name = strtolower($val['full_name']);
@@ -206,7 +211,15 @@ class Passenger_model extends CI_Model {
             if ($result['zone'] == '1') {
                 // update personal
                 $this->db->set('zone', '1');
-                $this->db->set('zone_by', 'Risk Engine');
+                // set zone by who
+                // parameter analis or not is number increment
+                if (!empty($result['reff'][0]['increment'])) {
+                    $this->db->set('zone_by', 'Analis');
+                } else {
+                    $this->db->set('zone_by', 'History');
+                }
+                // exit();
+                // $this->db->set('zone_by', 'History');
                 $this->db->where('id', $header_id);
                 $this->db->update('ecd_personal');
 
@@ -216,8 +229,14 @@ class Passenger_model extends CI_Model {
                     foreach ($result['reff'] as $val) {
                         $data_reff[] = array(
                             'personal_id' => $header_id, 
-                            'header_reff_id' => $val
+                            'header_reff_id' => $val['id']
                         );
+                        // set status as inactive if analis matched
+                        if (!empty($val['increment'])) {
+                            $this->db->set('status', '1');
+                            $this->db->where('id', $val['id']);
+                            $this->db->update('reff_atensi_merah_header');
+                        }
                     }
                     $this->db->insert_batch('ecd_reff_personal', $data_reff);
                 }                
