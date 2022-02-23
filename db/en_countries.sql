@@ -11,7 +11,7 @@
  Target Server Version : 100119
  File Encoding         : 65001
 
- Date: 13/11/2021 16:09:20
+ Date: 24/02/2022 03:02:28
 */
 
 SET NAMES utf8mb4;
@@ -79,9 +79,6 @@ INSERT INTO `en_countries` VALUES (45, 'Central African Republic');
 INSERT INTO `en_countries` VALUES (46, 'Chad');
 INSERT INTO `en_countries` VALUES (47, 'Chile');
 INSERT INTO `en_countries` VALUES (48, 'China');
-INSERT INTO `en_countries` VALUES (49, 'Hong Kong');
-INSERT INTO `en_countries` VALUES (50, 'Macao');
-INSERT INTO `en_countries` VALUES (51, 'Taiwan, Republic Of China ');
 INSERT INTO `en_countries` VALUES (52, 'Christmas Island');
 INSERT INTO `en_countries` VALUES (53, 'Cocos (Keeling) Islands');
 INSERT INTO `en_countries` VALUES (54, 'Colombia');
