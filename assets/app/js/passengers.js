@@ -29,7 +29,11 @@
 
             $('span[name="reviewName"]').html(Pass.params.personal.name);
             $('span[name="reviewBirth"]').html(Pass.params.personal.birthText);
-            $('span[name="reviewNation"]').html(Pass.params.personal.nationalityText);
+            /**
+             * change nation review
+             */
+            // $('span[name="reviewNation"]').html(Pass.params.personal.nationalityText);
+            $('span[name="reviewNation"]').html(Pass.params.personal.otherNationality);
             $('span[name="reviewPassport"]').html(Pass.params.personal.passport);
             $('span[name="reviewAddress"]').html(Pass.params.personal.address);
             $('span[name="reviewFlight"]').html(Pass.params.personal.flight);
