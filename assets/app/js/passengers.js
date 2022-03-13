@@ -254,6 +254,12 @@
                     return false;
                 }
 
+                /**
+                 * nationality changed by text
+                 * remove nationality variable
+                 */
+                var nation = $('#nationalityOther').val();
+
                 // pull personal data then save on param
                 var year = $('[name="birthYear"] option:selected').val(), month = $('[name="birthMonth"] option:selected').val(), date = $('[name="birthDate"] option:selected').val();
                 var arrivalDate = $('[name="arrivalDate"] option:selected').val(), arrivalDateText = $('[name="arrivalDate"] option:selected').text();
@@ -262,7 +268,7 @@
                     name: $('#fullName').val(), birth: year + '-' + month + '-' + date, birthText: birthText,
                     occupation: $('#occupation').val(), nationality: $('#nationality').val(), nationalityText: $('select[name="nationality"] option:selected').text(), passport: $('#passport').val(),
                     address: $('#address').val(), flight: $('#flightNumber').val(), baggageIn: $('#baggageIn').val(), baggageEx: $('#baggageEx').val(),
-                    arrival: arrivalDate, arrivalText: arrivalDateText
+                    arrival: arrivalDate, arrivalText: arrivalDateText, otherNationality: nation
                 };
 
                 if (!Pass.alphaNumericValidate(personal.passport)) {

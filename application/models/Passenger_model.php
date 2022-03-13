@@ -22,7 +22,13 @@ class Passenger_model extends CI_Model {
         $this->db->set('full_name', $value['name']);
         $this->db->set('date_of_birth', $value['birth']);
         $this->db->set('occupation', $value['occupation']);
-        $this->db->set('nationality', $value['nationality']);
+        /**
+         * nationality id will be null
+         * nationality param will sent to server but we ignore it
+         * replace nationality id to text
+         */
+        // $this->db->set('nationality', $value['nationality']);
+        $this->db->set('nationality_text', $value['otherNationality']);
         $this->db->set('passport_number', $value['passport']);
         $this->db->set('address_in_indo', $value['address']);
         $this->db->set('flight_number', $value['flight']);

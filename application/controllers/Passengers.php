@@ -139,4 +139,12 @@ class Passengers extends CI_Controller {
         // print_r($data); exit();
         $this->load->view('passengers_pdf', $data);
     }
+
+    public function get_country_name() {
+        $countries =  $this->global_model->get_countries_name();
+
+        $this->output
+			->set_content_type('application/json')
+			->set_output(json_encode($countries));
+    }
 }
