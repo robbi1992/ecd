@@ -43,7 +43,7 @@
                         <tr>
                             <td>4.</td>
                             <td>Nationality</td>
-                            <td><?= $personal['nationality'];?></td>
+                            <td><?= is_null($personal['nationality']) ? $personal['nationality_text'] : $personal['nationality'];?></td>
                         </tr>
                         <tr>
                             <td>5.</td>

@@ -293,10 +293,10 @@ class Passenger_model extends CI_Model {
 
         $this->db->select('A.*, B.name AS nationality');
         $this->db->from('ecd_personal A');
-        $this->db->join('en_countries B', 'B.id = A.nationality');
+        $this->db->join('en_countries B', 'B.id = A.nationality', 'LEFT');
         $this->db->where('A.qr_code', $qrcode);
         $personal = $this->db->get()->row_array();
-
+        // var_dump($personal);
         if (count($personal) > 0) {
             $header =  $personal['id'];
             // get family 

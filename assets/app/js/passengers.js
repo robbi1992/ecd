@@ -263,6 +263,7 @@
                  * remove nationality variable
                  */
                 var nation = $('#nationalityOther').val();
+                console.log(nation);
 
                 // pull personal data then save on param
                 var year = $('[name="birthYear"] option:selected').val(), month = $('[name="birthMonth"] option:selected').val(), date = $('[name="birthDate"] option:selected').val();
